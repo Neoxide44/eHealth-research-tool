@@ -40,3 +40,18 @@
 .read-the-docs {
   color: #888;
 }
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1)
+            brightness(50%)
+            sepia(100%)
+            saturate(10000%)
+            hue-rotate(180deg)
+}
+
+input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+input[type=date]:focus::-webkit-datetime-edit {
+    color: black !important;
+}
