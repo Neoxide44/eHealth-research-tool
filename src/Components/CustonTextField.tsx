@@ -9,6 +9,8 @@ type CustomTextFieldProps = {
 };
 
 const CustomTextField = (props: CustomTextFieldProps) => {
+    const inputWidth = props.type === "date" ? { width: "100%" } : {};
+
     return (
         <div>
             <TextField
@@ -20,6 +22,7 @@ const CustomTextField = (props: CustomTextFieldProps) => {
                 variant="outlined"
                 size="small"
                 margin="dense"
+                style={inputWidth} // Apply the width style conditionally
                 required={true}
             />
         </div>

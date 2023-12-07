@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Typography, Paper, Button } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
 import CustomTextField from "./CustonTextField";
+import "./Form.css";
 
 const useStyles = makeStyles(() =>
     createStyles({
