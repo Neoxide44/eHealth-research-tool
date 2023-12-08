@@ -1,12 +1,13 @@
 import React from "react";
 
 import "./App.css";
-import Form from "./Components/Form";
+import InfoForm from "./components/InfoForm";
+import QuestionForm from "./components/QuestionForm";
 
 function App() {
     return (
         <div>
-            <Form />
+            <QuestionForm />
         </div>
     );
 }

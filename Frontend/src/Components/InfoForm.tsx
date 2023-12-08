@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Typography, Paper, Button } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
 import CustomTextField from "./CustonTextField";
-import "./Form.css";
+import "./InfoForm.css";
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -34,7 +34,7 @@ type Values = {
     dateOfBirth: Date;
 };
 
-const Form = () => {
+const InfoForm = () => {
     const classes = useStyles();
     const [values, setValues] = useState<Values>({
         firstName: "",
@@ -87,4 +87,4 @@ const Form = () => {
     );
 };
 
-export default Form;
+export default InfoForm;
