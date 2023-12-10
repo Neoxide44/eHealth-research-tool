@@ -4,6 +4,10 @@ import { createStyles, makeStyles } from "@mui/styles";
 import CustomTextField from "./CustonTextField";
 import "./InfoForm.css";
 
+interface Props {
+    onSubmit: () => void;
+}
+
 const useStyles = makeStyles(() =>
     createStyles({
         form: {
@@ -34,7 +38,7 @@ type Values = {
     dateOfBirth: Date;
 };
 
-const InfoForm = () => {
+const InfoForm = (props: Props) => {
     const classes = useStyles();
     const [values, setValues] = useState<Values>({
         firstName: "",
@@ -56,7 +60,12 @@ const InfoForm = () => {
             <Typography variant={"h4"} className={classes.title}>
                 Patient Form
             </Typography>
-            <form onSubmit={(e) => handleSubmit(e)} className={classes.form}>
+            <form
+                onSubmit={(e) => {
+                    handleSubmit(e), props.onSubmit();
+                }}
+                className={classes.form}
+            >
                 <CustomTextField
                     changeHandler={handleChange}
                     type={"string"}

@@ -3,6 +3,12 @@ import { Typography, Paper, Button } from "@mui/material";
 import { useState } from "react";
 import CustomButton from "./CustomButton";
 
+interface Props {
+    sectionText: string;
+    question: string;
+    options: string[];
+}
+
 const useStyles = makeStyles(() =>
     createStyles({
         form: {
@@ -10,12 +16,8 @@ const useStyles = makeStyles(() =>
             flexDirection: "column",
         },
         container: {
-            backgroundColor: "#ffffff",
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%,-50%)",
-            padding: 30,
+            margin: "16px",
+            padding: "16px",
             elevation: 4,
             textAlign: "center",
         },
@@ -31,11 +33,7 @@ const useStyles = makeStyles(() =>
     })
 );
 
-function QuestionForm() {
-    const question: string =
-        "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. \n Ask the participant to maintain that position for five seconds. \n Is the participant able to REACH the Mingazzini position?";
-    const optionOne: string = "Yes";
-    const optionTwo: string = "No";
+function QuestionForm(props: Props) {
     const classes = useStyles();
     const [selected, setSelected] = useState("");
     const [submited, setSubmitted] = useState("");
@@ -56,31 +54,46 @@ function QuestionForm() {
     };
 
     return (
-        <Paper className={classes.container}>
-            <Typography
-                variant={"h4"}
-                className={`${classes.title} ${classes.wordWrap}`}
-            >
-                {question}
-            </Typography>
-            <form onSubmit={(e) => handleSubmit(e)} className={classes.form}>
-                <CustomButton
-                    text={optionOne}
-                    onClick={() => handleSelectOption(optionOne)}
-                />
-                <CustomButton
-                    text={optionTwo}
-                    onClick={() => handleSelectOption(optionTwo)}
-                />
-                <Button
-                    type={"submit"}
-                    variant={"contained"}
-                    className={classes.button}
+        <div>
+            <Paper elevation={6} className={classes.container}>
+                <Typography variant={"h3"} className={classes.title}>
+                    {props.sectionText}
+                </Typography>
+            </Paper>
+            <Paper className={classes.container}>
+                <Typography
+                    variant={"h4"}
+                    className={`${classes.title} ${classes.wordWrap}`}
                 >
-                    Submit
-                </Button>
-            </form>
-        </Paper>
+                    {props.question}
+                </Typography>
+                <Typography variant="h3" color="inherit" noWrap>
+                    &nbsp;
+                </Typography>
+                <form
+                    onSubmit={(e) => handleSubmit(e)}
+                    className={classes.form}
+                >
+                    {props.options.map((option, index) => (
+                        <CustomButton
+                            key={index}
+                            text={option}
+                            onClick={() => handleSelectOption(option)}
+                        ></CustomButton>
+                    ))}
+                    <Typography variant="h3" color="inherit" noWrap>
+                        &nbsp;
+                    </Typography>
+                    <Button
+                        type={"submit"}
+                        variant={"contained"}
+                        className={classes.button}
+                    >
+                        Submit
+                    </Button>
+                </form>
+            </Paper>
+        </div>
     );
 }
 
