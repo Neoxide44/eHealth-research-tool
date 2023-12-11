@@ -14,10 +14,8 @@ function Form() {
             {infoSubmitted && (
                 <QuestionForm
                     sectionText={"Idk bro"}
-                    question={
-                        "Is the participant able to REACH the Mingazzini position?"
-                    }
-                    options={["Yes", "No", "Maybe"]}
+                    question={"Lmao are you for real???"}
+                    options={["Yes", "No", "Maybe", "Yikers"]}
                 />
             )}
         </div>
