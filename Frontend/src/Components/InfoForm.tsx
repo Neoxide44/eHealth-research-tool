@@ -3,8 +3,10 @@ import { Typography, Paper, Button } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
 import CustomTextField from "./CustonTextField";
 import "./InfoForm.css";
+import axios from "axios";
 
 interface Props {
+    setId: React.Dispatch<React.SetStateAction<number>>;
     onSubmit: () => void;
 }
 
@@ -52,6 +54,7 @@ const InfoForm = (props: Props) => {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        props.onSubmit();
         console.log(values);
     };
 
@@ -62,7 +65,22 @@ const InfoForm = (props: Props) => {
             </Typography>
             <form
                 onSubmit={(e) => {
-                    handleSubmit(e), props.onSubmit();
+                    handleSubmit(e);
+                    axios
+                        .post("http://localhost:3000/patients", {
+                            firstName: values.firstName,
+                            lastName: values.lastName,
+                            birthDate: values.dateOfBirth,
+                        })
+                        .then(
+                            (response) => {
+                                console.log(response.data);
+                                props.setId(response.data);
+                            },
+                            (error) => {
+                                console.log(error);
+                            }
+                        );
                 }}
                 className={classes.form}
             >

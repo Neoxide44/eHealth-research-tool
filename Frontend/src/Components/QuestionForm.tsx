@@ -4,7 +4,7 @@ import { useState } from "react";
 import CustomButton from "./CustomButton";
 
 interface Props {
-    sectionText: string;
+    instructions: string;
     question: string;
     options: string[];
 }
@@ -57,7 +57,7 @@ function QuestionForm(props: Props) {
         <div>
             <Paper elevation={6} className={classes.container}>
                 <Typography variant={"h3"} className={classes.title}>
-                    {props.sectionText}
+                    {props.instructions}
                 </Typography>
             </Paper>
             <Paper className={classes.container}>
