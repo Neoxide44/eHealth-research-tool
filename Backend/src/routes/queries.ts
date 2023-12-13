@@ -188,17 +188,93 @@ queryRouter.post("/query/1a", (req: Request, res: Response) => {
     res.status(201).json(nextQuery);
 });
 
-queryRouter.get("/query/0", (req: Request, res: Response) => {
-    const query: sendQuery = {
-        section: "1a",
-        instructions:
-            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. Ask the participant to maintain that position for five seconds.",
-        question: "Is the participant able to REACH the Mingazzini position?",
-        answers: ["Yes", "No"],
+queryRouter.post("/query/2", (req: Request, res: Response) => {
+    const saveQuery: saveQuery = {
+        instructions: req.body.section,
+        section: req.body.section,
+        question: req.body.question,
+        answer: req.body.answer,
+    };
+    queries.push(saveQuery);
+
+    let nextSection = "2";
+    let nextInstructions =
+        "With participant standing, ask them to, first with eyes opened and then closed, touch the tip of their nose with both index fingers, at least 10 times (5 with each hand).";
+    let nextQuestion = "";
+    let nextAnswers: string[] = [];
+
+    if (
+        req.body.question ===
+        "Is the participant able to perform Nose-Index with EYES OPEN?"
+    ) {
+        if (req.body.answer === "Yes") {
+            nextQuestion =
+                "Is the participant able to perform Nose-Index with EYES CLOSED?";
+            nextAnswers = ["Yes", "No"];
+        } else if (req.body.answer === "No") {
+            nextQuestion = "";
+            nextAnswers = [
+                "Participant is  UNABLE to REACH nose with one or both hands",
+                "Participant STRUGGLES to REACH nose with one or both hands",
+            ];
+        }
+    }
+
+    const nextQuery: sendQuery = {
+        section: nextSection,
+        instructions: nextInstructions,
+        question: nextQuestion,
+        answers: nextAnswers,
     };
 
-    console.log(query);
-    res.status(201).json(query);
+    res.status(201).json(nextQuery);
+});
+
+queryRouter.post("/query/3", (req: Request, res: Response) => {
+    const saveQuery: saveQuery = {
+        instructions: req.body.section,
+        section: req.body.section,
+        question: req.body.question,
+        answer: req.body.answer,
+    };
+    queries.push(saveQuery);
+
+    let nextSection = "3";
+    let nextInstructions =
+        "Ask the participant to consecutively sit and stand up from a chair, without holding on. Repeat three times in a row";
+    let nextQuestion = "";
+    let nextAnswers: string[] = [];
+
+    if (
+        req.body.question ===
+        "Is the participant able to PERFORM Sitting & Standing without any difficulty?"
+    ) {
+        if (req.body.answer === "Yes") {
+            nextSection = "4";
+            nextInstructions =
+                "Ask the participant to walk in a straight line for 10 steps, stop, then turn around and come back, first on toes and then on heels.";
+            nextQuestion =
+                "Is the participant able to WALK ON A LINE, including on TIPTOES, HEELS, and TURNING AROUND?";
+            nextAnswers = ["Yes", "No"];
+        } else if (req.body.answer === "No") {
+            nextQuestion = "";
+            nextAnswers = [
+                "MISSING limb or UNABLE to move for non-neurological reasons",
+                "UNABLE, even with help",
+                "ABLE only with HELP",
+                "ABLE without HELP, but with DIFFICULTY",
+            ];
+        }
+    }
+
+    const nextQuery: sendQuery = {
+        section: nextSection,
+        instructions: nextInstructions,
+        question: nextQuestion,
+        answers: nextAnswers,
+    };
+
+    res.status(201).json(nextQuery);
 });
 
 export default queryRouter;
