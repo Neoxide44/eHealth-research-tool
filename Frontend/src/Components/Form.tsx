@@ -10,15 +10,15 @@ function Form() {
     const [instructions, setInstructions] = useState("");
     const [question, setQuestion] = useState("");
     const [answers, setAnswers] = useState([""]);
-    const [infoSubmitted, setInfoSubmitted] = useState(false);
+    const [selectedAnswer, setSelectedAnswer] = useState("");
 
-    async function fetchData() {
+    async function updateQuery(answer: string) {
         try {
             const data = await fetchFormData(
                 section,
                 question,
                 instructions,
-                answers
+                answer
             );
             console.log(data);
             setTimeout(() => {
@@ -27,26 +27,22 @@ function Form() {
                 setQuestion(data.question);
                 setAnswers(data.answers);
             }, 0);
-            console.log(instructions);
         } catch (error) {
             console.error("Error:", error);
         }
     }
 
-    const handleSubmit = () => {
-        setInfoSubmitted(true);
-
-        fetchData();
-    };
-
     return (
         <div>
-            {id === -1 && <InfoForm onSubmit={handleSubmit} setId={setId} />}
+            {id === -1 && (
+                <InfoForm onSubmit={() => updateQuery("")} setId={setId} />
+            )}
             {id != -1 && (
                 <QuestionForm
                     instructions={instructions}
                     question={question}
                     options={answers}
+                    updateQuery={updateQuery}
                 />
             )}
         </div>

@@ -2,16 +2,18 @@ export const fetchFormData = async (
     section: string,
     question: string,
     instructions: string,
-    answers: string[]
+    answer: string
 ) => {
     const postData = {
         section: section,
         question: question,
         instructions: instructions,
-        answers: answers,
+        answer: answer,
     };
 
     const endpoint = `http://localhost:3000/queries/query/${section}`;
+
+    console.log("Post data = " + JSON.stringify(postData));
 
     try {
         const response = await fetch(endpoint, {

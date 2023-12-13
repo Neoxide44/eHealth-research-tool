@@ -7,6 +7,7 @@ interface Props {
     instructions: string;
     question: string;
     options: string[];
+    updateQuery: (answer: string) => void;
 }
 
 const useStyles = makeStyles(() =>
@@ -49,6 +50,7 @@ function QuestionForm(props: Props) {
         event.preventDefault();
         setSubmitted((submited) => {
             console.log("Submitted answer: " + selected);
+            props.updateQuery(selected);
             return selected;
         });
     };
@@ -56,7 +58,7 @@ function QuestionForm(props: Props) {
     return (
         <div>
             <Paper elevation={6} className={classes.container}>
-                <Typography variant={"h3"} className={classes.title}>
+                <Typography variant={"h5"} className={classes.title}>
                     {props.instructions}
                 </Typography>
             </Paper>
@@ -71,7 +73,10 @@ function QuestionForm(props: Props) {
                     &nbsp;
                 </Typography>
                 <form
-                    onSubmit={(e) => handleSubmit(e)}
+                    onSubmit={(e) => {
+                        handleSubmit(e);
+                        console.log(submited);
+                    }}
                     className={classes.form}
                 >
                     {props.options.map((option, index) => (
