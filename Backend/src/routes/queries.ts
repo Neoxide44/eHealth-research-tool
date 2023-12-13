@@ -40,6 +40,8 @@ queryRouter.post("/query/1a", (req: Request, res: Response) => {
     let nextQuestion = "";
     let nextAnswers: string[] = [];
 
+    console.log(req.body);
+
     //First question
     if (
         req.body.question ===
@@ -56,7 +58,8 @@ queryRouter.post("/query/1a", (req: Request, res: Response) => {
                 "One or both arms cannot REACH position",
             ];
         }
-    } else if (req.body.question === "") {
+    }
+    if (req.body.question === "") {
         if (
             req.body.answer ===
             "One or both arms are MISSING or UNABLE to move for non-neurological reasons"
@@ -77,7 +80,8 @@ queryRouter.post("/query/1a", (req: Request, res: Response) => {
                 "Is the  inability to reach position accompanied by SHAKING or involuntary movement?";
             nextAnswers = ["Yes", "No"];
         }
-    } else if (
+    }
+    if (
         req.body.question ===
         "Is the  inability to reach position accompanied by SHAKING or involuntary movement?"
     ) {
@@ -88,7 +92,8 @@ queryRouter.post("/query/1a", (req: Request, res: Response) => {
             nextQuestion = "";
             nextAnswers = ["LEFT", "RIGHT", "BOTH"];
         }
-    } else if (
+    }
+    if (
         req.body.question ===
         "Is the participant able to HOLD the Mingazzini in a steady position for at least 5 seconds?"
     ) {
@@ -101,7 +106,8 @@ queryRouter.post("/query/1a", (req: Request, res: Response) => {
                 "One or both arms ROTATE",
             ];
         }
-    } else if (req.body.question === "") {
+    }
+    if (req.body.question === "") {
         if (req.body.answer === "One or both arms FALL down within 5 seconds") {
             nextQuestion =
                 "Is the falling accompanied by SHAKING or involuntary movement?";
@@ -110,7 +116,8 @@ queryRouter.post("/query/1a", (req: Request, res: Response) => {
             nextQuestion = "";
             nextAnswers = ["LEFT", "RIGHT", "BOTH"];
         }
-    } else if (
+    }
+    if (
         req.body.question ===
         "Is the falling accompanied by SHAKING or involuntary movement?"
     ) {
@@ -130,7 +137,7 @@ queryRouter.post("/query/1a", (req: Request, res: Response) => {
         answers: nextAnswers,
     };
 
-    console.log(nextQuery);
+    // console.log(nextQuery);
 
     res.status(201).json(nextQuery);
 });
