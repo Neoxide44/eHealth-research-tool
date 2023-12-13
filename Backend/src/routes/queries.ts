@@ -98,7 +98,12 @@ queryRouter.post("/query/1a", (req: Request, res: Response) => {
         "Is the participant able to HOLD the Mingazzini in a steady position for at least 5 seconds?"
     ) {
         if (req.body.answer === "Yes") {
-            //part 2
+            nextSection = "2";
+            nextInstructions =
+                "With participant standing, ask them to, first with eyes opened and then closed, touch the tip of their nose with both index fingers, at least 10 times (5 with each hand).";
+            nextQuestion =
+                "Is the participant able to perform Nose-Index with EYES OPEN?";
+            nextAnswers = ["Yes", "No"];
         } else if (req.body.answer === "No") {
             nextQuestion = "";
             nextAnswers = [
@@ -127,6 +132,47 @@ queryRouter.post("/query/1a", (req: Request, res: Response) => {
         } else if (req.body.answer === "No") {
             nextQuestion = "";
             nextAnswers = ["LEFT", "RIGHT", "BOTH"];
+        }
+    }
+
+    if (req.body.question === "") {
+        console.log(queries.at(-2)?.answer);
+        if (queries.at(-2)?.answer === "One or both arms ROTATE") {
+            nextSection = "2";
+            nextInstructions =
+                "With participant standing, ask them to, first with eyes opened and then closed, touch the tip of their nose with both index fingers, at least 10 times (5 with each hand).";
+            nextQuestion =
+                "Is the participant able to perform Nose-Index with EYES OPEN?";
+            nextAnswers = ["Yes", "No"];
+        } else if (
+            req.body.answer === "LEFT" ||
+            req.body.answer === "RIGHT" ||
+            req.body.answer === "BOTH"
+        ) {
+            nextSection = "3";
+            nextInstructions =
+                "Ask the participant to consecutively sit and stand up from a chair, without holding on. Repeat three times in a row.";
+            nextQuestion =
+                "Is the participant able to PERFORM Sitting & Standing without any difficulty?";
+            nextAnswers = ["Yes", "No"];
+        }
+    }
+
+    if (req.body.question === "") {
+        if (
+            req.body.answer === "LEFT MISSING" ||
+            req.body.answer === "LEFT UNABLE TO MOVE" ||
+            req.body.answer === "RIGHT MISSING" ||
+            req.body.answer === "RIGHT UNABLE TO MOVE" ||
+            req.body.answer === "BOTH MISSING" ||
+            req.body.answer === "BOTH UNABLE TO MOVE"
+        ) {
+            nextSection = "3";
+            nextInstructions =
+                "Ask the participant to consecutively sit and stand up from a chair, without holding on. Repeat three times in a row.";
+            nextQuestion =
+                "Is the participant able to PERFORM Sitting & Standing without any difficulty?";
+            nextAnswers = ["Yes", "No"];
         }
     }
 
