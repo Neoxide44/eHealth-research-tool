@@ -10,7 +10,6 @@ function Form() {
     const [instructions, setInstructions] = useState("");
     const [question, setQuestion] = useState("");
     const [answers, setAnswers] = useState([""]);
-    const [selectedAnswer, setSelectedAnswer] = useState("");
 
     async function updateQuery(answer: string) {
         try {
