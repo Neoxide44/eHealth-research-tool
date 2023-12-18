@@ -2,6 +2,7 @@ import { createStyles, makeStyles } from "@mui/styles";
 import { Typography, Paper, Button } from "@mui/material";
 import { useState } from "react";
 import CustomButton from "./CustomButton";
+import CustomAlert from "./CustomAlert";
 
 interface Props {
     instructions: string;
@@ -17,7 +18,7 @@ const useStyles = makeStyles(() =>
             flexDirection: "column",
         },
         container: {
-            margin: "16px",
+            margin: "16px 0px 0px 0px !important",
             padding: "16px",
             elevation: 4,
             textAlign: "center",
@@ -30,6 +31,11 @@ const useStyles = makeStyles(() =>
         },
         button: {
             margin: "20px 0",
+        },
+        alert: {
+            position: "absolute",
+            top: 0,
+            left: 0,
         },
     })
 );
@@ -57,11 +63,10 @@ function QuestionForm(props: Props) {
 
     return (
         <div>
-            <Paper elevation={6} className={classes.container}>
-                <Typography variant={"h5"} className={classes.title}>
-                    {props.instructions}
-                </Typography>
-            </Paper>
+            <CustomAlert
+                text={props.instructions}
+                alertStyles={{ textAlign: "left" }}
+            />
             <Paper className={classes.container}>
                 <Typography
                     variant={"h4"}
