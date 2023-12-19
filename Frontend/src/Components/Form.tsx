@@ -5,6 +5,7 @@ import InfoForm from "./InfoForm";
 import { fetchFormData } from "../getNewSet";
 
 function Form() {
+    const [imageUrl, setImageUrl] = useState("");
     const [id, setId] = useState(-1);
     const [section, setSection] = useState("0");
     const [instructions, setInstructions] = useState("");
@@ -21,6 +22,7 @@ function Form() {
             );
             console.log(data);
             setTimeout(() => {
+                setImageUrl(data.imageUrl);
                 setSection(data.section);
                 setInstructions(data.instructions);
                 setQuestion(data.question);
@@ -38,6 +40,8 @@ function Form() {
             )}
             {id != -1 && (
                 <QuestionForm
+                    imageUrl={imageUrl}
+                    section={section}
                     instructions={instructions}
                     question={question}
                     options={answers}

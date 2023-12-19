@@ -1,19 +1,21 @@
 import * as React from "react";
-import { Box, Alert, IconButton, Collapse, Button } from "@mui/material";
+import { Box, Alert, IconButton, Collapse } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import InfoIcon from "@mui/icons-material/Info";
 
 interface Props {
     text: string;
     alertStyles?: React.CSSProperties; // Add a prop for custom styles
 }
 
-const CustomAlert = (props: Props) => {
+const InstructionsAlert = (props: Props) => {
     const [open, setOpen] = React.useState(false);
 
     return (
         <Box sx={{ width: "100%", position: "relative", ...props.alertStyles }}>
             <Collapse in={open}>
                 <Alert
+                    variant="filled"
                     severity="info"
                     action={
                         <IconButton
@@ -32,17 +34,17 @@ const CustomAlert = (props: Props) => {
                     {props.text}
                 </Alert>
             </Collapse>
-            <Button
+            <IconButton
+                color="primary"
                 disabled={open}
-                variant="contained"
                 onClick={() => {
                     setOpen(true);
                 }}
             >
-                Instructions
-            </Button>
+                <InfoIcon fontSize="inherit" />
+            </IconButton>
         </Box>
     );
 };
 
-export default CustomAlert;
+export default InstructionsAlert;

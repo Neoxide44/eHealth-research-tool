@@ -2,12 +2,16 @@ import { createStyles, makeStyles } from "@mui/styles";
 import { Typography, Paper, Button } from "@mui/material";
 import { useState } from "react";
 import CustomButton from "./CustomButton";
-import CustomAlert from "./CustomAlert";
+import InstructionsAlert from "./InstructionsAlert";
+import ImageAlert from "./ImageAlert";
+import LinearProgressWithLabel from "./LinearProgressWithLabel";
 
 interface Props {
+    section: string;
     instructions: string;
     question: string;
     options: string[];
+    imageUrl: string;
     updateQuery: (answer: string) => void;
 }
 
@@ -52,6 +56,11 @@ function QuestionForm(props: Props) {
         });
     };
 
+    const cleanSection = (section: string) => {
+        section = section.replace(/\D/g, "");
+        return Number(section);
+    };
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setSubmitted((submited) => {
@@ -63,9 +72,13 @@ function QuestionForm(props: Props) {
 
     return (
         <div>
-            <CustomAlert
+            <InstructionsAlert
                 text={props.instructions}
                 alertStyles={{ textAlign: "left" }}
+            />
+            <ImageAlert
+                alertStyles={{ textAlign: "left" }}
+                imageUrl={props.imageUrl}
             />
             <Paper className={classes.container}>
                 <Typography
@@ -103,6 +116,8 @@ function QuestionForm(props: Props) {
                     </Button>
                 </form>
             </Paper>
+            &nbsp;
+            <LinearProgressWithLabel value={10 * cleanSection(props.section)} />
         </div>
     );
 }
