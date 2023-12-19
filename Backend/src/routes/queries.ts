@@ -20,6 +20,8 @@ queryRouter.post("/query/0", (req: Request, res: Response) => {
             "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. Ask the participant to maintain that position for five seconds.",
         question: "Is the participant able to REACH the Mingazzini position?",
         answers: ["Yes", "No"],
+        imageUrl:
+            "https://www.researchgate.net/profile/Ildebrando-Appollonio/publication/261032919/figure/fig4/AS:296867142356998@1447790050644/The-drift-without-pronation-sign-The-test-is-carried-out-by-asking-the-patient-to-keep.png",
     };
 
     res.status(201).json(nextQuery);
@@ -39,6 +41,8 @@ queryRouter.post("/query/1a", (req: Request, res: Response) => {
         "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. Ask the participant to maintain that position for five seconds.";
     let nextQuestion = "";
     let nextAnswers: string[] = [];
+    let nextImageUrl =
+        "https://www.researchgate.net/profile/Ildebrando-Appollonio/publication/261032919/figure/fig4/AS:296867142356998@1447790050644/The-drift-without-pronation-sign-The-test-is-carried-out-by-asking-the-patient-to-keep.png";
 
     console.log(req.body);
 
@@ -104,6 +108,8 @@ queryRouter.post("/query/1a", (req: Request, res: Response) => {
             nextQuestion =
                 "Is the participant able to perform Nose-Index with EYES OPEN?";
             nextAnswers = ["Yes", "No"];
+            nextImageUrl =
+                "https://www.mdpi.com/sensors/sensors-20-07118/article_deploy/html/images/sensors-20-07118-g001-550.jpg";
         } else if (req.body.answer === "No") {
             nextQuestion = "";
             nextAnswers = [
@@ -144,6 +150,8 @@ queryRouter.post("/query/1a", (req: Request, res: Response) => {
             nextQuestion =
                 "Is the participant able to perform Nose-Index with EYES OPEN?";
             nextAnswers = ["Yes", "No"];
+            nextImageUrl =
+                "https://www.mdpi.com/sensors/sensors-20-07118/article_deploy/html/images/sensors-20-07118-g001-550.jpg";
         } else if (
             req.body.answer === "LEFT" ||
             req.body.answer === "RIGHT" ||
@@ -155,6 +163,8 @@ queryRouter.post("/query/1a", (req: Request, res: Response) => {
             nextQuestion =
                 "Is the participant able to PERFORM Sitting & Standing without any difficulty?";
             nextAnswers = ["Yes", "No"];
+            nextImageUrl =
+                "https://www.physio-pedia.com/images/d/dc/Five_Times_Sit_to_Stand_Test.jpg";
         }
     }
 
@@ -173,6 +183,8 @@ queryRouter.post("/query/1a", (req: Request, res: Response) => {
             nextQuestion =
                 "Is the participant able to PERFORM Sitting & Standing without any difficulty?";
             nextAnswers = ["Yes", "No"];
+            nextImageUrl =
+                "https://www.physio-pedia.com/images/d/dc/Five_Times_Sit_to_Stand_Test.jpg";
         }
     }
 
@@ -181,6 +193,7 @@ queryRouter.post("/query/1a", (req: Request, res: Response) => {
         instructions: nextInstructions,
         question: nextQuestion,
         answers: nextAnswers,
+        imageUrl: nextImageUrl,
     };
 
     // console.log(nextQuery);
@@ -198,10 +211,11 @@ queryRouter.post("/query/2", (req: Request, res: Response) => {
     queries.push(saveQuery);
 
     let nextSection = "2";
-    let nextInstructions =
-        "With participant standing, ask them to, first with eyes opened and then closed, touch the tip of their nose with both index fingers, at least 10 times (5 with each hand).";
+    let nextInstructions = "";
     let nextQuestion = "";
     let nextAnswers: string[] = [];
+    let nextImageUrl =
+        "https://www.mdpi.com/sensors/sensors-20-07118/article_deploy/html/images/sensors-20-07118-g001-550.jpg";
 
     if (
         req.body.question ===
@@ -225,6 +239,7 @@ queryRouter.post("/query/2", (req: Request, res: Response) => {
         instructions: nextInstructions,
         question: nextQuestion,
         answers: nextAnswers,
+        imageUrl: nextImageUrl,
     };
 
     res.status(201).json(nextQuery);
@@ -244,7 +259,8 @@ queryRouter.post("/query/3", (req: Request, res: Response) => {
         "Ask the participant to consecutively sit and stand up from a chair, without holding on. Repeat three times in a row";
     let nextQuestion = "";
     let nextAnswers: string[] = [];
-
+    let nextImageUrl =
+        "https://www.physio-pedia.com/images/d/dc/Five_Times_Sit_to_Stand_Test.jpg";
     if (
         req.body.question ===
         "Is the participant able to PERFORM Sitting & Standing without any difficulty?"
@@ -272,6 +288,7 @@ queryRouter.post("/query/3", (req: Request, res: Response) => {
         instructions: nextInstructions,
         question: nextQuestion,
         answers: nextAnswers,
+        imageUrl: nextImageUrl,
     };
 
     res.status(201).json(nextQuery);

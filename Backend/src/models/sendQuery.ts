@@ -3,4 +3,5 @@ export interface sendQuery {
     section: string;
     question: string;
     answers: string[];
+    imageUrl: string;
 }
