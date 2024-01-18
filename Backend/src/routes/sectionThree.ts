@@ -167,7 +167,7 @@ sectionThreeRouter.get("/3", (req: Request, res: Response) => {
 
 sectionThreeRouter.post("/3", (req: Request, res: Response) => {
     let nextQuestionID = 1;
-    let nextSectionID = "6";
+    let nextSectionID = "5";
 
     const data: saveQuery = {
         uuid: req.body.id,

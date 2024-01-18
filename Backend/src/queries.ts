@@ -12,5 +12,7 @@ export const addData =
 export const check4BImpaired =
     "SELECT d.answer FROM data d WHERE d.uuid = $1 AND d.section = $2 AND d.q_id = $3";
 
+export const getAnswer = "SELECT d.answer FROM data d WHERE d.uuid = $1 AND d.section = $2 AND d.q_id = $3"
+
 export const addOutcome =
     "INSERT INTO outcomes (uuid, section, outcome) VALUES ($1, $2, $3)";
