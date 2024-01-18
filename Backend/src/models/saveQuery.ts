@@ -1,6 +1,7 @@
 export interface saveQuery {
-    instructions: string;
+    uuid: string;
     section: string;
+    q_id: number;
     question: string;
     answer: string;
 }
