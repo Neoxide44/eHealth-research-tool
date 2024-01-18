@@ -3,7 +3,7 @@ import { saveQuery } from "../models/saveQuery";
 import { sendQuery } from "../models/sendQuery";
 import pool from "../../db";
 import { addData } from "../queries";
-import { check4BImpaired } from "../queries";
+import { addOutcome } from "../queries";
 
 const sectionOneARouter = Router();
 let queries: saveQuery[] = [];
@@ -297,6 +297,17 @@ sectionOneARouter.post("/6", (req: Request, res: Response) => {
             if (error) throw error;
         }
     );
+    pool.query(
+        addOutcome,
+        [
+            data.uuid,
+            data.section,
+            "MISSING UL or UNABLE to move for non-neurological reasons",
+        ],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -334,6 +345,13 @@ sectionOneARouter.post("/7", (req: Request, res: Response) => {
     pool.query(
         addData,
         [data.uuid, data.section, data.q_id, data.question, data.answer],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
+    pool.query(
+        addOutcome,
+        [data.uuid, data.section, "MILD UL Strength Impairment"],
         (error, results) => {
             if (error) throw error;
         }
@@ -426,6 +444,13 @@ sectionOneARouter.post("/9", (req: Request, res: Response) => {
             if (error) throw error;
         }
     );
+    pool.query(
+        addOutcome,
+        [data.uuid, data.section, "SEVERE UL Strength Impairment"],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -463,6 +488,17 @@ sectionOneARouter.post("/10", (req: Request, res: Response) => {
     pool.query(
         addData,
         [data.uuid, data.section, data.q_id, data.question, data.answer],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
+    pool.query(
+        addOutcome,
+        [
+            data.uuid,
+            data.section,
+            "SEVERE UL Strength Impairment with Parkinsonian Signs",
+        ],
         (error, results) => {
             if (error) throw error;
         }
@@ -508,6 +544,13 @@ sectionOneARouter.post("/11", (req: Request, res: Response) => {
             if (error) throw error;
         }
     );
+    pool.query(
+        addOutcome,
+        [data.uuid, data.section, "MODERATE UL Strength Impairment"],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -545,6 +588,18 @@ sectionOneARouter.post("/12", (req: Request, res: Response) => {
     pool.query(
         addData,
         [data.uuid, data.section, data.q_id, data.question, data.answer],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
+
+    pool.query(
+        addOutcome,
+        [
+            data.uuid,
+            data.section,
+            "MODERATE UL Strength Impairment with Parkinsonian Signs",
+        ],
         (error, results) => {
             if (error) throw error;
         }

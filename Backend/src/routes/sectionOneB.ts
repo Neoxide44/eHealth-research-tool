@@ -4,6 +4,7 @@ import { sendQuery } from "../models/sendQuery";
 import pool from "../../db";
 import { addData } from "../queries";
 import { check4BImpaired } from "../queries";
+import { addOutcome } from "../queries";
 
 const sectionOneBRouter = Router();
 
@@ -210,6 +211,18 @@ sectionOneBRouter.post("/4", (req: Request, res: Response) => {
             nextSection: nextSectionID,
         });
     });
+
+    pool.query(
+        addOutcome,
+        [
+            data.uuid,
+            data.section,
+            "SEVERE LL Strength Impairment with Parkinsonian Signs",
+        ],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
 });
 
 //Section 1b Question 5
@@ -267,6 +280,14 @@ sectionOneBRouter.post("/5", (req: Request, res: Response) => {
             nextSection: nextSectionID,
         });
     });
+
+    pool.query(
+        addOutcome,
+        [data.uuid, data.section, "SEVERE LL Strength Impairmen"],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
 });
 
 //Section 1b Question 6
@@ -371,6 +392,18 @@ sectionOneBRouter.post("/7", (req: Request, res: Response) => {
             nextSection: nextSectionID,
         });
     });
+
+    pool.query(
+        addOutcome,
+        [
+            data.uuid,
+            data.section,
+            "MODERATE LL Strength Impairment with Parkinsonian Signs",
+        ],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
 });
 
 //Section 1b Question 8
@@ -427,6 +460,13 @@ sectionOneBRouter.post("/8", (req: Request, res: Response) => {
             nextSection: nextSectionID,
         });
     });
+    pool.query(
+        addOutcome,
+        [data.uuid, data.section, "MODERATE UL Strength Impairment"],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
 });
 
 export default sectionOneBRouter;

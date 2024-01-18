@@ -3,6 +3,7 @@ import { saveQuery } from "../models/saveQuery";
 import { sendQuery } from "../models/sendQuery";
 import pool from "../../db";
 import { addData } from "../queries";
+import { addOutcome } from "../queries";
 
 const sectionEightRouter = Router();
 
@@ -96,6 +97,13 @@ sectionEightRouter.post("/2", (req: Request, res: Response) => {
     if (req.body.answer === "Participant shows ASYMMETRY in the MOUTH") {
         nextQuestionID = 1;
         nextSectionID = "9";
+        pool.query(
+            addOutcome,
+            [data.uuid, data.section, "MILD STRENGTH IMPAIRMENT"],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
     } else if (
         req.body.answer ===
         "Participant shows ASYMMETRY in both the MOUTH and EYEBROWS"
@@ -139,6 +147,14 @@ sectionEightRouter.post("/3", (req: Request, res: Response) => {
     pool.query(
         addData,
         [data.uuid, data.section, data.q_id, data.question, data.answer],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
+
+    pool.query(
+        addOutcome,
+        [data.uuid, data.section, "FACIAL NERVE PARALYSIS (PERIPHERAL)"],
         (error, results) => {
             if (error) throw error;
         }

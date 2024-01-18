@@ -3,6 +3,7 @@ import { saveQuery } from "../models/saveQuery";
 import { sendQuery } from "../models/sendQuery";
 import pool from "../../db";
 import { addData } from "../queries";
+import { addOutcome } from "../queries";
 
 const sectionTwoRouter = Router();
 
@@ -194,6 +195,14 @@ sectionTwoRouter.post("/4", (req: Request, res: Response) => {
         }
     );
 
+    pool.query(
+        addOutcome,
+        [data.uuid, data.section, "SEVERE UL Coordination Impairment"],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
+
     res.status(200).json({
         nextQuestion: nextQuestionID,
         nextSection: nextSectionID,
@@ -230,6 +239,14 @@ sectionTwoRouter.post("/5", (req: Request, res: Response) => {
     pool.query(
         addData,
         [data.uuid, data.section, data.q_id, data.question, data.answer],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
+
+    pool.query(
+        addOutcome,
+        [data.uuid, data.section, "MILD UL Coordination Impairment"],
         (error, results) => {
             if (error) throw error;
         }
@@ -331,6 +348,17 @@ sectionTwoRouter.post("/7", (req: Request, res: Response) => {
             if (error) throw error;
         }
     );
+    pool.query(
+        addOutcome,
+        [
+            data.uuid,
+            data.section,
+            "POTENTIAL MODERATE UL Proprioception Impairment",
+        ],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -368,6 +396,14 @@ sectionTwoRouter.post("/8", (req: Request, res: Response) => {
     pool.query(
         addData,
         [data.uuid, data.section, data.q_id, data.question, data.answer],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
+
+    pool.query(
+        addOutcome,
+        [data.uuid, data.section, "POTENTIAL MILD UL Proprioception Impairmen"],
         (error, results) => {
             if (error) throw error;
         }

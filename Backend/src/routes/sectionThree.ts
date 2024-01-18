@@ -3,6 +3,7 @@ import { saveQuery } from "../models/saveQuery";
 import { sendQuery } from "../models/sendQuery";
 import pool from "../../db";
 import { addData } from "../queries";
+import { addOutcome } from "../queries";
 
 const sectionThreeRouter = Router();
 
@@ -105,9 +106,33 @@ sectionThreeRouter.post("/2", (req: Request, res: Response) => {
     } else if (req.body.answer === "UNABLE, even with help") {
         nextQuestionID = 1;
         nextSectionID = "5";
-    } else {
+        pool.query(
+            addOutcome,
+            [data.uuid, data.section, "SEVERE LL Strength Impairment"],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    } else if (req.body.answer === "ABLE only with HELP") {
         nextQuestionID = 1;
         nextSectionID = "4";
+        pool.query(
+            addOutcome,
+            [data.uuid, data.section, "MODERATE LL Strength Impairment"],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    } else if (req.body.answer === "ABLE without HELP, but with DIFFICULTY") {
+        nextQuestionID = 1;
+        nextSectionID = "4";
+        pool.query(
+            addOutcome,
+            [data.uuid, data.section, "MILD LL Strength Impairment"],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
     }
 
     res.status(200).json({
@@ -154,6 +179,18 @@ sectionThreeRouter.post("/3", (req: Request, res: Response) => {
     pool.query(
         addData,
         [data.uuid, data.section, data.q_id, data.question, data.answer],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
+
+    pool.query(
+        addOutcome,
+        [
+            data.uuid,
+            data.section,
+            "MISSING LL or UNABLE to move for non-neurological reasons",
+        ],
         (error, results) => {
             if (error) throw error;
         }

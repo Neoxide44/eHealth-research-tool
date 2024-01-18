@@ -3,6 +3,7 @@ import { saveQuery } from "../models/saveQuery";
 import { sendQuery } from "../models/sendQuery";
 import pool from "../../db";
 import { addData } from "../queries";
+import { addOutcome } from "../queries";
 
 const sectionSevenBRouter = Router();
 
@@ -151,6 +152,13 @@ sectionSevenBRouter.post("/3", (req: Request, res: Response) => {
             if (error) throw error;
         }
     );
+    pool.query(
+        addOutcome,
+        [data.uuid, data.section, "LL DEEP SENSITIVITY IMPAIRED"],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -192,6 +200,13 @@ sectionSevenBRouter.post("/4", (req: Request, res: Response) => {
             if (error) throw error;
         }
     );
+    pool.query(
+        addOutcome,
+        [data.uuid, data.section, "LL SUPERFICIAL SENSITIVITY IMPAIRED"],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -229,6 +244,13 @@ sectionSevenBRouter.post("/5", (req: Request, res: Response) => {
     pool.query(
         addData,
         [data.uuid, data.section, data.q_id, data.question, data.answer],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
+    pool.query(
+        addOutcome,
+        [data.uuid, data.section, "LL SUPERFICIAL + DEEP SENSITIVITY IMPAIRED"],
         (error, results) => {
             if (error) throw error;
         }

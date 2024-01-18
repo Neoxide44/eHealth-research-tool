@@ -3,6 +3,7 @@ import { saveQuery } from "../models/saveQuery";
 import { sendQuery } from "../models/sendQuery";
 import pool from "../../db";
 import { addData } from "../queries";
+import { addOutcome } from "../queries";
 
 const sectionSevenARouter = Router();
 
@@ -152,6 +153,14 @@ sectionSevenARouter.post("/3", (req: Request, res: Response) => {
         }
     );
 
+    pool.query(
+        addOutcome,
+        [data.uuid, data.section, "UL PROPRIOCEPTION IMPAIRED"],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
+
     res.status(200).json({
         nextQuestion: nextQuestionID,
         nextSection: nextSectionID,
@@ -188,6 +197,13 @@ sectionSevenARouter.post("/4", (req: Request, res: Response) => {
     pool.query(
         addData,
         [data.uuid, data.section, data.q_id, data.question, data.answer],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
+    pool.query(
+        addOutcome,
+        [data.uuid, data.section, "UL SUPERFICIAL SENSITIVITY IMPAIRED"],
         (error, results) => {
             if (error) throw error;
         }
@@ -229,6 +245,17 @@ sectionSevenARouter.post("/5", (req: Request, res: Response) => {
     pool.query(
         addData,
         [data.uuid, data.section, data.q_id, data.question, data.answer],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
+    pool.query(
+        addOutcome,
+        [
+            data.uuid,
+            data.section,
+            "UL SUPERFICIAL SENSITIVITY + PROPRIOCEPTION IMPAIRED",
+        ],
         (error, results) => {
             if (error) throw error;
         }

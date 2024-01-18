@@ -3,6 +3,7 @@ import { saveQuery } from "../models/saveQuery";
 import { sendQuery } from "../models/sendQuery";
 import pool from "../../db";
 import { addData } from "../queries";
+import { addOutcome } from "../queries";
 
 const sectionTenRouter = Router();
 
@@ -41,6 +42,15 @@ sectionTenRouter.post("/1", (req: Request, res: Response) => {
             if (error) throw error;
         }
     );
+    if (req.body.answer === "No") {
+        pool.query(
+            addOutcome,
+            [data.uuid, data.section, "IMPAIRED EYE MOVEMENT"],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    }
 
     res.status(200).json({
         nextQuestion: nextQuestionID,

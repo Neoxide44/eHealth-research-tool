@@ -3,6 +3,7 @@ import { saveQuery } from "../models/saveQuery";
 import { sendQuery } from "../models/sendQuery";
 import pool from "../../db";
 import { addData } from "../queries";
+import { addOutcome } from "../queries";
 
 const sectionNineRouter = Router();
 
@@ -87,6 +88,13 @@ sectionNineRouter.post("/2", (req: Request, res: Response) => {
     pool.query(
         addData,
         [data.uuid, data.section, data.q_id, data.question, data.answer],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
+    pool.query(
+        addOutcome,
+        [data.uuid, data.section, "BLINDNESS OR SEMI-BLINDNESS"],
         (error, results) => {
             if (error) throw error;
         }
@@ -187,6 +195,13 @@ sectionNineRouter.post("/4", (req: Request, res: Response) => {
     pool.query(
         addData,
         [data.uuid, data.section, data.q_id, data.question, data.answer],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
+    pool.query(
+        addOutcome,
+        [data.uuid, data.section, "REDUCED VISUAL FIELD"],
         (error, results) => {
             if (error) throw error;
         }
