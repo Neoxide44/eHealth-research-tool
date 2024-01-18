@@ -9,7 +9,7 @@ import { postQuery } from "./api calls/postQuery";
 import { postQueryMC } from "./api calls/postQueryMc";
 import MCQuestion from "./components/questions/multiple select/MCQuestions";
 import ProgressBarWithLabel from "./components/questions/ProgressBar";
-import { Row, Col, Container, Stack } from "react-bootstrap";
+import { Container, Stack } from "react-bootstrap";
 import Header from "./components/questions/Header";
 
 function App() {
@@ -54,7 +54,8 @@ function App() {
             setInstructions,
             setOptions,
             setImageUrl,
-            setMc
+            setMc,
+            setSelectedOptionsMC
         );
     }
 

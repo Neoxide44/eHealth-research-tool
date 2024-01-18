@@ -12,7 +12,8 @@ export const postQueryMC = async (
     setInstructions: React.Dispatch<React.SetStateAction<string>>,
     setOptions: React.Dispatch<React.SetStateAction<string[]>>,
     setImageUrl: React.Dispatch<React.SetStateAction<string>>,
-    setMc: React.Dispatch<React.SetStateAction<boolean>>
+    setMc: React.Dispatch<React.SetStateAction<boolean>>,
+    setSelectedOptionsMC: React.Dispatch<React.SetStateAction<string[]>>
 ) => {
     const postData = {
         id: id,
@@ -42,6 +43,7 @@ export const postQueryMC = async (
         const nextQ = await response.json();
         setSection(nextQ.nextSection);
         setQ_id(nextQ.nextQuestion);
+        setSelectedOptionsMC([]);
 
         await getQuery(
             nextQ.nextSection,
