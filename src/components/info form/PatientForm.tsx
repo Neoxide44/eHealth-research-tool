@@ -5,7 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { postPatient } from "../../api calls/postPatient";
 
 interface Props {
-    setId: React.Dispatch<React.SetStateAction<string>>;
+    id: string;
+    setSumbittedpatientInfo: React.Dispatch<React.SetStateAction<boolean>>;
     onSubmit: () => void;
 }
 
@@ -15,9 +16,8 @@ function PatientForm(props: Props) {
     const [date, setDate] = useState(new Date());
 
     async function handleSubmit() {
-        const data = await postPatient(firstName, lastName, date);
+        const data = await postPatient(firstName, lastName, date, props.id);
         console.log(data);
-        props.setId(data);
     }
 
     return (
@@ -25,6 +25,7 @@ function PatientForm(props: Props) {
             onSubmit={(e) => {
                 e.preventDefault();
                 handleSubmit();
+                props.setSumbittedpatientInfo(true);
                 props.onSubmit();
             }}
         >

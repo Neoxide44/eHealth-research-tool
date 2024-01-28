@@ -7,12 +7,15 @@ import Question from "./components/questions/single select/Question";
 import { getQuery } from "./api calls/getQuery";
 import { postQuery } from "./api calls/postQuery";
 import { postQueryMC } from "./api calls/postQueryMc";
+import LoginForm from "./components/login form/LoginForm";
 import MCQuestion from "./components/questions/multiple select/MCQuestions";
 import ProgressBarWithLabel from "./components/questions/ProgressBar";
 import { Container, Stack } from "react-bootstrap";
 import Header from "./components/questions/Header";
+import { postLogin } from "./api calls/postLogin";
 
 function App() {
+    const [submittedPatientInfo, setSubmittedPatientInfo] = useState(false);
     const [id, setId] = useState("");
     const [question, setQuestion] = useState("IDk");
     const [options, setOptions] = useState(["idk1", "idk2", "idk3"]);
@@ -95,9 +98,16 @@ function App() {
     return (
         <div className="container min-vh-100 d-flex justify-content-center align-items-center">
             {id === "" && (
-                <PatientForm onSubmit={handlePatientFormSubmit} setId={setId} />
+                <LoginForm setId={setId} onSubmit={() => console.log("lamo")} />
             )}
-            {id != "" && (
+            {id != "" && !submittedPatientInfo && (
+                <PatientForm
+                    onSubmit={handlePatientFormSubmit}
+                    id={id}
+                    setSumbittedpatientInfo={setSubmittedPatientInfo}
+                />
+            )}
+            {submittedPatientInfo && (
                 <div>
                     <Container>
                         <Stack gap={3}>

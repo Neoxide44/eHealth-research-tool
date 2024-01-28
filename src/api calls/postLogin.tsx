@@ -1,17 +1,10 @@
-export const postPatient = async (
-    firstName: string,
-    lastName: string,
-    date: Date,
-    id: string
-) => {
+export const postLogin = async (email: string, password: string) => {
     const postData = {
-        firstName: firstName,
-        lastName: lastName,
-        date: date,
-        uuid: id,
+        email: email,
+        password: password,
     };
 
-    const endpoint = `http://localhost:3000/patients/patient`;
+    const endpoint = `http://localhost:3000/login`;
 
     try {
         const response = await fetch(endpoint, {
