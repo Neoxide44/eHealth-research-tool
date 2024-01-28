@@ -1,9 +1,9 @@
 import { Router, Request, Response } from "express";
-import { saveQuery } from "../models/saveQuery";
-import { sendQuery } from "../models/sendQuery";
-import pool from "../../db";
-import { addData } from "../queries";
-import { addOutcome } from "../queries";
+import { saveQuery } from "../../models/saveQuery";
+import { sendQuery } from "../../models/sendQuery";
+import pool from "../../../db";
+import { addData } from "../../queries";
+import { addOutcome } from "../../queries";
 
 const sectionThreeRouter = Router();
 

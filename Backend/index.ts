@@ -2,18 +2,19 @@ import express, { Request, Response, Application } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import patientRouter from "./src/routes/patients";
-import sectionOneARouter from "./src/routes/sectionOneA";
-import sectionTwoRouter from "./src/routes/sectionTwo";
-import sectionThreeRouter from "./src/routes/sectionThree";
-import sectionFourRouter from "./src/routes/sectionFour";
-import sectionFiveRouter from "./src/routes/sectionFive";
-import sectionOneBRouter from "./src/routes/sectionOneB";
-import sectionSixRouter from "./src/routes/sectionSix";
-import sectionSevenARouter from "./src/routes/sectionSevenA";
-import sectionSevenBRouter from "./src/routes/sectionSevenB";
-import sectionEightRouter from "./src/routes/sectionEight";
-import sectionNineRouter from "./src/routes/sectionNine";
-import sectionTenRouter from "./src/routes/sectionTen";
+import sectionOneARouter from "./src/routes/quiz/sectionOneA";
+import sectionTwoRouter from "./src/routes/quiz/sectionTwo";
+import sectionThreeRouter from "./src/routes/quiz/sectionThree";
+import sectionFourRouter from "./src/routes/quiz/sectionFour";
+import sectionFiveRouter from "./src/routes/quiz/sectionFive";
+import sectionOneBRouter from "./src/routes/quiz/sectionOneB";
+import sectionSixRouter from "./src/routes/quiz/sectionSix";
+import sectionSevenARouter from "./src/routes/quiz/sectionSevenA";
+import sectionSevenBRouter from "./src/routes/quiz/sectionSevenB";
+import sectionEightRouter from "./src/routes/quiz/sectionEight";
+import sectionNineRouter from "./src/routes/quiz/sectionNine";
+import sectionTenRouter from "./src/routes/quiz/sectionTen";
+import loginRouter from "./src/routes/login";
 
 //For env File
 dotenv.config();
@@ -37,6 +38,7 @@ app.use("/queries/7b", sectionSevenBRouter);
 app.use("/queries/8", sectionEightRouter);
 app.use("/queries/9", sectionNineRouter);
 app.use("/queries/10", sectionTenRouter);
+app.use("", loginRouter);
 
 app.get("/", (req: Request, res: Response) => {
     res.send("Welcome to Express & TypeScript Server");
