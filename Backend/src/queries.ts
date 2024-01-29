@@ -7,6 +7,8 @@ export const addPatient =
 export const addUserEntry =
     "INSERT INTO user_entries (email, uuid) VALUES ($1, $2)";
 
+export const checkEmail = "SELECT * FROM login_info WHERE email = $1";
+
 export const checkPassword =
     "SELECT (password_hash = crypt($1, password_hash)) AS password_match FROM login_info WHERE email = $2";
 
