@@ -16,7 +16,10 @@ sectionNineRouter.get("/1", (req: Request, res: Response) => {
             "The instructor explores the extension of the visual field of the participant, by asking them to look at the tip of the instructors' nose, and assessing the limits of the participants' visual field with the hands. Guide your hand in several points from the peripheral to central vision of the participant, and ask them if they are able to see the hand (while still looking at the tip of the nose of the instructor).",
         question: "Is the participant able to SEE with BOTH eyes?",
         answers: ["Yes", "No"],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: true,
     };
 
@@ -67,7 +70,10 @@ sectionNineRouter.get("/2", (req: Request, res: Response) => {
             "RIGHT eye blind or semi-blind",
             "BOTH eyes blind or semi-blind",
         ],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: true,
     };
 
@@ -116,7 +122,10 @@ sectionNineRouter.get("/3", (req: Request, res: Response) => {
         question:
             "Is the participant ABLE to DETECT HAND in ALL POSITIONS (QUADRANTS)",
         answers: ["Yes", "No"],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: true,
     };
 
@@ -174,7 +183,10 @@ sectionNineRouter.get("/4", (req: Request, res: Response) => {
             "RIGHT eye - BOTTOM LEFT",
             "RIGHT eye - BOTTOM RIGHT",
         ],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
     };
 

@@ -18,7 +18,9 @@ sectionOneARouter.get("/1", (req: Request, res: Response) => {
         question: "Is the participant able to REACH the Mingazzini position?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://www.researchgate.net/profile/Ildebrando-Appollonio/publication/261032919/figure/fig4/AS:296867142356998@1447790050644/The-drift-without-pronation-sign-The-test-is-carried-out-by-asking-the-patient-to-keep.png",
+            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
@@ -67,7 +69,9 @@ sectionOneARouter.get("/2", (req: Request, res: Response) => {
             "Is the participant able to HOLD the Mingazzini in a steady position for at least 5 seconds?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://www.researchgate.net/profile/Ildebrando-Appollonio/publication/261032919/figure/fig4/AS:296867142356998@1447790050644/The-drift-without-pronation-sign-The-test-is-carried-out-by-asking-the-patient-to-keep.png",
+            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
@@ -120,7 +124,9 @@ sectionOneARouter.get("/3", (req: Request, res: Response) => {
             "One or both arms cannot REACH position",
         ],
         imageUrl:
-            "https://www.researchgate.net/profile/Ildebrando-Appollonio/publication/261032919/figure/fig4/AS:296867142356998@1447790050644/The-drift-without-pronation-sign-The-test-is-carried-out-by-asking-the-patient-to-keep.png",
+            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
@@ -172,7 +178,9 @@ sectionOneARouter.get("/4", (req: Request, res: Response) => {
             "One or both arms ROTATE",
         ],
         imageUrl:
-            "https://www.researchgate.net/profile/Ildebrando-Appollonio/publication/261032919/figure/fig4/AS:296867142356998@1447790050644/The-drift-without-pronation-sign-The-test-is-carried-out-by-asking-the-patient-to-keep.png",
+            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
@@ -219,7 +227,9 @@ sectionOneARouter.get("/5", (req: Request, res: Response) => {
             "Is the  inability to reach position accompanied by SHAKING or involuntary movement?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://www.researchgate.net/profile/Ildebrando-Appollonio/publication/261032919/figure/fig4/AS:296867142356998@1447790050644/The-drift-without-pronation-sign-The-test-is-carried-out-by-asking-the-patient-to-keep.png",
+            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
@@ -272,7 +282,9 @@ sectionOneARouter.get("/6", (req: Request, res: Response) => {
             "BOTH UNABLE TO MOVE",
         ],
         imageUrl:
-            "https://www.researchgate.net/profile/Ildebrando-Appollonio/publication/261032919/figure/fig4/AS:296867142356998@1447790050644/The-drift-without-pronation-sign-The-test-is-carried-out-by-asking-the-patient-to-keep.png",
+            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
@@ -324,7 +336,9 @@ sectionOneARouter.get("/7", (req: Request, res: Response) => {
         question: "",
         answers: ["LEFT", "RIGHT", "BOTH"],
         imageUrl:
-            "https://www.researchgate.net/profile/Ildebrando-Appollonio/publication/261032919/figure/fig4/AS:296867142356998@1447790050644/The-drift-without-pronation-sign-The-test-is-carried-out-by-asking-the-patient-to-keep.png",
+            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
@@ -373,7 +387,9 @@ sectionOneARouter.get("/8", (req: Request, res: Response) => {
             "Is the falling accompanied by SHAKING or involuntary movement?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://www.researchgate.net/profile/Ildebrando-Appollonio/publication/261032919/figure/fig4/AS:296867142356998@1447790050644/The-drift-without-pronation-sign-The-test-is-carried-out-by-asking-the-patient-to-keep.png",
+            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
@@ -419,7 +435,9 @@ sectionOneARouter.get("/9", (req: Request, res: Response) => {
         question: "",
         answers: ["LEFT", "RIGHT", "BOTH"],
         imageUrl:
-            "https://www.researchgate.net/profile/Ildebrando-Appollonio/publication/261032919/figure/fig4/AS:296867142356998@1447790050644/The-drift-without-pronation-sign-The-test-is-carried-out-by-asking-the-patient-to-keep.png",
+            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
@@ -467,7 +485,9 @@ sectionOneARouter.get("/10", (req: Request, res: Response) => {
         question: "",
         answers: ["LEFT", "RIGHT", "BOTH"],
         imageUrl:
-            "https://www.researchgate.net/profile/Ildebrando-Appollonio/publication/261032919/figure/fig4/AS:296867142356998@1447790050644/The-drift-without-pronation-sign-The-test-is-carried-out-by-asking-the-patient-to-keep.png",
+            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
@@ -519,7 +539,9 @@ sectionOneARouter.get("/11", (req: Request, res: Response) => {
         question: "",
         answers: ["LEFT", "RIGHT", "BOTH"],
         imageUrl:
-            "https://www.researchgate.net/profile/Ildebrando-Appollonio/publication/261032919/figure/fig4/AS:296867142356998@1447790050644/The-drift-without-pronation-sign-The-test-is-carried-out-by-asking-the-patient-to-keep.png",
+            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
@@ -567,7 +589,9 @@ sectionOneARouter.get("/12", (req: Request, res: Response) => {
         question: "",
         answers: ["LEFT", "RIGHT", "BOTH"],
         imageUrl:
-            "https://www.researchgate.net/profile/Ildebrando-Appollonio/publication/261032919/figure/fig4/AS:296867142356998@1447790050644/The-drift-without-pronation-sign-The-test-is-carried-out-by-asking-the-patient-to-keep.png",
+            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 

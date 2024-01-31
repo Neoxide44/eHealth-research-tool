@@ -18,7 +18,9 @@ sectionThreeRouter.get("/1", (req: Request, res: Response) => {
             "Is the participant able to PERFORM Sitting & Standing without any difficulty?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://iris.hattiesburgclinic.com/patadv/exkit/Body%20Mechanics/Images/0040000025mov006.png",
+            "https://drive.google.com/file/d/11_EuUt5eb9gA2QZSvD3TRoqMJUmtPQ90/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1naAwRwy_3WmfY2rrgx-mV3Dk1lZ13tbq/preview",
         mc: true,
     };
 
@@ -72,7 +74,9 @@ sectionThreeRouter.get("/2", (req: Request, res: Response) => {
             "ABLE without HELP, but with DIFFICULTY",
         ],
         imageUrl:
-            "https://iris.hattiesburgclinic.com/patadv/exkit/Body%20Mechanics/Images/0040000025mov006.png",
+            "https://drive.google.com/file/d/11_EuUt5eb9gA2QZSvD3TRoqMJUmtPQ90/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1naAwRwy_3WmfY2rrgx-mV3Dk1lZ13tbq/preview",
         mc: true,
     };
 
@@ -158,7 +162,9 @@ sectionThreeRouter.get("/3", (req: Request, res: Response) => {
             "BOTH UNABLE TO MOVE",
         ],
         imageUrl:
-            "https://iris.hattiesburgclinic.com/patadv/exkit/Body%20Mechanics/Images/0040000025mov006.png",
+            "https://drive.google.com/file/d/11_EuUt5eb9gA2QZSvD3TRoqMJUmtPQ90/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1naAwRwy_3WmfY2rrgx-mV3Dk1lZ13tbq/preview",
         mc: true,
     };
 

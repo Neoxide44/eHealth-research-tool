@@ -17,7 +17,10 @@ sectionEightRouter.get("/1", (req: Request, res: Response) => {
         question:
             "Is the participant showing ASYMMETRY in the EYES, MOUTH, or BOTH?",
         answers: ["Yes", "No"],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: true,
     };
 
@@ -68,7 +71,10 @@ sectionEightRouter.get("/2", (req: Request, res: Response) => {
             "Participant shows ASYMMETRY in the MOUTH",
             "Participant shows ASYMMETRY in both the MOUTH and EYEBROWS",
         ],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: true,
     };
 
@@ -126,7 +132,10 @@ sectionEightRouter.get("/3", (req: Request, res: Response) => {
             "Participant closes eyes with force for a few seconds. Then, participant smiles with teeth showing.",
         question: "",
         answers: ["LEFT eye blink impaired", "RIGHT eye blink impaired"],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: true,
     };
 

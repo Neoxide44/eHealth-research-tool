@@ -5,5 +5,6 @@ export interface sendQuery {
     question: string;
     answers: string[];
     imageUrl: string;
+    videoUrl: string;
     mc: boolean;
 }

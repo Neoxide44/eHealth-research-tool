@@ -17,7 +17,10 @@ sectionTwoRouter.get("/1", (req: Request, res: Response) => {
         question:
             "Is the participant able to perform Nose-Index with EYES OPEN?",
         answers: ["Yes", "No"],
-        imageUrl: "https://o.quizlet.com/pPCaA2OxawH.7NFDEQ17cw.jpg",
+        imageUrl:
+            "https://drive.google.com/file/d/16MYIb6h7t1X41EJQldSEvcqe2PotxRGT/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
         mc: true,
     };
 
@@ -67,7 +70,10 @@ sectionTwoRouter.get("/2", (req: Request, res: Response) => {
             "Participant is  UNABLE to REACH nose with one or both hands",
             "Participant STRUGGLES to REACH nose with one or both hands",
         ],
-        imageUrl: "https://o.quizlet.com/pPCaA2OxawH.7NFDEQ17cw.jpg",
+        imageUrl:
+            "https://drive.google.com/file/d/16MYIb6h7t1X41EJQldSEvcqe2PotxRGT/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
         mc: true,
     };
 
@@ -121,7 +127,10 @@ sectionTwoRouter.get("/3", (req: Request, res: Response) => {
         question:
             "Is the participant able to perform Nose-Index with EYES CLOSED?",
         answers: ["Yes", "No"],
-        imageUrl: "https://o.quizlet.com/pPCaA2OxawH.7NFDEQ17cw.jpg",
+        imageUrl:
+            "https://drive.google.com/file/d/16MYIb6h7t1X41EJQldSEvcqe2PotxRGT/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
         mc: true,
     };
 
@@ -169,7 +178,10 @@ sectionTwoRouter.get("/4", (req: Request, res: Response) => {
             "With participant standing, ask them to, first with eyes opened and then closed, touch the tip of their nose with both index fingers, at least 10 times (5 with each hand).",
         question: "",
         answers: ["Left", "Right", "Both"],
-        imageUrl: "https://o.quizlet.com/pPCaA2OxawH.7NFDEQ17cw.jpg",
+        imageUrl:
+            "https://drive.google.com/file/d/16MYIb6h7t1X41EJQldSEvcqe2PotxRGT/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
         mc: true,
     };
 
@@ -218,7 +230,10 @@ sectionTwoRouter.get("/5", (req: Request, res: Response) => {
             "With participant standing, ask them to, first with eyes opened and then closed, touch the tip of their nose with both index fingers, at least 10 times (5 with each hand).",
         question: "",
         answers: ["Left", "Right", "Both"],
-        imageUrl: "https://o.quizlet.com/pPCaA2OxawH.7NFDEQ17cw.jpg",
+        imageUrl:
+            "https://drive.google.com/file/d/16MYIb6h7t1X41EJQldSEvcqe2PotxRGT/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
         mc: true,
     };
 
@@ -270,7 +285,10 @@ sectionTwoRouter.get("/6", (req: Request, res: Response) => {
             "Participant is UNABLE to REACH nose with one or both hands",
             "Participant STRUGGLES to REACH nose with one or both hands",
         ],
-        imageUrl: "https://o.quizlet.com/pPCaA2OxawH.7NFDEQ17cw.jpg",
+        imageUrl:
+            "https://drive.google.com/file/d/16MYIb6h7t1X41EJQldSEvcqe2PotxRGT/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
         mc: true,
     };
 
@@ -323,7 +341,10 @@ sectionTwoRouter.get("/7", (req: Request, res: Response) => {
             "With participant standing, ask them to, first with eyes opened and then closed, touch the tip of their nose with both index fingers, at least 10 times (5 with each hand).",
         question: "",
         answers: ["Left", "Right", "Both"],
-        imageUrl: "https://o.quizlet.com/pPCaA2OxawH.7NFDEQ17cw.jpg",
+        imageUrl:
+            "https://drive.google.com/file/d/16MYIb6h7t1X41EJQldSEvcqe2PotxRGT/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
         mc: true,
     };
 
@@ -375,7 +396,10 @@ sectionTwoRouter.get("/8", (req: Request, res: Response) => {
             "With participant standing, ask them to, first with eyes opened and then closed, touch the tip of their nose with both index fingers, at least 10 times (5 with each hand).",
         question: "",
         answers: ["Left", "Right", "Both"],
-        imageUrl: "https://o.quizlet.com/pPCaA2OxawH.7NFDEQ17cw.jpg",
+        imageUrl:
+            "https://drive.google.com/file/d/16MYIb6h7t1X41EJQldSEvcqe2PotxRGT/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
         mc: true,
     };
 

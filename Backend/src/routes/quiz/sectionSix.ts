@@ -17,7 +17,10 @@ sectionSixRouter.get("/1", (req: Request, res: Response) => {
         question:
             "Is the participant able feel the touch points on both sides of the same district, and with the same intensity? ",
         answers: ["Yes", "No"],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: true,
     };
 
@@ -69,7 +72,10 @@ sectionSixRouter.get("/2", (req: Request, res: Response) => {
             "Participant perceives a DIFFERENCE between left and right on UPPER LIMBS, or is UNABLE to feel any touch points",
             "Participant perceives a DIFFERENCE between left and right on the LOWER LIMBS, or is UNABLE to feel any touch points",
         ],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
     };
 
@@ -116,7 +122,10 @@ sectionSixRouter.get("/3", (req: Request, res: Response) => {
             "Nothing on the RIGHT",
             "Perceives nothing on EITHER SIDE",
         ],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: true,
     };
 

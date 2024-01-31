@@ -2,7 +2,7 @@ import { Router, Request, Response } from "express";
 import { saveQuery } from "../../models/saveQuery";
 import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
-import { addData } from "../../queries";
+import { addData, addOutcome } from "../../queries";
 
 const sectionFourRouter = Router();
 
@@ -17,7 +17,9 @@ sectionFourRouter.get("/1", (req: Request, res: Response) => {
             "Is the participant able to WALK ON A LINE, including on TIPTOES, HEELS, and TURNING AROUND?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://cdn.rcimg.net/Nameless/images/9d14a644/FwJgFax2Rsa63vzJ81ITlyLc6cAEN8IaZBQvN3f7.webp?width=300",
+            "https://drive.google.com/file/d/1mFOhc12mjfX2rwAIyr1QmkvAeBJXllfW/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: true,
     };
 
@@ -45,7 +47,7 @@ sectionFourRouter.post("/1", (req: Request, res: Response) => {
 
     if (req.body.answer === "Yes") {
         nextQuestionID = 1;
-        nextSectionID = "6";
+        nextSectionID = "5";
     } else if (req.body.answer === "No") {
         nextQuestionID = 2;
     }
@@ -71,7 +73,9 @@ sectionFourRouter.get("/2", (req: Request, res: Response) => {
             "Participant is UNABLE to WALK ON A LINE",
         ],
         imageUrl:
-            "https://cdn.rcimg.net/Nameless/images/9d14a644/FwJgFax2Rsa63vzJ81ITlyLc6cAEN8IaZBQvN3f7.webp?width=300",
+            "https://drive.google.com/file/d/1mFOhc12mjfX2rwAIyr1QmkvAeBJXllfW/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
     };
 
@@ -81,6 +85,7 @@ sectionFourRouter.get("/2", (req: Request, res: Response) => {
 sectionFourRouter.post("/2", (req: Request, res: Response) => {
     let nextQuestionID = 1;
     let nextSectionID = "1b";
+    let outcome = "";
 
     const data: saveQuery = {
         uuid: req.body.id,
@@ -114,6 +119,32 @@ sectionFourRouter.post("/2", (req: Request, res: Response) => {
         nextQuestionID = 1;
         nextSectionID = "5";
     }
+    if (
+        req.body.answer.includes(
+            "Participant is UNABLE to walk on TIPTOES for more than 5 steps"
+        ) ||
+        req.body.answer.includes(
+            "Participant is UNABLE to walk on HEELS for more than 5 steps"
+        )
+    ) {
+        outcome += "'MILD LL Strength Impairment'";
+    }
+
+    if (req.body.answer.includes("Participant is UNABLE to TURN smoothly")) {
+        outcome += "'Extrapyramidal sign /Parkinsonian sign'";
+    }
+    if (req.body.answer.includes("Participant is UNABLE to WALK ON A LINE")) {
+        outcome += "'MODERATE LL Coordination Impairment'";
+    }
+
+    pool.query(
+        addOutcome,
+        [data.uuid, data.section, outcome],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
+
     res.status(200).json({
         nextQuestion: nextQuestionID,
         nextSection: nextSectionID,

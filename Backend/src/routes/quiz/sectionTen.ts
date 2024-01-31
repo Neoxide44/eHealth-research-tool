@@ -17,7 +17,10 @@ sectionTenRouter.get("/1", (req: Request, res: Response) => {
         question:
             "Are the eyes of the participant following the finger SYMMETRICALLY?",
         answers: ["Yes", "No"],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: true,
     };
 

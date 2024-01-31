@@ -17,7 +17,10 @@ sectionFiveRouter.get("/1", (req: Request, res: Response) => {
             "Ask the participant to answer each question and for each one he answers correctly check the answer.",
         question: "What is the",
         answers: ["Year", "Season", "Day of the week", "Month", "Date"],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
     };
 
@@ -64,7 +67,10 @@ sectionFiveRouter.get("/2", (req: Request, res: Response) => {
             "Building/Facility",
             "Floor",
         ],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
     };
 
@@ -123,7 +129,10 @@ sectionFiveRouter.get("/3", (req: Request, res: Response) => {
         question:
             "Name 3 unrelated objects, ask subject to recite them now and remember them for later. E.g.",
         answers: ["Apple", "Table", "Penny"],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
     };
 
@@ -182,7 +191,10 @@ sectionFiveRouter.get("/4", (req: Request, res: Response) => {
             "Ask the participant to answer each question and for each one he answers correctly check the answer.",
         question: "Count backward from 100 by sevens",
         answers: ["93", "86", "79", "72", "65"],
-        imageUrl: "https://mmse.neurol.ru/img/sevens.jpg",
+        imageUrl:
+            "https://drive.google.com/file/d/1Lzo3xzcZjLIGHNuBnca-4l49oB_BnLWW/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
     };
 
@@ -241,7 +253,10 @@ sectionFiveRouter.get("/5", (req: Request, res: Response) => {
             "Ask the participant to answer each question and for each one he answers correctly check the answer.",
         question: "Name the three things asked to remember earlier. E.g.",
         answers: ["Apple", "Table", "Penny"],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
     };
 
@@ -301,7 +316,9 @@ sectionFiveRouter.get("/6", (req: Request, res: Response) => {
         question: "Name objects shown to patient:",
         answers: ["Wristwatch", "Pen or pencil"],
         imageUrl:
-            "https://www.movadocompanystore.com/dw/image/v2/BDKZ_PRD/on/demandware.static/-/Sites-mgi-master/default/dwb9f20471/images/products/1570078w_LRG_rgb_Profile.jpg?sw=700&sh=700",
+            "https://drive.google.com/file/d/1XD9rkCs6Q4Y3xS3u-PQ-8jDqrPEjyY5J/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
     };
 
@@ -360,7 +377,10 @@ sectionFiveRouter.get("/7", (req: Request, res: Response) => {
             "Ask the participant to answer each question and for each one he answers correctly check the answer.",
         question: "Repeat the phrase:",
         answers: ["'No ifs, ands, or buts.'"],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
     };
 
@@ -423,7 +443,10 @@ sectionFiveRouter.get("/8", (req: Request, res: Response) => {
             "fold it in half,",
             "and put it on the floor.",
         ],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
     };
 
@@ -482,7 +505,10 @@ sectionFiveRouter.get("/9", (req: Request, res: Response) => {
             "Ask the participant to answer each question and for each one he answers correctly check the answer.",
         question: "Read and follow the instructions:",
         answers: ["Close your eyes"],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
     };
 
@@ -542,7 +568,10 @@ sectionFiveRouter.get("/10", (req: Request, res: Response) => {
         question:
             "Make up and write a sentence about anything, which contains a noun and a verb:",
         answers: ["Sentence acceptable"],
-        imageUrl: "https://wiki.dave.eu/images/4/47/Placeholder.png",
+        imageUrl:
+            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
     };
 
@@ -602,7 +631,10 @@ sectionFiveRouter.get("/11", (req: Request, res: Response) => {
         question:
             "Please copy this picture (intersecting pentagons with a four-sided intersection, click on camera above too see the image):",
         answers: ["Picture acceptable"],
-        imageUrl: "https://mmse.neurol.ru/img/mmse_pentagons.svg",
+        imageUrl:
+            "https://drive.google.com/file/d/14O2RZ4nz2JSaeswVj8v1Bn7aS7xAInbF/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
     };
 

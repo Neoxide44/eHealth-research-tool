@@ -19,7 +19,9 @@ sectionOneBRouter.get("/1", (req: Request, res: Response) => {
             "Is the participant able to REACH the Mingazzini position with both legs?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://onlinelibrary.wiley.com/cms/asset/946d4143-fcff-4966-98d0-aa537a86ad69/brb3445-fig-0001-m.jpg",
+            "https://drive.google.com/file/d/1F4U7v-Jy9PwjhLPOso1PFiEsp2LawY8-/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
@@ -67,7 +69,9 @@ sectionOneBRouter.get("/2", (req: Request, res: Response) => {
             "Is the  inability to reach position accompanied by SHAKING or involuntary movement?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://onlinelibrary.wiley.com/cms/asset/946d4143-fcff-4966-98d0-aa537a86ad69/brb3445-fig-0001-m.jpg",
+            "https://drive.google.com/file/d/1F4U7v-Jy9PwjhLPOso1PFiEsp2LawY8-/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
@@ -115,7 +119,9 @@ sectionOneBRouter.get("/3", (req: Request, res: Response) => {
             "Is the participant able to HOLD the Mingazzini in a steady position with both legs for at least 5 seconds?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://onlinelibrary.wiley.com/cms/asset/946d4143-fcff-4966-98d0-aa537a86ad69/brb3445-fig-0001-m.jpg",
+            "https://drive.google.com/file/d/1F4U7v-Jy9PwjhLPOso1PFiEsp2LawY8-/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
@@ -142,7 +148,7 @@ sectionOneBRouter.post("/3", (req: Request, res: Response) => {
 
     if (req.body.answer === "Yes") {
         nextQuestionID = 1;
-        nextSectionID = "6";
+        nextSectionID = "5";
     } else if (req.body.answer === "No") {
         nextQuestionID = 6;
     }
@@ -163,7 +169,9 @@ sectionOneBRouter.get("/4", (req: Request, res: Response) => {
         question: "",
         answers: ["LEFT", "RIGHT", "BOTH"],
         imageUrl:
-            "https://onlinelibrary.wiley.com/cms/asset/946d4143-fcff-4966-98d0-aa537a86ad69/brb3445-fig-0001-m.jpg",
+            "https://drive.google.com/file/d/1F4U7v-Jy9PwjhLPOso1PFiEsp2LawY8-/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
@@ -235,7 +243,9 @@ sectionOneBRouter.get("/5", (req: Request, res: Response) => {
         question: "",
         answers: ["LEFT", "RIGHT", "BOTH"],
         imageUrl:
-            "https://onlinelibrary.wiley.com/cms/asset/946d4143-fcff-4966-98d0-aa537a86ad69/brb3445-fig-0001-m.jpg",
+            "https://drive.google.com/file/d/1F4U7v-Jy9PwjhLPOso1PFiEsp2LawY8-/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
@@ -301,7 +311,9 @@ sectionOneBRouter.get("/6", (req: Request, res: Response) => {
             "Is the falling accompanied by SHAKING or involuntary movement?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://onlinelibrary.wiley.com/cms/asset/946d4143-fcff-4966-98d0-aa537a86ad69/brb3445-fig-0001-m.jpg",
+            "https://drive.google.com/file/d/1F4U7v-Jy9PwjhLPOso1PFiEsp2LawY8-/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
@@ -348,7 +360,9 @@ sectionOneBRouter.get("/7", (req: Request, res: Response) => {
         question: "",
         answers: ["LEFT", "RIGHT", "BOTH"],
         imageUrl:
-            "https://onlinelibrary.wiley.com/cms/asset/946d4143-fcff-4966-98d0-aa537a86ad69/brb3445-fig-0001-m.jpg",
+            "https://drive.google.com/file/d/1F4U7v-Jy9PwjhLPOso1PFiEsp2LawY8-/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
@@ -416,7 +430,9 @@ sectionOneBRouter.get("/8", (req: Request, res: Response) => {
         question: "",
         answers: ["LEFT", "RIGHT", "BOTH"],
         imageUrl:
-            "https://onlinelibrary.wiley.com/cms/asset/946d4143-fcff-4966-98d0-aa537a86ad69/brb3445-fig-0001-m.jpg",
+            "https://drive.google.com/file/d/1F4U7v-Jy9PwjhLPOso1PFiEsp2LawY8-/preview",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
     };
 
