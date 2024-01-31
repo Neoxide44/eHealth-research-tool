@@ -17,7 +17,7 @@ export const getUsers = "SELECT * FROM patients";
 export const addData =
     "INSERT INTO data (uuid, section, q_id, question, answer) VALUES ($1, $2, $3, $4, $5)";
 
-export const check4BImpaired =
+export const checkAnswer =
     "SELECT d.answer FROM data d WHERE d.uuid = $1 AND d.section = $2 AND d.q_id = $3";
 
 export const getAnswer =
