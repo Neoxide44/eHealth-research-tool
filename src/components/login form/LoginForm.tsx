@@ -9,7 +9,6 @@ import { Container } from "react-bootstrap";
 
 interface Props {
     setId: React.Dispatch<React.SetStateAction<string>>;
-    onSubmit: () => void;
 }
 
 function LoginForm(props: Props) {
@@ -44,7 +43,6 @@ function LoginForm(props: Props) {
             setShowAlert(true);
         } else if (data != "-1") {
             props.setId(data);
-            props.onSubmit();
         }
 
         setValidated(true);

@@ -12,7 +12,6 @@ import MCQuestion from "./components/questions/multiple select/MCQuestions";
 import ProgressBarWithLabel from "./components/questions/ProgressBar";
 import { Container, Stack } from "react-bootstrap";
 import Header from "./components/questions/Header";
-import { postLogin } from "./api calls/postLogin";
 
 function App() {
     const [submittedPatientInfo, setSubmittedPatientInfo] = useState(false);
@@ -25,6 +24,7 @@ function App() {
     const [q_id, setQ_id] = useState("1");
     const [instructions, setInstructions] = useState("");
     const [imageUrl, setImageUrl] = useState("");
+    const [videoUrl, setVideoUrl] = useState("");
     const [mc, setMc] = useState(false);
 
     async function handleFormSubmit() {
@@ -40,6 +40,7 @@ function App() {
             setInstructions,
             setOptions,
             setImageUrl,
+            setVideoUrl,
             setMc
         );
         setSelectedOption("");
@@ -57,6 +58,7 @@ function App() {
             setInstructions,
             setOptions,
             setImageUrl,
+            setVideoUrl,
             setMc,
             setSelectedOptionsMC
         );
@@ -70,6 +72,7 @@ function App() {
             setInstructions,
             setOptions,
             setImageUrl,
+            setVideoUrl,
             setMc
         );
     }
@@ -97,9 +100,7 @@ function App() {
 
     return (
         <div className="container min-vh-100 d-flex justify-content-center align-items-center">
-            {id === "" && (
-                <LoginForm setId={setId} onSubmit={() => console.log("lamo")} />
-            )}
+            {id === "" && <LoginForm setId={setId} />}
             {id != "" && !submittedPatientInfo && (
                 <PatientForm
                     onSubmit={handlePatientFormSubmit}
@@ -114,6 +115,7 @@ function App() {
                             {section != "42" && (
                                 <Header
                                     imageUrl={imageUrl}
+                                    videoUrl={videoUrl}
                                     instructions={instructions}
                                 />
                             )}

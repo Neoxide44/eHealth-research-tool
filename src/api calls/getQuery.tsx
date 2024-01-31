@@ -5,6 +5,7 @@ export const getQuery = async (
     setInstructions: React.Dispatch<React.SetStateAction<string>>,
     setOptions: React.Dispatch<React.SetStateAction<string[]>>,
     setImageUrl: React.Dispatch<React.SetStateAction<string>>,
+    setVideoUrl: React.Dispatch<React.SetStateAction<string>>,
     setMc: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
     const endpoint = `http://localhost:3000/queries/${section}/${q_id}`;
@@ -27,6 +28,7 @@ export const getQuery = async (
         setInstructions(data.instructions);
         setOptions(data.answers);
         setImageUrl(data.imageUrl);
+        setVideoUrl(data.videoUrl);
         setMc(data.mc);
     } catch (error) {
         console.error("Error:", error);

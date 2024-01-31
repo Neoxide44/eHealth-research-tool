@@ -12,6 +12,7 @@ export const postQuery = async (
     setInstructions: React.Dispatch<React.SetStateAction<string>>,
     setOptions: React.Dispatch<React.SetStateAction<string[]>>,
     setImageUrl: React.Dispatch<React.SetStateAction<string>>,
+    setVideoUrl: React.Dispatch<React.SetStateAction<string>>,
     setMc: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
     const postData = {
@@ -51,6 +52,7 @@ export const postQuery = async (
                 setInstructions,
                 setOptions,
                 setImageUrl,
+                setVideoUrl,
                 setMc
             );
         }

@@ -12,6 +12,7 @@ export const postQueryMC = async (
     setInstructions: React.Dispatch<React.SetStateAction<string>>,
     setOptions: React.Dispatch<React.SetStateAction<string[]>>,
     setImageUrl: React.Dispatch<React.SetStateAction<string>>,
+    setVideoUrl: React.Dispatch<React.SetStateAction<string>>,
     setMc: React.Dispatch<React.SetStateAction<boolean>>,
     setSelectedOptionsMC: React.Dispatch<React.SetStateAction<string[]>>
 ) => {
@@ -52,6 +53,7 @@ export const postQueryMC = async (
             setInstructions,
             setOptions,
             setImageUrl,
+            setVideoUrl,
             setMc
         );
     } catch (error) {
