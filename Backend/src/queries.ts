@@ -25,3 +25,5 @@ export const getAnswer =
 
 export const addOutcome =
     "INSERT INTO outcomes (uuid, section, outcome) VALUES ($1, $2, $3)";
+
+export const getOutcomes = "SELECT * FROM outcomes WHERE uuid = $1";

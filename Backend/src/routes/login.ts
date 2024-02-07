@@ -8,7 +8,7 @@ const loginRouter = Router();
 
 // Add your CRUD API implementation here
 
-loginRouter.post("/login", (req: Request, res: Response) => {
+loginRouter.post("", (req: Request, res: Response) => {
     const loginData: LoginData = {
         id: uuid(),
         email: req.body.email,
