@@ -12,6 +12,7 @@ import MCQuestion from "./components/questions/multiple select/MCQuestions";
 import ProgressBarWithLabel from "./components/questions/ProgressBar";
 import { Container, Stack } from "react-bootstrap";
 import Header from "./components/questions/Header";
+import OutcomesTable from "./components/end page/table";
 
 function App() {
     const [submittedPatientInfo, setSubmittedPatientInfo] = useState(false);
@@ -151,7 +152,7 @@ function App() {
                                 <ProgressBarWithLabel section={section} />
                             )}
 
-                            {section === "42" && <h1>fin.</h1>}
+                            {section === "42" && <OutcomesTable id={id} />}
                         </Stack>
                     </Container>
                 </div>
