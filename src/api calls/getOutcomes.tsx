@@ -6,7 +6,7 @@ interface OutcomeData {
 }
 
 export const getOutcomes = async (
-    id: string,
+    id: string | undefined,
     setData: React.Dispatch<React.SetStateAction<OutcomeData[]>>
 ) => {
     const endpoint = `http://localhost:3000/outcome/${id}`;

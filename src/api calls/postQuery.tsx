@@ -1,13 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import { getQuery } from "./getQuery";
 
 export const postQuery = async (
-    q_id: string,
-    id: string,
-    section: string,
+    q_id: string | undefined,
+    id: string | undefined,
+    section: string | undefined,
     question: string,
     answer: string,
-    setSection: React.Dispatch<React.SetStateAction<string>>,
-    setQ_id: React.Dispatch<React.SetStateAction<string>>,
+    navigate: ReturnType<typeof useNavigate>,
     setQuestion: React.Dispatch<React.SetStateAction<string>>,
     setInstructions: React.Dispatch<React.SetStateAction<string>>,
     setOptions: React.Dispatch<React.SetStateAction<string[]>>,
@@ -41,13 +41,14 @@ export const postQuery = async (
         }
 
         const nextQ = await response.json();
-        setSection(nextQ.nextSection);
-        setQ_id(nextQ.nextQuestion);
 
-        if (nextQ.nextSection != "42") {
+        if (nextQ.nextSection === "42") {
+            navigate(`/outcome/${id}`);
+            location.reload();
+        } else {
             await getQuery(
-                nextQ.nextSection,
-                nextQ.nextQuestion,
+                section,
+                q_id,
                 setQuestion,
                 setInstructions,
                 setOptions,
@@ -55,6 +56,8 @@ export const postQuery = async (
                 setVideoUrl,
                 setMc
             );
+            navigate(`/quiz/${nextQ.nextSection}/${nextQ.nextQuestion}/${id}`);
+            location.reload();
         }
     } catch (error) {
         console.error("Error:", error);

@@ -1,6 +1,6 @@
 export const getQuery = async (
-    section: string,
-    q_id: string,
+    section: string | undefined,
+    q_id: string | undefined,
     setQuestion: React.Dispatch<React.SetStateAction<string>>,
     setInstructions: React.Dispatch<React.SetStateAction<string>>,
     setOptions: React.Dispatch<React.SetStateAction<string[]>>,

@@ -1,25 +1,22 @@
-export const postPatient = async (
-    firstName: string,
-    lastName: string,
-    date: Date,
-    id: string | undefined
-) => {
-    const postData = {
-        firstName: firstName,
-        lastName: lastName,
-        date: date,
-        uuid: id,
-    };
+interface Answers {
+    section: string;
+    question: string;
+    answer: string;
+}
 
-    const endpoint = `http://localhost:3000/patients/patient`;
+export const getAnswers = async (
+    id: string | undefined,
+    setData: React.Dispatch<React.SetStateAction<Answers[]>>
+) => {
+    const endpoint = `http://localhost:3000/answers/${id}`;
+    console.log(endpoint);
 
     try {
         const response = await fetch(endpoint, {
-            method: "POST",
+            method: "GET",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(postData),
         });
 
         if (!response.ok) {
@@ -27,7 +24,7 @@ export const postPatient = async (
         }
 
         const data = await response.json();
-        return data;
+        setData(data);
     } catch (error) {
         console.error("Error:", error);
         throw error; // Propagate the error up if needed

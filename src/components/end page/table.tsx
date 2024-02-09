@@ -1,7 +1,9 @@
 import Table from "react-bootstrap/Table";
 import { getOutcomes } from "../../api calls/getOutcomes";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Button } from "react-bootstrap";
+import { Button, ButtonGroup } from "react-bootstrap";
+import { getAnswers } from "../../api calls/getAnswers";
 
 interface OutcomeData {
     section: string;
@@ -9,16 +11,21 @@ interface OutcomeData {
     id: string;
     uuid: string;
 }
-
-interface Props {
-    id: string;
+interface Answers {
+    section: string;
+    question: string;
+    answer: string;
 }
 
-function OutcomesTable(props: Props) {
-    const [data, setData] = useState<OutcomeData[]>([]);
+function OutcomesTable() {
+    const { id } = useParams<{ id: string }>();
+    const [outcomeData, setOutcomeData] = useState<OutcomeData[]>([]);
+    const [answers, setAnswers] = useState<Answers[]>([]);
+    const [showOutcomes, setShowOutcomes] = useState(true);
     useEffect(() => {
         // Fetch data when component mounts
-        getOutcomes(props.id, setData);
+        getOutcomes(id, setOutcomeData);
+        getAnswers(id, setAnswers);
     }, []);
 
     const exportToCsv = () => {
@@ -27,7 +34,9 @@ function OutcomesTable(props: Props) {
             "data:text/csv;charset=utf-8," +
             headers.join(",") +
             "\n" +
-            data.map((row) => `${row.section},${row.outcome}`).join("\n");
+            outcomeData
+                .map((row) => `${row.section},${row.outcome}`)
+                .join("\n");
         const encodedUri = encodeURI(csvContent);
         const link = document.createElement("a");
         link.setAttribute("href", encodedUri);
@@ -38,24 +47,66 @@ function OutcomesTable(props: Props) {
 
     return (
         <div>
-            <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        <th>Section</th>
-                        <th>Outcome</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.map((value, key) => {
-                        return (
-                            <tr key={key}>
-                                <td>{value.section}</td>
-                                <td>{value.outcome}</td>
-                            </tr>
-                        );
-                    })}
-                </tbody>
-            </Table>
+            {showOutcomes && (
+                <Table striped bordered hover>
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Outcome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {outcomeData.map((value, key) => {
+                            return (
+                                <tr key={key}>
+                                    <td>{value.section}</td>
+                                    <td>{value.outcome}</td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </Table>
+            )}
+            {!showOutcomes && (
+                <Table striped bordered hover>
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Question</th>
+                            <th>Answer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {answers.map((value, key) => {
+                            return (
+                                <tr key={key}>
+                                    <td>{value.section}</td>
+                                    <td>{value.question}</td>
+                                    <td>{value.answer}</td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </Table>
+            )}
+            <ButtonGroup className="me-2" aria-label="button group">
+                <Button
+                    onClick={() => {
+                        setShowOutcomes(true);
+                    }}
+                    disabled={showOutcomes}
+                >
+                    Show Outcomes
+                </Button>
+                <Button
+                    onClick={() => {
+                        setShowOutcomes(false);
+                    }}
+                    disabled={!showOutcomes}
+                >
+                    Show Answers
+                </Button>
+            </ButtonGroup>
             <Button variant="primary" onClick={exportToCsv}>
                 Export to CSV
             </Button>
