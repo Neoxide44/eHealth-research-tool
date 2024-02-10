@@ -16,6 +16,8 @@ import sectionNineRouter from "./src/routes/quiz/sectionNine";
 import sectionTenRouter from "./src/routes/quiz/sectionTen";
 import loginRouter from "./src/routes/login";
 import outcomeRouter from "./src/routes/outcomes";
+import registerRouter from "./src/routes/register";
+import dataRouter from "./src/routes/data";
 
 //For env File
 dotenv.config();
@@ -40,7 +42,9 @@ app.use("/queries/8", sectionEightRouter);
 app.use("/queries/9", sectionNineRouter);
 app.use("/queries/10", sectionTenRouter);
 app.use("/login", loginRouter);
+app.use("/register", registerRouter);
 app.use("/outcome", outcomeRouter);
+app.use("/answers", dataRouter);
 
 app.get("/", (req: Request, res: Response) => {
     res.send("Welcome to Express & TypeScript Server");

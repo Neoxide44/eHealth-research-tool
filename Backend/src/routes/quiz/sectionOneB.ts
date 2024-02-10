@@ -3,7 +3,7 @@ import { saveQuery } from "../../models/saveQuery";
 import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
 import { addData } from "../../queries";
-import { checkAnswer } from "../../queries";
+import { getAnswer } from "../../queries";
 import { addOutcome } from "../../queries";
 
 const sectionOneBRouter = Router();
@@ -197,7 +197,7 @@ sectionOneBRouter.post("/4", (req: Request, res: Response) => {
     );
     let check = false;
 
-    pool.query(checkAnswer, [data.uuid, "4", 2], (error, results) => {
+    pool.query(getAnswer, [data.uuid, "4", 2], (error, results) => {
         if (error) throw error;
 
         check = results.rows[0].answer.includes(
@@ -271,7 +271,7 @@ sectionOneBRouter.post("/5", (req: Request, res: Response) => {
     );
     let check = false;
 
-    pool.query(checkAnswer, [data.uuid, "4", 2], (error, results) => {
+    pool.query(getAnswer, [data.uuid, "4", 2], (error, results) => {
         if (error) throw error;
 
         check = results.rows[0].answer.includes(
@@ -388,7 +388,7 @@ sectionOneBRouter.post("/7", (req: Request, res: Response) => {
     );
     let check = false;
 
-    pool.query(checkAnswer, [data.uuid, "4", 2], (error, results) => {
+    pool.query(getAnswer, [data.uuid, "4", 2], (error, results) => {
         if (error) throw error;
         check = results.rows[0].answer.includes(
             "Participant is UNABLE to WALK ON A LINE"
@@ -458,7 +458,7 @@ sectionOneBRouter.post("/8", (req: Request, res: Response) => {
     );
     let check = false;
 
-    pool.query(checkAnswer, [data.uuid, "4", 2], (error, results) => {
+    pool.query(getAnswer, [data.uuid, "4", 2], (error, results) => {
         if (error) throw error;
         check = results.rows[0].answer.includes(
             "Participant is UNABLE to WALK ON A LINE"

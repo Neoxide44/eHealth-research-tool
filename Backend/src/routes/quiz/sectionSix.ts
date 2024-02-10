@@ -2,7 +2,7 @@ import { Router, Request, Response } from "express";
 import { saveQuery } from "../../models/saveQuery";
 import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
-import { addData, addOutcome, checkAnswer } from "../../queries";
+import { addData, addOutcome, getAnswer } from "../../queries";
 
 const sectionSixRouter = Router();
 
@@ -145,7 +145,7 @@ sectionSixRouter.post("/3", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
 
-    pool.query(checkAnswer, [data.uuid, "6", 2], (error, results) => {
+    pool.query(getAnswer, [data.uuid, "6", 2], (error, results) => {
         if (error) throw error;
         if (
             results.rows[0].answer.includes(
