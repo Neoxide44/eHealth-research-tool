@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginForm from "./components/login form/LoginForm";
-import "./index.css";
 import PatientForm from "./components/info form/PatientForm";
 import RegisterForm from "./components/login form/RegisterForm";
 import OutcomesTable from "./components/end page/table";

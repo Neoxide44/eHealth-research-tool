@@ -29,20 +29,43 @@ function OutcomesTable() {
     }, []);
 
     const exportToCsv = () => {
-        const headers = ["Section", "Outcome"];
-        const csvContent =
+        // Export outcomes to CSV
+        const outcomeHeaders = ["Section", "Outcome"];
+        const outcomeCsvContent =
             "data:text/csv;charset=utf-8," +
-            headers.join(",") +
+            outcomeHeaders.join(",") +
             "\n" +
             outcomeData
                 .map((row) => `${row.section},${row.outcome}`)
                 .join("\n");
-        const encodedUri = encodeURI(csvContent);
-        const link = document.createElement("a");
-        link.setAttribute("href", encodedUri);
-        link.setAttribute("download", "table_data.csv");
-        document.body.appendChild(link);
-        link.click();
+        const outcomeEncodedUri = encodeURI(outcomeCsvContent);
+        const outcomeLink = document.createElement("a");
+        outcomeLink.setAttribute("href", outcomeEncodedUri);
+        outcomeLink.setAttribute("download", "outcomes.csv");
+        document.body.appendChild(outcomeLink);
+        outcomeLink.click();
+
+        // Export answers to CSV
+        const answerHeaders = ["Section", "Question", "Answer"];
+        const answerCsvContent =
+            "data:text/csv;charset=utf-8," +
+            answerHeaders.join(",") +
+            "\n" +
+            answers
+                .map((row) => {
+                    // Enclose each value within double quotes and properly escape any double quotes within the values
+                    const section = `"${row.section.replace(/"/g, '""')}"`;
+                    const question = `"${row.question.replace(/"/g, '""')}"`;
+                    const answer = `"${row.answer.replace(/"/g, '""')}"`;
+                    return `${section},${question},${answer}`;
+                })
+                .join("\n");
+        const answerEncodedUri = encodeURI(answerCsvContent);
+        const answerLink = document.createElement("a");
+        answerLink.setAttribute("href", answerEncodedUri);
+        answerLink.setAttribute("download", "answers.csv");
+        document.body.appendChild(answerLink);
+        answerLink.click();
     };
 
     return (

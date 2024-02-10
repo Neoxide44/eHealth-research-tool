@@ -171,10 +171,12 @@ function RegisterForm() {
                 </div>
             )}
             {success && (
-                <Link to="/">
+                <div>
                     <h2>Credentials created!</h2>
-                    <Button>Click me to go to login page</Button>
-                </Link>
+                    <Link to="/">
+                        <Button>Click me to go to login page</Button>
+                    </Link>
+                </div>
             )}
         </div>
     );

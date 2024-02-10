@@ -44,57 +44,23 @@ function Header(props: Props) {
             </Alert>
 
             {/* Buttons */}
-            <ButtonGroup aria-label="Basic example">
-                <Button
-                    variant="primary"
-                    size="sm"
-                    onClick={handleShowInstructions}
-                >
-                    <FaInfo />
-                </Button>
-                <Button variant="primary" size="sm" onClick={handleShowImage}>
+            <Button
+                variant="primary"
+                size="sm"
+                onClick={handleShowInstructions}
+            >
+                <FaInfo />
+            </Button>
+            <a href={props.imageUrl} target="_blank">
+                <Button variant="primary" size="sm">
                     <FaCamera />
                 </Button>
-                <Button variant="primary" size="sm" onClick={handleShowVideo}>
+            </a>
+            <a href={props.videoUrl} target="_blank">
+                <Button variant="primary" size="sm">
                     <FaVideo />
                 </Button>
-            </ButtonGroup>
-
-            {/* Image */}
-            <Modal
-                show={showImage}
-                onHide={handleCloseImage}
-                keyboard={false}
-                size="lg"
-            >
-                <Modal.Header closeButton></Modal.Header>
-                <Modal.Body>
-                    <iframe
-                        src={props.imageUrl}
-                        width="100%"
-                        height="480"
-                        allow="autoplay"
-                    ></iframe>
-                </Modal.Body>
-            </Modal>
-
-            {/* Video */}
-            <Modal
-                show={showVideo}
-                onHide={handleCloseVideo}
-                keyboard={false}
-                size="lg"
-            >
-                <Modal.Header closeButton></Modal.Header>
-                <Modal.Body>
-                    <iframe
-                        src={props.videoUrl}
-                        width="100%"
-                        height="480"
-                        allow="autoplay"
-                    ></iframe>
-                </Modal.Body>
-            </Modal>
+            </a>
         </div>
     );
 }
