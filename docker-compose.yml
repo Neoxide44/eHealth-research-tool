@@ -1,0 +1,47 @@
+version: "3"
+services:
+    db:
+        image: postgres
+        container_name: db
+        restart: always
+        tty: true
+        environment:
+            - POSTGRES_PASSWORD=password
+        volumes:
+            - ./data:/var/lib/postgresql/data
+        ports:
+            - "5432:5432"
+        networks:
+            - node-network
+
+    backend:
+        image: backend
+        build:
+            context: ./Backend
+            dockerfile: Dockerfile
+        networks:
+            - node-network
+        tty: true
+        ports:
+            - "3000:3000"
+
+        depends_on:
+            - db
+
+    frontend:
+        image: frontend
+        build:
+            context: ./Frontend
+            dockerfile: Dockerfile
+        networks:
+            - node-network
+        tty: true
+        ports:
+            - "8080:8080"
+
+        depends_on:
+            - backend
+
+networks:
+    node-network:
+        driver: bridge

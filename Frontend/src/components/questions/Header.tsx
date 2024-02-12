@@ -1,8 +1,5 @@
-import React from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Alert from "react-bootstrap/Alert";
 import { FaXmark, FaCamera, FaInfo, FaVideo } from "react-icons/fa6";
 import "./InstructionAlert.css";
@@ -15,16 +12,10 @@ interface Props {
 
 function Header(props: Props) {
     const [showInstructions, setShowInstructions] = useState(false);
-    const [showImage, setShowImage] = useState(false);
-    const [showVideo, setShowVideo] = useState(false);
 
-    const handleCloseImage = () => setShowImage(false);
     const handleCloseInstructions = () => setShowInstructions(false);
-    const handleCloseVideo = () => setShowVideo(false);
 
-    const handleShowImage = () => setShowImage(true);
     const handleShowInstructions = () => setShowInstructions(true);
-    const handleShowVideo = () => setShowVideo(true);
 
     return (
         <div>

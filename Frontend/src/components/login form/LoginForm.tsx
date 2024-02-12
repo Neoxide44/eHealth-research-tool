@@ -36,6 +36,7 @@ function LoginForm() {
         console.log(email);
         console.log(password);
         console.log(data);
+        console.log(id);
 
         if (data === "Wrong email") {
             setAlertHeading("Incorrect email address");

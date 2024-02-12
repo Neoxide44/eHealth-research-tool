@@ -18,6 +18,7 @@ import loginRouter from "./src/routes/login";
 import outcomeRouter from "./src/routes/outcomes";
 import registerRouter from "./src/routes/register";
 import dataRouter from "./src/routes/data";
+import db_setup from "./src/dbsetup";
 
 //For env File
 dotenv.config();
@@ -27,6 +28,8 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
+
+db_setup();
 
 app.use("/patients", patientRouter);
 app.use("/queries/1a", sectionOneARouter);
