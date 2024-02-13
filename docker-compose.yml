@@ -7,7 +7,7 @@ services:
         tty: true
         environment:
             - POSTGRES_DB=postgres
-            - POSTGRES_USER=POSTGRES
+            - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=password
         volumes:
             - ./data:/var/lib/postgresql/data
