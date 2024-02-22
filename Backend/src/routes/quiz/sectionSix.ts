@@ -203,7 +203,6 @@ sectionSixRouter.post("/3", (req: Request, res: Response) => {
             }
         });
 
-        console.log(outcome);
         pool.query(
             addOutcome,
             [data.uuid, data.section, outcome],

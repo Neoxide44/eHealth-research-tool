@@ -15,7 +15,6 @@ function PatientForm() {
 
     async function handleSubmit() {
         const data = await postPatient(firstName, lastName, date, id);
-        console.log(data);
         navigate(`/quiz/1a/1/${id}`);
     }
 

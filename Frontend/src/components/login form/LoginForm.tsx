@@ -27,17 +27,8 @@ function LoginForm() {
     async function handleSubmit(e: FormEvent) {
         const form = e.currentTarget as HTMLFormElement;
         let data = "-1";
-        if (form.checkValidity() === false) {
-            console.log("idk");
-        }
 
         data = await postLogin(email, password);
-
-        console.log(email);
-        console.log(password);
-        console.log(data);
-        console.log(id);
-
         if (data === "Wrong email") {
             setAlertHeading("Incorrect email address");
             setAlertText("Please try entering your email address again");

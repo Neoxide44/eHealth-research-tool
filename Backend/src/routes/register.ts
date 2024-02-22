@@ -12,7 +12,6 @@ registerRouter.post("", (req: Request, res: Response) => {
     //check is email already in use
     pool.query(checkEmail, [email], (error, results) => {
         if (error) throw error;
-        console.log(results.rowCount);
         //If rowCOunt === 0 means email isn't in use
         if (results.rowCount === 0) {
             //Add email oassword pair to database

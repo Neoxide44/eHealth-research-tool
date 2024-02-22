@@ -211,9 +211,6 @@ sectionOneBRouter.post("/4", (req: Request, res: Response) => {
             nextSectionID = "5";
         }
 
-        console.log(check);
-        console.log(nextSectionID);
-
         res.status(200).json({
             nextQuestion: nextQuestionID,
             nextSection: nextSectionID,

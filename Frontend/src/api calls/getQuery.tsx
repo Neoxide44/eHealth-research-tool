@@ -9,7 +9,6 @@ export const getQuery = async (
     setMc: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
     const endpoint = `http://localhost:3000/queries/${section}/${q_id}`;
-    console.log(endpoint);
 
     try {
         const response = await fetch(endpoint, {

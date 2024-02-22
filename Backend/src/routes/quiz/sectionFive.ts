@@ -662,8 +662,6 @@ sectionFiveRouter.post("/11", (req: Request, res: Response) => {
                 parseInt(data.answer) + parseInt(results.rows[0].answer)
             );
 
-            console.log(data.answer);
-
             pool.query(
                 addData,
                 [

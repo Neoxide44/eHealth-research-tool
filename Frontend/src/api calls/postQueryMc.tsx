@@ -26,8 +26,6 @@ export const postQueryMC = async (
 
     const endpoint = `http://localhost:3000/queries/${section}/${q_id}`;
 
-    console.log("Posting data: ", postData, "to endpoint :", endpoint);
-
     try {
         const response = await fetch(endpoint, {
             method: "POST",

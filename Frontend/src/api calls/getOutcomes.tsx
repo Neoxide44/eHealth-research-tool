@@ -10,8 +10,6 @@ export const getOutcomes = async (
     setData: React.Dispatch<React.SetStateAction<OutcomeData[]>>
 ) => {
     const endpoint = `http://localhost:3000/outcome/${id}`;
-    console.log(endpoint);
-
     try {
         const response = await fetch(endpoint, {
             method: "GET",

@@ -9,8 +9,6 @@ export const getAnswers = async (
     setData: React.Dispatch<React.SetStateAction<Answers[]>>
 ) => {
     const endpoint = `http://localhost:3000/answers/${id}`;
-    console.log(endpoint);
-
     try {
         const response = await fetch(endpoint, {
             method: "GET",

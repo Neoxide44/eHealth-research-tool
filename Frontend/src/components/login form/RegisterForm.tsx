@@ -25,7 +25,6 @@ function RegisterForm() {
         const form = e.currentTarget as HTMLFormElement;
         let data = "-1";
         if (form.checkValidity() === false) {
-            console.log("idk");
         }
         if (password === confirmPassword) {
             data = await postRegisterInfo(email, password);
@@ -34,10 +33,6 @@ function RegisterForm() {
             setAlertText("Please try entering them again");
             setShowAlert(true);
         }
-
-        console.log(email);
-        console.log(password);
-        console.log(data);
 
         if (data === "Email already in use") {
             setAlertHeading("Email already in use");

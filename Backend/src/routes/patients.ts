@@ -23,7 +23,6 @@ patientRouter.post("/patient", (req: Request, res: Response) => {
         (error, results) => {
             if (error) throw error;
             res.status(200).json(patient.id);
-            console.log("yay!");
         }
     );
 });

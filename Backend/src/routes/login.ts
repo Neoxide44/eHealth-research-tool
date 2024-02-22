@@ -17,7 +17,6 @@ loginRouter.post("", (req: Request, res: Response) => {
     //check for email
     pool.query(checkEmail, [loginData.email], (error, results) => {
         if (error) throw error;
-        console.log(results.rowCount);
         if (results.rowCount != 0) {
             //check if password is correct
             pool.query(
