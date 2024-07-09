@@ -30,3 +30,5 @@ export const getData =
 
 export const regiserLoginInfo =
     "INSERT INTO login_info (email, password_hash) VALUES ($1, crypt($2, gen_salt('md5')))";
+
+export const checkCode = "SELECT * FROM code WHERE code = $1";

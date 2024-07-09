@@ -12,6 +12,7 @@ function RegisterForm() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [code, setCode] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -27,7 +28,7 @@ function RegisterForm() {
         if (form.checkValidity() === false) {
         }
         if (password === confirmPassword) {
-            data = await postRegisterInfo(email, password);
+            data = await postRegisterInfo(email, password, code);
         } else {
             setAlertHeading("Passwords don't match");
             setAlertText("Please try entering them again");
@@ -37,6 +38,10 @@ function RegisterForm() {
         if (data === "Email already in use") {
             setAlertHeading("Email already in use");
             setAlertText("Please try entering a different email address");
+            setShowAlert(true);
+        } else if (data == "Incorrect researcher code") {
+            setAlertHeading("Incorrect researcher code");
+            setAlertText("Please try entering a different researcher code");
             setShowAlert(true);
         } else if (data === "Success") {
             setSuccess(true);
@@ -83,6 +88,21 @@ function RegisterForm() {
                                 />
                                 <Form.Control.Feedback type="invalid">
                                     Please enter a valid email
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                            <Form.Group
+                                className="mb-3"
+                                controlId="formResearcherCode"
+                            >
+                                <Form.Label>Researcher Code</Form.Label>
+                                <Form.Control
+                                    required
+                                    type="researcher code"
+                                    placeholder="Enter researcher code"
+                                    onChange={(e) => setCode(e.target.value)}
+                                />
+                                <Form.Control.Feedback type="invalid">
+                                    Please enter a valid researcher code
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group

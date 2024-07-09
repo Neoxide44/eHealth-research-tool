@@ -1,7 +1,12 @@
-export const postRegisterInfo = async (email: string, password: string) => {
+export const postRegisterInfo = async (
+    email: string,
+    password: string,
+    code: string
+) => {
     const postData = {
         email: email,
         password: password,
+        code: code,
     };
 
     const endpoint = `http://localhost:3000/register`;

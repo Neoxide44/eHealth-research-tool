@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express";
 import pool from "../../db";
-import { checkEmail, regiserLoginInfo } from "../queries";
+import { checkEmail, regiserLoginInfo, checkCode } from "../queries";
 
 const registerRouter = Router();
 
@@ -9,15 +9,29 @@ const registerRouter = Router();
 registerRouter.post("", (req: Request, res: Response) => {
     const email = req.body.email;
     const pass = req.body.password;
+    const code = req.body.code;
     //check is email already in use
     pool.query(checkEmail, [email], (error, results) => {
         if (error) throw error;
         //If rowCOunt === 0 means email isn't in use
         if (results.rowCount === 0) {
-            //Add email oassword pair to database
-            pool.query(regiserLoginInfo, [email, pass], (error, results) => {
+            //Check if code was correct
+            pool.query(checkCode, [code], (error, results) => {
                 if (error) throw error;
-                res.status(200).json("Success");
+                //If rowCOunt === 0 means email isn't in use
+                if (results.rowCount === 1) {
+                    //Add email oassword pair to database
+                    pool.query(
+                        regiserLoginInfo,
+                        [email, pass],
+                        (error, results) => {
+                            if (error) throw error;
+                            res.status(200).json("Success");
+                        }
+                    );
+                } else {
+                    res.status(200).json("Incorrect researcher code");
+                }
             });
         } else {
             res.status(200).json("Email already in use");
