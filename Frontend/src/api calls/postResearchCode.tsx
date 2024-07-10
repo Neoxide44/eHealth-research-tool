@@ -1,10 +1,9 @@
-export const postRegisterInfo = async (email: string, password: string) => {
+export const postResearchCode = async (code: string) => {
     const postData = {
-        email: email,
-        password: password,
+        code: code,
     };
 
-    const endpoint = `http://localhost:3000/register`;
+    const endpoint = `http://localhost:3000/code`;
 
     try {
         const response = await fetch(endpoint, {

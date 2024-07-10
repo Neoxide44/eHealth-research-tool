@@ -19,6 +19,7 @@ import outcomeRouter from "./src/routes/outcomes";
 import registerRouter from "./src/routes/register";
 import dataRouter from "./src/routes/data";
 import db_setup from "./src/dbsetup";
+import codeRouter from "./src/routes/research_code";
 
 //For env File
 dotenv.config();
@@ -48,6 +49,7 @@ app.use("/login", loginRouter);
 app.use("/register", registerRouter);
 app.use("/outcome", outcomeRouter);
 app.use("/answers", dataRouter);
+app.use("/code", codeRouter);
 
 app.get("/", (req: Request, res: Response) => {
     res.send("Welcome to Express & TypeScript Server");
