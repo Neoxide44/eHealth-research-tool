@@ -9,17 +9,24 @@ const patientRouter = Router();
 // Add your CRUD API implementation here
 
 patientRouter.post("/patient", (req: Request, res: Response) => {
-    const [year, month, day] = req.body.date.split("-");
-
     const patient: Patient = {
+        gender: req.body.gender,
+        yearOfBirth: req.body.yearOfBirth,
+        numEdu: req.body.numEdu,
+        language: req.body.language,
+        participantCode: req.body.participantCode,
         id: req.body.uuid,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        birthDate: new Date(`${year}-${month}-${day}`),
     };
     pool.query(
         addPatient,
-        [patient.firstName, patient.lastName, patient.birthDate, patient.id],
+        [
+            patient.gender,
+            patient.yearOfBirth,
+            patient.numEdu,
+            patient.language,
+            patient.participantCode,
+            patient.id,
+        ],
         (error, results) => {
             if (error) throw error;
             res.status(200).json(patient.id);

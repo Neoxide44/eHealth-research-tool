@@ -30,7 +30,7 @@ function db_setup() {
                                     if (error) throw error;
                                     //Create patients
                                     pool.query(
-                                        "CREATE TABLE IF NOT EXISTS patients (id SERIAL NOT NULL PRIMARY KEY, first_name VARCHAR(255), last_name VARCHAR(255), dob DATE, uuid VARCHAR(255) REFERENCES user_entries(uuid))",
+                                        "CREATE TABLE IF NOT EXISTS participant_info (id SERIAL NOT NULL PRIMARY KEY, gender VARCHAR(255), year_of_birth INTEGER, num_edu INTEGER, language VARCHAR(255), participant_code VARCHAR(255), uuid VARCHAR(255) REFERENCES user_entries(uuid))",
                                         [],
                                         (error, results) => {
                                             if (error) throw error;
@@ -48,7 +48,7 @@ function db_setup() {
                                                             if (error)
                                                                 throw error;
                                                             pool.query(
-                                                                "INSERT INTO code (code) VALUES ('0000')",
+                                                                "INSERT INTO code (code) SELECT '0000' WHERE NOT EXISTS (SELECT 1 FROM code WHERE code = '0000');",
                                                                 [],
                                                                 (
                                                                     error,

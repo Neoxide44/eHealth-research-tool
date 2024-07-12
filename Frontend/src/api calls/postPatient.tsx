@@ -1,13 +1,17 @@
 export const postPatient = async (
-    firstName: string,
-    lastName: string,
-    date: Date,
+    gender: string,
+    numEdu: number,
+    yearOfBirth: string,
+    language: string,
+    participantCode: string,
     id: string | undefined
 ) => {
     const postData = {
-        firstName: firstName,
-        lastName: lastName,
-        date: date,
+        gender: gender,
+        numEdu: numEdu,
+        yearOfBirth: yearOfBirth,
+        language: language,
+        participantCode: participantCode,
         uuid: id,
     };
 
