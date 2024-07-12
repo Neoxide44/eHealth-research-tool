@@ -39,7 +39,7 @@ function ProjectCodeForm() {
 
     return (
         <Container className="d-flex flex-column vh-100 justify-content-center align-items-center">
-            <Row className="text-center">
+            <Row className="text-center mb-5">
                 <Col>
                     <h2>Welcome to the NeuroEpiTool</h2>
                     <h3>
@@ -62,7 +62,7 @@ function ProjectCodeForm() {
                     <p>{alertText}</p>
                 </Alert>
             )}
-            <Row className="mt-4 text-center">
+            <Row className="mt-auto text-center mb-5">
                 <Col className="d-flex justify-content-center align-items-center">
                     <Form
                         noValidate
