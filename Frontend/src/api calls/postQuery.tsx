@@ -43,6 +43,11 @@ export const postQuery = async (
         if (nextQ.nextSection === "42") {
             navigate(`/outcome/${id}`);
             location.reload();
+        } else if (nextQ.nextSection === "9" && nextQ.nextQuestion === 4) {
+            navigate(
+                `/circle/${nextQ.nextSection}/${nextQ.nextQuestion}/${id}`
+            );
+            location.reload();
         } else {
             await getQuery(
                 section,

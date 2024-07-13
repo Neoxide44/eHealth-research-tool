@@ -27,7 +27,11 @@ function Question(props: Props) {
                     selectedOption={props.selectedOption}
                     onOptionChange={props.onOptionChange}
                 />
-                <Button type="submit" className="btn btn-primary mt-2">
+                <Button
+                    type="submit"
+                    className="btn btn-primary mt-2"
+                    disabled={!props.selectedOption}
+                >
                     SUBMIT
                 </Button>
             </Form>

@@ -5,6 +5,7 @@ import RegisterForm from "./components/login form/RegisterForm";
 import OutcomesTable from "./components/end page/table";
 import Quiz from "./components/questions/Quiz";
 import ProjectCodeForm from "./components/login form/ProjectCodeForm";
+import EyeQuestion from "./components/questions/circle page/CircleQuestion";
 
 function App() {
     return (
@@ -18,6 +19,10 @@ function App() {
                     <Route
                         path="/quiz/:section/:q_id/:id"
                         element={<Quiz />}
+                    ></Route>
+                    <Route
+                        path="/circle/:section/:q_id/:id"
+                        element={<EyeQuestion />}
                     ></Route>
                     <Route path="/outcome/:id" element={<OutcomesTable />} />
                 </Routes>
