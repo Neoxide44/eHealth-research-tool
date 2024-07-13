@@ -22,8 +22,18 @@ export const addOutcome =
 
 export const getOutcomes = "SELECT * FROM outcomes WHERE uuid = $1";
 
+export const deleteOutcomes = "DELETE FROM outcomes WHERE uuid = $1";
+
+export const getParticipantInfo =
+    "SELECT * FROM participant_info WHERE uuid = $1";
+
+export const deleteParticipantInfo =
+    "DELETE FROM participant_info WHERE uuid = $1";
+
 export const getData =
     "SELECT section, question, answer FROM data WHERE uuid = $1;";
+
+export const deleteData = "DELETE FROM data WHERE uuid = $1;";
 
 export const regiserLoginInfo =
     "INSERT INTO login_info (email, password_hash) VALUES ($1, crypt($2, gen_salt('md5')))";

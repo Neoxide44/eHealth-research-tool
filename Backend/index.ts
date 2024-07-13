@@ -20,6 +20,7 @@ import registerRouter from "./src/routes/register";
 import dataRouter from "./src/routes/data";
 import db_setup from "./src/dbsetup";
 import codeRouter from "./src/routes/research_code";
+import participantInfoRouter from "./src/routes/participant_info";
 
 //For env File
 dotenv.config();
@@ -50,6 +51,7 @@ app.use("/register", registerRouter);
 app.use("/outcome", outcomeRouter);
 app.use("/answers", dataRouter);
 app.use("/code", codeRouter);
+app.use("/info", participantInfoRouter);
 
 app.get("/", (req: Request, res: Response) => {
     res.send("Welcome to Express & TypeScript Server");
