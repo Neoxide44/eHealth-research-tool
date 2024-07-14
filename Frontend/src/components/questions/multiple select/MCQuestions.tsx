@@ -28,7 +28,7 @@ function MCQuestion(props: Props) {
                     onOptionChange={props.onOptionChange}
                 />
                 <Button type="submit" className="btn btn-primary mt-2">
-                    SUBMIT
+                    Submit
                 </Button>
             </Form>
         </div>

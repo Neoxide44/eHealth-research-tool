@@ -5,6 +5,7 @@ export const postQuery = async (
     q_id: string | undefined,
     id: string | undefined,
     section: string | undefined,
+    language: string | undefined,
     question: string,
     answer: string,
     navigate: ReturnType<typeof useNavigate>,
@@ -45,7 +46,12 @@ export const postQuery = async (
             location.reload();
         } else if (nextQ.nextSection === "9" && nextQ.nextQuestion === 4) {
             navigate(
-                `/circle/${nextQ.nextSection}/${nextQ.nextQuestion}/${id}`
+                `/circle/${language}/${nextQ.nextSection}/${nextQ.nextQuestion}/${id}`
+            );
+            location.reload();
+        } else if (nextQ.nextSection === "6" && nextQ.nextQuestion === 1) {
+            navigate(
+                `/warning/${language}/${nextQ.nextSection}/${nextQ.nextQuestion}/${id}`
             );
             location.reload();
         } else {
@@ -59,7 +65,9 @@ export const postQuery = async (
                 setVideoUrl,
                 setMc
             );
-            navigate(`/quiz/${nextQ.nextSection}/${nextQ.nextQuestion}/${id}`);
+            navigate(
+                `/quiz/${language}/${nextQ.nextSection}/${nextQ.nextQuestion}/${id}`
+            );
             location.reload();
         }
     } catch (error) {

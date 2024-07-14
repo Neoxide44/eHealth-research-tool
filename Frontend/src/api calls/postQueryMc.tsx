@@ -5,6 +5,7 @@ export const postQueryMC = async (
     q_id: string | undefined,
     id: string | undefined,
     section: string | undefined,
+    language: string | undefined,
     question: string,
     answer: string[],
     setSelectedOptionsMC: React.Dispatch<React.SetStateAction<string[]>>,
@@ -43,6 +44,17 @@ export const postQueryMC = async (
 
         if (nextQ.nextSection === "42") {
             navigate(`/outcome/${id}`);
+            location.reload();
+        } else if (nextQ.nextSection === "9" && nextQ.nextQuestion === 4) {
+            navigate(
+                `/circle/${language}/${nextQ.nextSection}/${nextQ.nextQuestion}/${id}`
+            );
+            location.reload();
+        } else if (nextQ.nextSection === "6" && nextQ.nextQuestion === 1) {
+            navigate(
+                `/warning/${language}/${nextQ.nextSection}/${nextQ.nextQuestion}/${id}`
+            );
+            location.reload();
         } else {
             await getQuery(
                 section,
@@ -54,7 +66,9 @@ export const postQueryMC = async (
                 setVideoUrl,
                 setMc
             );
-            navigate(`/quiz/${nextQ.nextSection}/${nextQ.nextQuestion}/${id}`);
+            navigate(
+                `/quiz/${language}/${nextQ.nextSection}/${nextQ.nextQuestion}/${id}`
+            );
             location.reload();
         }
         setSelectedOptionsMC([]);

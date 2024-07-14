@@ -13,7 +13,7 @@ import MCQuestion from "./multiple select/MCQuestions";
 import { useNavigate } from "react-router-dom";
 
 function Quiz() {
-    const { section, q_id, id } = useParams();
+    const { language, section, q_id, id } = useParams();
     const navigate = useNavigate();
 
     const [question, setQuestion] = useState("IDk");
@@ -47,6 +47,7 @@ function Quiz() {
             q_id,
             id,
             section,
+            language,
             question,
             selectedOption,
             navigate,
@@ -64,6 +65,7 @@ function Quiz() {
             q_id,
             id,
             section,
+            language,
             question,
             selectedOptionsMC,
             setSelectedOptionsMC,
@@ -128,9 +130,7 @@ function Quiz() {
                             selectedOptions={selectedOptionsMC}
                             onOptionChange={handleOptionsChange}
                             onSubmit={() => {
-                                if (selectedOptionsMC.length != 0) {
-                                    handleMCFormSubmit();
-                                }
+                                handleMCFormSubmit();
                             }}
                         />
                     )}

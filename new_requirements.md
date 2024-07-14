@@ -1,7 +1,7 @@
 testing 123
 
 1. ~~Clean database after the session is ended, including data from point 4~~
-2. Have 30 minutes to download the csv or the data is lost
+2. ~~Have 30 minutes to download the csv or the data is lost~~
 3. ~~Add "registration code" to registration page~~
 4. ~~Remove names from patient info, only birth year, years of formal education (enter number), indetifier session code (P01_IT) with a disclaimer not to put names or identifiable info there~~
 5. ~~Everything from previous point should be in the csv file~~
@@ -15,3 +15,4 @@ testing 123
 13. Add a copyright disclaimer at the bottom of the page, Vasco will get exact wording
 14. Update images
 15. Section 5 in multiple languages
+16. Host on uni server

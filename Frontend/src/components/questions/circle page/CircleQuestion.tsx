@@ -8,7 +8,7 @@ import { getQuery } from "../../../api calls/getQuery";
 import { postQuery } from "../../../api calls/postQuery";
 
 const EyeQuestion: React.FC = () => {
-    const { section, q_id, id } = useParams();
+    const { language, section, q_id, id } = useParams();
     const navigate = useNavigate();
 
     const [question, setQuestion] = useState("IDk");
@@ -34,7 +34,7 @@ const EyeQuestion: React.FC = () => {
         };
 
         fetchData();
-    }, []);
+    }, []); // Dependency array is empty so it runs only once on mount
 
     const handleOptionChange = (circle: string, quadrant: string) => {
         setSelectedOption(`${circle} Eye - ${quadrant} Quadrant`);
@@ -45,6 +45,7 @@ const EyeQuestion: React.FC = () => {
             q_id,
             id,
             section,
+            language,
             question,
             selectedOption,
             navigate,

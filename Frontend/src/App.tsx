@@ -6,6 +6,7 @@ import OutcomesTable from "./components/end page/table";
 import Quiz from "./components/questions/Quiz";
 import ProjectCodeForm from "./components/login form/ProjectCodeForm";
 import EyeQuestion from "./components/questions/circle page/CircleQuestion";
+import WarningPage from "./components/questions/warning page/WarningPage";
 
 function App() {
     return (
@@ -17,12 +18,16 @@ function App() {
                     <Route path="/register" element={<RegisterForm />} />
                     <Route path="/patient_form/:id" element={<PatientForm />} />
                     <Route
-                        path="/quiz/:section/:q_id/:id"
+                        path="/quiz/:language/:section/:q_id/:id"
                         element={<Quiz />}
                     ></Route>
                     <Route
-                        path="/circle/:section/:q_id/:id"
+                        path="/circle/:language/:section/:q_id/:id"
                         element={<EyeQuestion />}
+                    ></Route>
+                    <Route
+                        path="/warning/:language/:section/:q_id/:id"
+                        element={<WarningPage />}
                     ></Route>
                     <Route path="/outcome/:id" element={<OutcomesTable />} />
                 </Routes>

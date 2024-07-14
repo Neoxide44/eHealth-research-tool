@@ -32,7 +32,7 @@ function Question(props: Props) {
                     className="btn btn-primary mt-2"
                     disabled={!props.selectedOption}
                 >
-                    SUBMIT
+                    Submit
                 </Button>
             </Form>
         </div>

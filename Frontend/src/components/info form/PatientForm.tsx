@@ -50,7 +50,7 @@ function PatientForm() {
                 participantCode,
                 id
             );
-            navigate(`/quiz/1a/1/${id}`);
+            navigate(`/quiz/${language}/1a/1/${id}`);
         }
         setValidated(true);
     }
