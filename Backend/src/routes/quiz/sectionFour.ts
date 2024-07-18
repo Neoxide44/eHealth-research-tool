@@ -12,15 +12,16 @@ sectionFourRouter.get("/1", (req: Request, res: Response) => {
         q_id: "1",
         section: "4",
         instructions:
-            "Ask the participant to walk in a straight line for 10 steps, stop, then turn around and come back, first on toes and then on heels.",
+            "Ask the participant to walk normally and comfortably for five steps, stop, then turn around and come back on heels. Then, ask them to repeat the walk, this time going on tiptoes for five steps, stop, turn and come back walking in a straight line (one foot in front of the other, the front foot placed such that its heel touches the toe of the standing foot).",
         question:
-            "Is the participant able to WALK ON A LINE, including on TIPTOES, HEELS, and TURNING AROUND?",
+            "Is the participant able to WALK IN A LINE, on TIPTOES, HEELS, and smoothly TURNING AROUND?",
         answers: ["Yes", "No"],
         imageUrl:
             "https://drive.google.com/file/d/1mFOhc12mjfX2rwAIyr1QmkvAeBJXllfW/preview",
         videoUrl:
             "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: true,
+        title: "Walking On A Line",
     };
 
     res.status(200).json(nextQuery);
@@ -63,20 +64,19 @@ sectionFourRouter.get("/2", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "4",
-        instructions:
-            "Ask the participant to walk in a straight line for 10 steps, stop, then turn around and come back, first on toes and then on heels.",
+        instructions: "",
         question: "",
         answers: [
-            "Participant is UNABLE to walk on TIPTOES for more than 5 steps",
-            "Participant is UNABLE to walk on HEELS for more than 5 steps",
-            "Participant is UNABLE to TURN smoothly",
-            "Participant is UNABLE to WALK ON A LINE",
+            "Participant is UNABLE to walk on TIPTOES for 5 steps",
+            "Participant is UNABLE to walk on HEELS for 5 steps",
+            "Participant is UNABLE to TURN SMOOTHLY",
+            "Participant is UNABLE to WALK IN A STRAIGHT LINE for 5 steps ",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/1mFOhc12mjfX2rwAIyr1QmkvAeBJXllfW/preview",
+        imageUrl: "",
         videoUrl:
             "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
+        title: "Walking On A Line",
     };
 
     res.status(200).json(nextQuery);
@@ -139,7 +139,7 @@ sectionFourRouter.post("/2", (req: Request, res: Response) => {
 
     pool.query(
         addOutcome,
-        [data.uuid, data.section, outcome],
+        [data.uuid, data.section, outcome + " - " + data.answer],
         (error, results) => {
             if (error) throw error;
         }

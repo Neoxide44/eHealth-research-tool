@@ -7,4 +7,5 @@ export interface sendQuery {
     imageUrl: string;
     videoUrl: string;
     mc: boolean;
+    title: string;
 }

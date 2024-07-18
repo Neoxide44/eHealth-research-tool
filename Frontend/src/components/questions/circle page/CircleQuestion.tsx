@@ -6,6 +6,7 @@ import ProgressBarWithLabel from "../ProgressBar";
 import { useNavigate, useParams } from "react-router-dom";
 import { getQuery } from "../../../api calls/getQuery";
 import { postQuery } from "../../../api calls/postQuery";
+import "./EyeQuestion.css"; // Import the new CSS file
 
 const EyeQuestion: React.FC = () => {
     const { language, section, q_id, id } = useParams();
@@ -13,11 +14,12 @@ const EyeQuestion: React.FC = () => {
 
     const [question, setQuestion] = useState("IDk");
     const [options, setOptions] = useState(["idk1", "idk2", "idk3"]);
-    const [selectedOption, setSelectedOption] = useState("");
+    const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
     const [instructions, setInstructions] = useState("");
     const [imageUrl, setImageUrl] = useState("");
     const [videoUrl, setVideoUrl] = useState("");
     const [mc, setMc] = useState(false);
+    const [title, setTitle] = useState("");
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,15 +31,16 @@ const EyeQuestion: React.FC = () => {
                 setOptions,
                 setImageUrl,
                 setVideoUrl,
-                setMc
+                setMc,
+                setTitle
             );
         };
 
         fetchData();
     }, []); // Dependency array is empty so it runs only once on mount
 
-    const handleOptionChange = (circle: string, quadrant: string) => {
-        setSelectedOption(`${circle} Eye - ${quadrant} Quadrant`);
+    const handleOptionChange = (updatedOptions: string[]) => {
+        setSelectedOptions(updatedOptions);
     };
 
     async function handleSubmit() {
@@ -47,36 +50,45 @@ const EyeQuestion: React.FC = () => {
             section,
             language,
             question,
-            selectedOption,
+            selectedOptions.join(", "),
             navigate,
             setQuestion,
             setInstructions,
             setOptions,
             setImageUrl,
             setVideoUrl,
-            setMc
+            setMc,
+            setTitle
         );
-        setSelectedOption("");
+        setSelectedOptions([]);
     }
 
     return (
-        <div>
+        <div className="eye-question">
             <Container>
                 <Stack gap={3}>
+                    <h1>{title}</h1>
                     <Header
                         imageUrl={imageUrl}
                         videoUrl={videoUrl}
                         instructions={instructions}
+                        haveTimer={section != "3"}
                     />
 
                     <CircleComponent
-                        selectedOption={selectedOption}
+                        selectedOptions={selectedOptions}
                         onOptionChange={handleOptionChange}
                         onSubmit={handleSubmit}
                     />
-                    <div>
-                        <strong>Selected Option: </strong>
-                        {selectedOption}
+                    <div className="selected-options-container">
+                        <strong>Selected Options: </strong>
+                        <div className="selected-options">
+                            {selectedOptions.map((option, index) => (
+                                <div key={index} className="selected-option">
+                                    {option}
+                                </div>
+                            ))}
+                        </div>
                     </div>
                     <ProgressBarWithLabel section={section as string} />
                 </Stack>

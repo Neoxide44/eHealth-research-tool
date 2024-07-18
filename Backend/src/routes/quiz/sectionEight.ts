@@ -13,15 +13,16 @@ sectionEightRouter.get("/1", (req: Request, res: Response) => {
         q_id: "1",
         section: "8",
         instructions:
-            "Participant closes eyes with force for a few seconds. Then, participant smiles with teeth showing.",
+            "Ask the participant to close their eyes with force for a few seconds.\nThen, ask them to smile showing their teeth.",
         question:
-            "Is the participant showing ASYMMETRY in the EYES, MOUTH, or BOTH?",
+            "Is the participant showing ASYMMETRY comparing left and right in the EYES, MOUTH, or BOTH during the completion of the task?",
         answers: ["Yes", "No"],
         imageUrl:
             "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
         videoUrl:
             "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: true,
+        title: "Smile/Strong Eye Closing",
     };
 
     res.status(200).json(nextQuery);
@@ -64,18 +65,17 @@ sectionEightRouter.get("/2", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "8",
-        instructions:
-            "Participant closes eyes with force for a few seconds. Then, participant smiles with teeth showing.",
+        instructions: "",
         question: "",
         answers: [
-            "Participant shows ASYMMETRY in the MOUTH",
-            "Participant shows ASYMMETRY in both the MOUTH and EYEBROWS",
+            "Participant shows ASYMMETRY of the MOUTH",
+            "Participant shows ASYMMETRY of both the MOUTH and EYEBROWS",
         ],
         imageUrl:
             "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        videoUrl: "",
         mc: true,
+        title: "Smile/Strong Eye Closing",
     };
 
     res.status(200).json(nextQuery);
@@ -100,19 +100,23 @@ sectionEightRouter.post("/2", (req: Request, res: Response) => {
         }
     );
 
-    if (req.body.answer === "Participant shows ASYMMETRY in the MOUTH") {
+    if (req.body.answer === "Participant shows ASYMMETRY of the MOUTH") {
         nextQuestionID = 1;
         nextSectionID = "9";
         pool.query(
             addOutcome,
-            [data.uuid, data.section, "MILD STRENGTH IMPAIRMENT"],
+            [
+                data.uuid,
+                data.section,
+                "MILD Strength Impairment" + " - " + data.answer,
+            ],
             (error, results) => {
                 if (error) throw error;
             }
         );
     } else if (
         req.body.answer ===
-        "Participant shows ASYMMETRY in both the MOUTH and EYEBROWS"
+        "Participant shows ASYMMETRY of both the MOUTH and EYEBROWS"
     ) {
         nextQuestionID = 3;
     }
@@ -128,15 +132,13 @@ sectionEightRouter.get("/3", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "8",
-        instructions:
-            "Participant closes eyes with force for a few seconds. Then, participant smiles with teeth showing.",
+        instructions: "",
         question: "",
         answers: ["LEFT eye blink impaired", "RIGHT eye blink impaired"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Smile/Strong Eye Closing",
     };
 
     res.status(200).json(nextQuery);
@@ -163,7 +165,11 @@ sectionEightRouter.post("/3", (req: Request, res: Response) => {
 
     pool.query(
         addOutcome,
-        [data.uuid, data.section, "FACIAL NERVE PARALYSIS (PERIPHERAL)"],
+        [
+            data.uuid,
+            data.section,
+            "Facial Nerve PARALYSIS (PERIPHERAL)" + " - " + data.answer,
+        ],
         (error, results) => {
             if (error) throw error;
         }

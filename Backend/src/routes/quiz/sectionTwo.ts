@@ -13,15 +13,15 @@ sectionTwoRouter.get("/1", (req: Request, res: Response) => {
         q_id: "1",
         section: "2",
         instructions:
-            "With participant standing, ask them to, first with eyes opened and then closed, touch the tip of their nose with both index fingers, at least 10 times (5 with each hand).",
-        question:
-            "Is the participant able to perform Nose-Index with EYES OPEN?",
+            "Ask the participant to touch the tip of their nose with the tip of both index fingers alternatively.\n Repeat at least ten times (five with each hand) with eyes open, and ten times with eyes closed.",
+        question: "Is the participant able to perform the task with EYES OPEN?",
         answers: ["Yes", "No"],
         imageUrl:
             "https://drive.google.com/file/d/16MYIb6h7t1X41EJQldSEvcqe2PotxRGT/preview",
         videoUrl:
             "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
         mc: true,
+        title: "Nose - Index",
     };
 
     res.status(200).json(nextQuery);
@@ -63,18 +63,17 @@ sectionTwoRouter.get("/2", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "2",
-        instructions:
-            "With participant standing, ask them to, first with eyes opened and then closed, touch the tip of their nose with both index fingers, at least 10 times (5 with each hand).",
+        instructions: "",
         question: "",
         answers: [
-            "Participant is  UNABLE to REACH nose with one or both hands",
-            "Participant STRUGGLES to REACH nose with one or both hands",
+            "Participant is  UNABLE to precisely REACH nose with one or both hands",
+            "Participant STRUGGLES to precisely REACH nose with one or both hands",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/16MYIb6h7t1X41EJQldSEvcqe2PotxRGT/preview",
+        imageUrl: "",
         videoUrl:
             "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
         mc: true,
+        title: "Nose - Index",
     };
 
     res.status(200).json(nextQuery);
@@ -101,12 +100,12 @@ sectionTwoRouter.post("/2", (req: Request, res: Response) => {
 
     if (
         req.body.answer ===
-        "Participant is  UNABLE to REACH nose with one or both hands"
+        "Participant is  UNABLE to precisely REACH nose with one or both hands"
     ) {
         nextQuestionID = 4;
     } else if (
         req.body.answer ===
-        "Participant STRUGGLES to REACH nose with one or both hands"
+        "Participant STRUGGLES to precisely REACH nose with one or both hands"
     ) {
         nextQuestionID = 5;
     }
@@ -122,16 +121,16 @@ sectionTwoRouter.get("/3", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "2",
-        instructions:
-            "With participant standing, ask them to, first with eyes opened and then closed, touch the tip of their nose with both index fingers, at least 10 times (5 with each hand).",
+        instructions: "",
         question:
-            "Is the participant able to perform Nose-Index with EYES CLOSED?",
+            "Is the participant able to perform the task with EYES CLOSED?",
         answers: ["Yes", "No"],
         imageUrl:
             "https://drive.google.com/file/d/16MYIb6h7t1X41EJQldSEvcqe2PotxRGT/preview",
         videoUrl:
             "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
         mc: true,
+        title: "Nose - Index",
     };
 
     res.status(200).json(nextQuery);
@@ -174,15 +173,13 @@ sectionTwoRouter.get("/4", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "4",
         section: "2",
-        instructions:
-            "With participant standing, ask them to, first with eyes opened and then closed, touch the tip of their nose with both index fingers, at least 10 times (5 with each hand).",
+        instructions: "",
         question: "",
-        answers: ["Left", "Right", "Both"],
-        imageUrl:
-            "https://drive.google.com/file/d/16MYIb6h7t1X41EJQldSEvcqe2PotxRGT/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
+        answers: ["LEFT HAND", "RIGHT HAND", "BOTH HANDS"],
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Nose - Index",
     };
 
     res.status(200).json(nextQuery);
@@ -209,7 +206,11 @@ sectionTwoRouter.post("/4", (req: Request, res: Response) => {
 
     pool.query(
         addOutcome,
-        [data.uuid, data.section, "SEVERE UL Coordination Impairment"],
+        [
+            data.uuid,
+            data.section,
+            "SEVERE UL Coordination Impairment" + " - " + data.answer,
+        ],
         (error, results) => {
             if (error) throw error;
         }
@@ -226,15 +227,13 @@ sectionTwoRouter.get("/5", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "5",
         section: "2",
-        instructions:
-            "With participant standing, ask them to, first with eyes opened and then closed, touch the tip of their nose with both index fingers, at least 10 times (5 with each hand).",
+        instructions: "",
         question: "",
-        answers: ["Left", "Right", "Both"],
-        imageUrl:
-            "https://drive.google.com/file/d/16MYIb6h7t1X41EJQldSEvcqe2PotxRGT/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
+        answers: ["LEFT HAND", "RIGHT HAND", "BOTH HANDS"],
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Nose - Index",
     };
 
     res.status(200).json(nextQuery);
@@ -261,7 +260,11 @@ sectionTwoRouter.post("/5", (req: Request, res: Response) => {
 
     pool.query(
         addOutcome,
-        [data.uuid, data.section, "MILD UL Coordination Impairment"],
+        [
+            data.uuid,
+            data.section,
+            "MILD UL Coordination Impairment" + " - " + data.answer,
+        ],
         (error, results) => {
             if (error) throw error;
         }
@@ -278,18 +281,17 @@ sectionTwoRouter.get("/6", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "6",
         section: "2",
-        instructions:
-            "With participant standing, ask them to, first with eyes opened and then closed, touch the tip of their nose with both index fingers, at least 10 times (5 with each hand).",
+        instructions: "",
         question: "",
         answers: [
-            "Participant is UNABLE to REACH nose with one or both hands",
+            "Participant is UNABLE to precisely REACH nose with one or both hands",
             "Participant STRUGGLES to REACH nose with one or both hands",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/16MYIb6h7t1X41EJQldSEvcqe2PotxRGT/preview",
+        imageUrl: "",
         videoUrl:
             "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
         mc: true,
+        title: "Nose - Index",
     };
 
     res.status(200).json(nextQuery);
@@ -316,7 +318,7 @@ sectionTwoRouter.post("/6", (req: Request, res: Response) => {
 
     if (
         req.body.answer ===
-        "Participant is UNABLE to REACH nose with one or both hands"
+        "Participant is UNABLE to precisely REACH nose with one or both hands"
     ) {
         nextQuestionID = 7;
     } else if (
@@ -337,15 +339,13 @@ sectionTwoRouter.get("/7", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "7",
         section: "2",
-        instructions:
-            "With participant standing, ask them to, first with eyes opened and then closed, touch the tip of their nose with both index fingers, at least 10 times (5 with each hand).",
+        instructions: "",
         question: "",
-        answers: ["Left", "Right", "Both"],
-        imageUrl:
-            "https://drive.google.com/file/d/16MYIb6h7t1X41EJQldSEvcqe2PotxRGT/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
+        answers: ["LEFT HAND", "RIGHT HAND", "BOTH HANDS"],
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Nose - Index",
     };
 
     res.status(200).json(nextQuery);
@@ -374,7 +374,9 @@ sectionTwoRouter.post("/7", (req: Request, res: Response) => {
         [
             data.uuid,
             data.section,
-            "POTENTIAL MODERATE UL Proprioception Impairment",
+            "POTENTIAL MODERATE UL Deep Sensitivity Impairment" +
+                " - " +
+                data.answer,
         ],
         (error, results) => {
             if (error) throw error;
@@ -392,15 +394,13 @@ sectionTwoRouter.get("/8", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "8",
         section: "2",
-        instructions:
-            "With participant standing, ask them to, first with eyes opened and then closed, touch the tip of their nose with both index fingers, at least 10 times (5 with each hand).",
+        instructions: "",
         question: "",
-        answers: ["Left", "Right", "Both"],
-        imageUrl:
-            "https://drive.google.com/file/d/16MYIb6h7t1X41EJQldSEvcqe2PotxRGT/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
+        answers: ["LEFT HAND", "RIGHT HAND", "BOTH HANDS"],
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Nose - Index",
     };
 
     res.status(200).json(nextQuery);
@@ -427,7 +427,13 @@ sectionTwoRouter.post("/8", (req: Request, res: Response) => {
 
     pool.query(
         addOutcome,
-        [data.uuid, data.section, "POTENTIAL MILD UL Proprioception Impairmen"],
+        [
+            data.uuid,
+            data.section,
+            "POTENTIAL MILD UL Deep Sensitivity Impairment" +
+                " - " +
+                data.answer,
+        ],
         (error, results) => {
             if (error) throw error;
         }

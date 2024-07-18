@@ -20,6 +20,9 @@ export const getAnswer =
 export const addOutcome =
     "INSERT INTO outcomes (uuid, section, outcome) VALUES ($1, $2, $3)";
 
+export const appendOutcome =
+    "UPDATE outcomes SET outcome = outcome || $1 WHERE uuid = $2 AND section = $3";
+
 export const getOutcomes = "SELECT * FROM outcomes WHERE uuid = $1";
 
 export const deleteOutcomes = "DELETE FROM outcomes WHERE uuid = $1";

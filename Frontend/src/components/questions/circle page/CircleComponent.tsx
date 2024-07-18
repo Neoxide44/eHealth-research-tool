@@ -9,23 +9,27 @@ interface Answer {
 }
 
 interface Props {
-    selectedOption: string;
-    onOptionChange: (circle: string, quadrant: string) => void;
+    selectedOptions: string[];
+    onOptionChange: (selectedOptions: string[]) => void;
     onSubmit: () => void;
 }
 
 const CircleComponent: React.FC<Props> = ({
-    selectedOption,
+    selectedOptions,
     onOptionChange,
     onSubmit,
 }) => {
-    const [clickedQuadrant, setClickedQuadrant] = useState<Answer>({
-        circle: "",
-        quadrant: "",
-    });
     const handleClick = (circle: string, quadrant: string) => {
-        setClickedQuadrant({ circle, quadrant });
-        onOptionChange(circle, quadrant);
+        const option = `${circle} Eye - ${quadrant} Quadrant`;
+        let updatedOptions;
+        if (selectedOptions.includes(option)) {
+            updatedOptions = selectedOptions.filter(
+                (selectedOption) => selectedOption !== option
+            );
+        } else {
+            updatedOptions = [...selectedOptions, option];
+        }
+        onOptionChange(updatedOptions);
     };
 
     return (
@@ -34,46 +38,9 @@ const CircleComponent: React.FC<Props> = ({
                 <div className="circle">
                     <div
                         className={`quadrant top-left ${
-                            clickedQuadrant?.circle === "Left" &&
-                            clickedQuadrant?.quadrant === "Top Left"
-                                ? "clicked"
-                                : ""
-                        }`}
-                        onClick={() => handleClick("Left", "Top Left")}
-                    ></div>
-                    <div
-                        className={`quadrant top-right ${
-                            clickedQuadrant?.circle === "Left" &&
-                            clickedQuadrant?.quadrant === "Top Right"
-                                ? "clicked"
-                                : ""
-                        }`}
-                        onClick={() => handleClick("Left", "Top Right")}
-                    ></div>
-                    <div
-                        className={`quadrant bottom-left ${
-                            clickedQuadrant?.circle === "Left" &&
-                            clickedQuadrant?.quadrant === "Bottom Left"
-                                ? "clicked"
-                                : ""
-                        }`}
-                        onClick={() => handleClick("Left", "Bottom Left")}
-                    ></div>
-                    <div
-                        className={`quadrant bottom-right ${
-                            clickedQuadrant?.circle === "Left" &&
-                            clickedQuadrant?.quadrant === "Bottom Right"
-                                ? "clicked"
-                                : ""
-                        }`}
-                        onClick={() => handleClick("Left", "Bottom Right")}
-                    ></div>
-                </div>
-                <div className="circle">
-                    <div
-                        className={`quadrant top-left ${
-                            clickedQuadrant?.circle === "Right" &&
-                            clickedQuadrant?.quadrant === "Top Left"
+                            selectedOptions.includes(
+                                "Right Eye - Top Left Quadrant"
+                            )
                                 ? "clicked"
                                 : ""
                         }`}
@@ -81,8 +48,9 @@ const CircleComponent: React.FC<Props> = ({
                     ></div>
                     <div
                         className={`quadrant top-right ${
-                            clickedQuadrant?.circle === "Right" &&
-                            clickedQuadrant?.quadrant === "Top Right"
+                            selectedOptions.includes(
+                                "Right Eye - Top Right Quadrant"
+                            )
                                 ? "clicked"
                                 : ""
                         }`}
@@ -90,8 +58,9 @@ const CircleComponent: React.FC<Props> = ({
                     ></div>
                     <div
                         className={`quadrant bottom-left ${
-                            clickedQuadrant?.circle === "Right" &&
-                            clickedQuadrant?.quadrant === "Bottom Left"
+                            selectedOptions.includes(
+                                "Right Eye - Bottom Left Quadrant"
+                            )
                                 ? "clicked"
                                 : ""
                         }`}
@@ -99,19 +68,62 @@ const CircleComponent: React.FC<Props> = ({
                     ></div>
                     <div
                         className={`quadrant bottom-right ${
-                            clickedQuadrant?.circle === "Right" &&
-                            clickedQuadrant?.quadrant === "Bottom Right"
+                            selectedOptions.includes(
+                                "Right Eye - Bottom Right Quadrant"
+                            )
                                 ? "clicked"
                                 : ""
                         }`}
                         onClick={() => handleClick("Right", "Bottom Right")}
                     ></div>
                 </div>
+                <div className="circle">
+                    <div
+                        className={`quadrant top-left ${
+                            selectedOptions.includes(
+                                "Left Eye - Top Left Quadrant"
+                            )
+                                ? "clicked"
+                                : ""
+                        }`}
+                        onClick={() => handleClick("Left", "Top Left")}
+                    ></div>
+                    <div
+                        className={`quadrant top-right ${
+                            selectedOptions.includes(
+                                "Left Eye - Top Right Quadrant"
+                            )
+                                ? "clicked"
+                                : ""
+                        }`}
+                        onClick={() => handleClick("Left", "Top Right")}
+                    ></div>
+                    <div
+                        className={`quadrant bottom-left ${
+                            selectedOptions.includes(
+                                "Left Eye - Bottom Left Quadrant"
+                            )
+                                ? "clicked"
+                                : ""
+                        }`}
+                        onClick={() => handleClick("Left", "Bottom Left")}
+                    ></div>
+                    <div
+                        className={`quadrant bottom-right ${
+                            selectedOptions.includes(
+                                "Left Eye - Bottom Right Quadrant"
+                            )
+                                ? "clicked"
+                                : ""
+                        }`}
+                        onClick={() => handleClick("Left", "Bottom Right")}
+                    ></div>
+                </div>
             </div>
             <Button
                 className="submit-button"
                 onClick={onSubmit}
-                disabled={!selectedOption}
+                disabled={selectedOptions.length === 0}
             >
                 SUBMIT
             </Button>

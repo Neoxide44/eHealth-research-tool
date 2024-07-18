@@ -13,15 +13,16 @@ sectionSevenBRouter.get("/1", (req: Request, res: Response) => {
         q_id: "1",
         section: "7b",
         instructions:
-            "With the participants' eyes closed, touch their BIG TOE and ask if a part of their body is being touched. If the answer is yes, further ask which one. Move the toe slightly up and down. Then ask if the toe is being moved and ask in which direction.",
+            "With the participant sitting on a chair with their eyes closed, touch alternatively their big toes and ask which part of their body is being touched.\nThen move the toe up, and ask in which direction the toe is being moved.",
         question:
-            "Is the participant able CORRECTLY IDENTIFY the TOE and DIRECTION?",
+            "Is the participant able to CORRECTLY IDENTIFY the TOE being moved and DIRECTION of movement?",
         answers: ["Yes", "No"],
         imageUrl:
             "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
         videoUrl:
             "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: true,
+        title: "Deep Sensetivity - Lower Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -64,19 +65,18 @@ sectionSevenBRouter.get("/2", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "7b",
-        instructions:
-            "With the participants' eyes closed, touch their BIG TOE and ask if a part of their body is being touched. If the answer is yes, further ask which one. Move the toe slightly up and down. Then ask if the toe is being moved and ask in which direction.",
+        instructions: "",
         question: "",
         answers: [
             "Participant is ABLE to IDENTIFY the TOE but NOT the DIRECTION",
             "Participant is ABLE to IDENTIFY the DIRECTION but NOT the TOE",
-            "Participant is UNABLE to IDENTIFY BOTH the TOE and DIRECTION",
+            "Participant is UNABLE to IDENTIFY BOTH TOE and DIRECTION",
         ],
         imageUrl:
             "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        videoUrl: "",
         mc: true,
+        title: "Deep Sensetivity - Lower Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -113,7 +113,7 @@ sectionSevenBRouter.post("/2", (req: Request, res: Response) => {
         nextQuestionID = 4;
     } else if (
         req.body.answer ===
-        "Participant is UNABLE to IDENTIFY BOTH the TOE and DIRECTION"
+        "Participant is UNABLE to IDENTIFY BOTH TOE and DIRECTION"
     ) {
         nextQuestionID = 5;
     }
@@ -129,15 +129,13 @@ sectionSevenBRouter.get("/3", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "7b",
-        instructions:
-            "With the participants' eyes closed, touch their BIG TOE and ask if a part of their body is being touched. If the answer is yes, further ask which one. Move the toe slightly up and down. Then ask if the toe is being moved and ask in which direction.",
+        instructions: "",
         question: "",
-        answers: ["LEFT", "RIGHT", "BOTH"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        answers: ["LEFT TOE", "RIGHT TOE", "BOTH TOES"],
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Deep Sensetivity - Lower Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -163,7 +161,11 @@ sectionSevenBRouter.post("/3", (req: Request, res: Response) => {
     );
     pool.query(
         addOutcome,
-        [data.uuid, data.section, "LL DEEP SENSITIVITY IMPAIRED"],
+        [
+            data.uuid,
+            data.section,
+            "LL Deep Sensitivity Impairment" + " - " + data.answer,
+        ],
         (error, results) => {
             if (error) throw error;
         }
@@ -180,15 +182,13 @@ sectionSevenBRouter.get("/4", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "4",
         section: "7b",
-        instructions:
-            "With the participants' eyes closed, touch their BIG TOE and ask if a part of their body is being touched. If the answer is yes, further ask which one. Move the toe slightly up and down. Then ask if the toe is being moved and ask in which direction.",
+        instructions: "",
         question: "",
-        answers: ["LEFT", "RIGHT", "BOTH"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        answers: ["LEFT TOE", "RIGHT TOE", "BOTH TOES"],
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Deep Sensetivity - Lower Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -214,7 +214,11 @@ sectionSevenBRouter.post("/4", (req: Request, res: Response) => {
     );
     pool.query(
         addOutcome,
-        [data.uuid, data.section, "LL SUPERFICIAL SENSITIVITY IMPAIRED"],
+        [
+            data.uuid,
+            data.section,
+            "LL Superficial Sensitivity Impairment" + " - " + data.answer,
+        ],
         (error, results) => {
             if (error) throw error;
         }
@@ -231,15 +235,13 @@ sectionSevenBRouter.get("/5", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "5",
         section: "7b",
-        instructions:
-            "With the participants' eyes closed, touch their BIG TOE and ask if a part of their body is being touched. If the answer is yes, further ask which one. Move the toe slightly up and down. Then ask if the toe is being moved and ask in which direction.",
+        instructions: "",
         question: "",
-        answers: ["LEFT", "RIGHT", "BOTH"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        answers: ["LEFT TOE", "RIGHT TOE", "BOTH TOES"],
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Deep Sensetivity - Lower Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -265,7 +267,13 @@ sectionSevenBRouter.post("/5", (req: Request, res: Response) => {
     );
     pool.query(
         addOutcome,
-        [data.uuid, data.section, "LL SUPERFICIAL + DEEP SENSITIVITY IMPAIRED"],
+        [
+            data.uuid,
+            data.section,
+            "LL Superficial + Deep Sensitivity Impairment" +
+                " - " +
+                data.answer,
+        ],
         (error, results) => {
             if (error) throw error;
         }

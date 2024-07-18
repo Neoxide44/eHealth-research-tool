@@ -1,0 +1,23 @@
+.eye-question {
+    max-width: 1200px; /* Fixed width */
+    margin: 0 auto; /* Center the content */
+}
+
+.selected-options-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.selected-options {
+    display: flex;
+    flex-wrap: wrap; /* Wrap the options to new lines */
+    width: 100%; /* Ensure it stays within the container width */
+}
+
+.selected-option {
+    background-color: #e9ecef;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 4px;
+}

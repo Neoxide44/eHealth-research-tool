@@ -10,6 +10,7 @@ import {
     FaStopwatch,
 } from "react-icons/fa6";
 import "./InstructionAlert.css";
+import "./HeaderButtons.css";
 import { Modal } from "react-bootstrap";
 import Stopwatch from "./Stopwatch";
 
@@ -17,6 +18,7 @@ interface Props {
     imageUrl: string;
     instructions: string;
     videoUrl: string;
+    haveTimer: boolean;
 }
 
 function Header(props: Props) {
@@ -57,12 +59,13 @@ function Header(props: Props) {
             </Modal>
 
             {/* Buttons */}
-            <ButtonGroup className="button-group-custom">
+            <ButtonGroup>
                 <Button
                     variant="primary"
                     size="sm"
                     onClick={handleShowInstructions}
                     className="button-icon"
+                    disabled={!props.instructions}
                 >
                     <FaInfo />
                 </Button>
@@ -70,10 +73,11 @@ function Header(props: Props) {
                     variant="primary"
                     size="sm"
                     as="a"
-                    href={props.imageUrl}
+                    href={props.imageUrl ? props.imageUrl : "#"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="button-icon"
+                    disabled={!props.imageUrl}
                 >
                     <FaCamera />
                 </Button>
@@ -81,10 +85,11 @@ function Header(props: Props) {
                     variant="primary"
                     size="sm"
                     as="a"
-                    href={props.videoUrl}
+                    href={props.videoUrl ? props.videoUrl : "#"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="button-icon"
+                    disabled={!props.videoUrl}
                 >
                     <FaVideo />
                 </Button>
@@ -93,6 +98,7 @@ function Header(props: Props) {
                     size="sm"
                     onClick={handleShowStopwatch}
                     className="button-icon"
+                    disabled={props.haveTimer}
                 >
                     <FaStopwatch />
                 </Button>

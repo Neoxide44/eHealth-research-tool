@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { postPatient } from "../../api calls/postPatient";
 import { useParams, useNavigate } from "react-router-dom";
+import { FormLabel } from "react-bootstrap";
 
 function PatientForm() {
     const { id } = useParams<{ id: string }>();
@@ -119,6 +120,21 @@ function PatientForm() {
 
                 <Form.Group className="mb-3" controlId="selectLanguage">
                     <Form.Label className="fs-5">Language</Form.Label>
+                    <br />
+                    <FormLabel style={{ fontSize: "0.75rem" }}>
+                        (This tool is in English in every section, apart from
+                        the cognitive assessment.
+                    </FormLabel>
+                    <br />
+                    <FormLabel style={{ fontSize: "0.75rem" }}>
+                        Please note that the assessor should be fluent both in
+                        the participant's language -
+                    </FormLabel>
+                    <br />
+                    <FormLabel style={{ fontSize: "0.75rem" }}>
+                        and in English to record participant performance
+                        accurately)
+                    </FormLabel>
                     <Form.Control
                         as="select"
                         value={language}
@@ -131,7 +147,7 @@ function PatientForm() {
                         <option value="French">French</option>
                         <option value="Italian">Italian</option>
                         <option value="Spanish">Spanish</option>
-                        <option value="Portuguese">Portugese</option>
+                        <option value="Portuguese">Portuguese</option>
                         <option value="Chinese">Chinese</option>
                         <option value="Turkish">Turkish</option>
                         <option value="Dutch">Dutch</option>
@@ -145,12 +161,12 @@ function PatientForm() {
                 <Form.Group className="mb-3" controlId="formCode">
                     <Form.Label className="fs-5">Participant Code</Form.Label>
                     <br />
-                    <Form.Label className="fs-6">
+                    <Form.Label style={{ fontSize: "0.75rem" }}>
                         (Preferably do not include any identifiable or personal
                         information -
                     </Form.Label>
                     <br />
-                    <Form.Label className="fs-6">
+                    <Form.Label style={{ fontSize: "0.75rem" }}>
                         data will be deleted from the tool after downloading)
                     </Form.Label>
                     <Form.Control

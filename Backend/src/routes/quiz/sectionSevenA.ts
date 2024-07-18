@@ -13,15 +13,16 @@ sectionSevenARouter.get("/1", (req: Request, res: Response) => {
         q_id: "1",
         section: "7a",
         instructions:
-            "With the participants' eyes closed, touch one of their FINGERS and ask which part of their body is being touched. Move the finger up or down. Then ask if the finger is being moved up or down.",
+            "With the participant sitting on a chair with eyes closed, grab one of their wrists and touch its index finger, asking which part of their body is being touched.\nMove the finger up, then ask in which direction the finger is being moved (up or down?).",
         question:
-            "Is the participant able to CORRECTLY IDENTIFY the FINGER and DIRECTION?",
+            "Is the participant able to CORRECTLY IDENTIFY the FINGER being touched and the DIRECTION of movement?",
         answers: ["Yes", "No"],
         imageUrl:
             "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
         videoUrl:
             "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: true,
+        title: "Deep Sensetivity - Upper Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -64,19 +65,18 @@ sectionSevenARouter.get("/2", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "7a",
-        instructions:
-            "With the participants' eyes closed, touch one of their FINGERS and ask which part of their body is being touched. Move the finger up or down. Then ask if the finger is being moved up or down.",
+        instructions: "",
         question: "",
         answers: [
             "Participant is ABLE to IDENTIFY the FINGER but NOT the DIRECTION",
             "Participant is ABLE to IDENTIFY the DIRECTION but NOT the FINGER",
-            "Participant is UNABLE to IDENTIFY EITHER the FINGER and DIRECTION",
+            "Participant is UNABLE to IDENTIFY BOTH FINGER and DIRECTION",
         ],
         imageUrl:
             "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        videoUrl: "",
         mc: true,
+        title: "Deep Sensetivity - Upper Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -113,7 +113,7 @@ sectionSevenARouter.post("/2", (req: Request, res: Response) => {
         nextQuestionID = 4;
     } else if (
         req.body.answer ===
-        "Participant is UNABLE to IDENTIFY EITHER the FINGER and DIRECTION"
+        "Participant is UNABLE to IDENTIFY BOTH FINGER and DIRECTION"
     ) {
         nextQuestionID = 5;
     }
@@ -129,15 +129,13 @@ sectionSevenARouter.get("/3", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "7a",
-        instructions:
-            "With the participants' eyes closed, touch one of their FINGERS and ask which part of their body is being touched. Move the finger up or down. Then ask if the finger is being moved up or down.",
+        instructions: "",
         question: "",
-        answers: ["LEFT", "RIGHT", "BOTH"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        answers: ["LEFT FINGER", "RIGHT FINGER", "BOTH FINGERS"],
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Deep Sensetivity - Upper Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -164,7 +162,11 @@ sectionSevenARouter.post("/3", (req: Request, res: Response) => {
 
     pool.query(
         addOutcome,
-        [data.uuid, data.section, "UL PROPRIOCEPTION IMPAIRED"],
+        [
+            data.uuid,
+            data.section,
+            "UL Deep Sensitivity Impairment" + " - " + data.answer,
+        ],
         (error, results) => {
             if (error) throw error;
         }
@@ -181,15 +183,13 @@ sectionSevenARouter.get("/4", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "4",
         section: "7a",
-        instructions:
-            "With the participants' eyes closed, touch one of their FINGERS and ask which part of their body is being touched. Move the finger up or down. Then ask if the finger is being moved up or down.",
+        instructions: "",
         question: "",
-        answers: ["LEFT", "RIGHT", "BOTH"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        answers: ["LEFT FINGER", "RIGHT FINGER", "BOTH FINGERS"],
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Deep Sensetivity - Upper Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -215,7 +215,11 @@ sectionSevenARouter.post("/4", (req: Request, res: Response) => {
     );
     pool.query(
         addOutcome,
-        [data.uuid, data.section, "UL SUPERFICIAL SENSITIVITY IMPAIRED"],
+        [
+            data.uuid,
+            data.section,
+            "UL Superficial Sensitivity Impairment" + " - " + data.answer,
+        ],
         (error, results) => {
             if (error) throw error;
         }
@@ -232,15 +236,13 @@ sectionSevenARouter.get("/5", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "5",
         section: "7a",
-        instructions:
-            "With the participants' eyes closed, touch one of their FINGERS and ask which part of their body is being touched. Move the finger up or down. Then ask if the finger is being moved up or down.",
+        instructions: "",
         question: "",
-        answers: ["LEFT", "RIGHT", "BOTH"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        answers: ["LEFT FINGER", "RIGHT FINGER", "BOTH FINGERS"],
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Deep Sensetivity - Upper Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -269,7 +271,9 @@ sectionSevenARouter.post("/5", (req: Request, res: Response) => {
         [
             data.uuid,
             data.section,
-            "UL SUPERFICIAL SENSITIVITY + PROPRIOCEPTION IMPAIRED",
+            "UL Superficial + Deep Sensitivity Impairment" +
+                " - " +
+                data.answer,
         ],
         (error, results) => {
             if (error) throw error;

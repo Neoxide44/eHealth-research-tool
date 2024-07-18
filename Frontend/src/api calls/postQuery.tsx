@@ -14,7 +14,8 @@ export const postQuery = async (
     setOptions: React.Dispatch<React.SetStateAction<string[]>>,
     setImageUrl: React.Dispatch<React.SetStateAction<string>>,
     setVideoUrl: React.Dispatch<React.SetStateAction<string>>,
-    setMc: React.Dispatch<React.SetStateAction<boolean>>
+    setMc: React.Dispatch<React.SetStateAction<boolean>>,
+    setTitle: React.Dispatch<React.SetStateAction<string>>
 ) => {
     const postData = {
         id: id,
@@ -44,7 +45,7 @@ export const postQuery = async (
         if (nextQ.nextSection === "42") {
             navigate(`/outcome/${id}`);
             location.reload();
-        } else if (nextQ.nextSection === "9" && nextQ.nextQuestion === 4) {
+        } else if (nextQ.nextSection === "9" && nextQ.nextQuestion === 2) {
             navigate(
                 `/circle/${language}/${nextQ.nextSection}/${nextQ.nextQuestion}/${id}`
             );
@@ -63,7 +64,8 @@ export const postQuery = async (
                 setOptions,
                 setImageUrl,
                 setVideoUrl,
-                setMc
+                setMc,
+                setTitle
             );
             navigate(
                 `/quiz/${language}/${nextQ.nextSection}/${nextQ.nextQuestion}/${id}`

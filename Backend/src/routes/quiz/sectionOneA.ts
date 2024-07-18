@@ -14,9 +14,10 @@ sectionOneARouter.get("/1", (req: Request, res: Response) => {
         q_id: "1",
         section: "1a",
         instructions:
-            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. Ask the participant to maintain that position for five seconds.",
-        question: "Is the participant able to REACH the Mingazzini position?",
+            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. If the participant reaches the position, ask them to maintain that position for five seconds.",
+        question: "Is the participant able to REACH the position?",
         answers: ["Yes", "No"],
+        title: "Mingazzini - Upper Limb",
         imageUrl:
             "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
         videoUrl:
@@ -45,9 +46,9 @@ sectionOneARouter.post("/1", (req: Request, res: Response) => {
         }
     );
 
-    if (req.body.answer === "Yes") {
+    if (req.body.answer === "No") {
         nextQuestionID = 2;
-    } else if (req.body.answer === "No") {
+    } else if (req.body.answer === "Yes") {
         nextQuestionID = 3;
     }
 
@@ -63,16 +64,18 @@ sectionOneARouter.get("/2", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "1a",
-        instructions:
-            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. Ask the participant to maintain that position for five seconds.",
-        question:
-            "Is the participant able to HOLD the Mingazzini in a steady position for at least 5 seconds?",
-        answers: ["Yes", "No"],
+        instructions: "",
+        question: "",
+        answers: [
+            "One or both arms are MISSING or UNABLE to move for known non-neurological reasons.",
+            "One or both arms are UNABLE to REACH the position.",
+        ],
         imageUrl:
             "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
         videoUrl:
             "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
+        title: "Mingazzini - Upper Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -97,11 +100,15 @@ sectionOneARouter.post("/2", (req: Request, res: Response) => {
         }
     );
 
-    if (req.body.answer === "Yes") {
-        nextQuestionID = 1;
-        nextSectionID = "2";
-    } else if (req.body.answer === "No") {
+    if (
+        req.body.answer ===
+        "One or both arms are MISSING or UNABLE to move for known non-neurological reasons."
+    ) {
         nextQuestionID = 4;
+    } else if (
+        req.body.answer === "One or both arms are UNABLE to REACH the position."
+    ) {
+        nextQuestionID = 5;
     }
 
     res.status(200).json({
@@ -116,18 +123,16 @@ sectionOneARouter.get("/3", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "1a",
-        instructions:
-            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. Ask the participant to maintain that position for five seconds.",
-        question: "",
-        answers: [
-            "One or both arms are MISSING or UNABLE to move for non-neurological reasons",
-            "One or both arms cannot REACH position",
-        ],
+        instructions: "",
+        question:
+            "Is the participant able to HOLD STEADILY the position for at least 5 seconds?",
+        answers: ["Yes", "No"],
         imageUrl:
             "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
         videoUrl:
             "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
+        title: "Mingazzini - Upper Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -152,13 +157,11 @@ sectionOneARouter.post("/3", (req: Request, res: Response) => {
         }
     );
 
-    if (
-        req.body.answer ===
-        "One or both arms are MISSING or UNABLE to move for non-neurological reasons"
-    ) {
+    if (req.body.answer === "Yes") {
+        nextQuestionID = 1;
+        nextSectionID = "2";
+    } else if (req.body.answer === "No") {
         nextQuestionID = 6;
-    } else if (req.body.answer === "One or both arms cannot REACH position") {
-        nextQuestionID = 5;
     }
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -166,30 +169,33 @@ sectionOneARouter.post("/3", (req: Request, res: Response) => {
     });
 });
 
+//Question 4
 sectionOneARouter.get("/4", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "4",
         section: "1a",
-        instructions:
-            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. Ask the participant to maintain that position for five seconds.",
+        instructions: "",
         question: "",
         answers: [
-            "One or both arms FALL down within 5 seconds",
-            "One or both arms ROTATE",
+            "LEFT ARM MISSING",
+            "LEFT ARM UNABLE TO MOVE",
+            "RIGHT ARM MISSING",
+            "RIGHT ARM UNABLE TO MOVE",
+            "BOTH ARMS MISSING",
+            "BOTH ARMS UNABLE TO MOVE",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Mingazzini - Upper Limb",
     };
 
     res.status(200).json(nextQuery);
 });
 
 sectionOneARouter.post("/4", (req: Request, res: Response) => {
-    let nextQuestionID = 0;
-    let nextSectionID = "1a";
+    let nextQuestionID = 1;
+    let nextSectionID = "3";
 
     const data: saveQuery = {
         uuid: req.body.id,
@@ -205,32 +211,39 @@ sectionOneARouter.post("/4", (req: Request, res: Response) => {
             if (error) throw error;
         }
     );
-
-    if (req.body.answer === "One or both arms FALL down within 5 seconds") {
-        nextQuestionID = 8;
-    } else if (req.body.answer === "One or both arms ROTATE") {
-        nextQuestionID = 7;
-    }
+    pool.query(
+        addOutcome,
+        [
+            data.uuid,
+            data.section,
+            "MISSING UL or UNABLE to move for non-neurological reasons" +
+                " - " +
+                data.answer,
+        ],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
     res.status(200).json({
         nextQuestion: nextQuestionID,
         nextSection: nextSectionID,
     });
 });
 
+//Question 5
 sectionOneARouter.get("/5", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "5",
         section: "1a",
-        instructions:
-            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. Ask the participant to maintain that position for five seconds.",
+        instructions: "",
         question:
-            "Is the  inability to reach position accompanied by SHAKING or involuntary movement?",
+            "Is the inability to reach the position accompanied by ARM SHAKING or OSCILLATIONS?",
         answers: ["Yes", "No"],
-        imageUrl:
-            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
+        imageUrl: "",
         videoUrl:
             "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
+        title: "Mingazzini - Upper Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -256,9 +269,9 @@ sectionOneARouter.post("/5", (req: Request, res: Response) => {
     );
 
     if (req.body.answer === "Yes") {
-        nextQuestionID = 10;
+        nextQuestionID = 7;
     } else if (req.body.answer === "No") {
-        nextQuestionID = 9;
+        nextQuestionID = 8;
     }
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -266,26 +279,22 @@ sectionOneARouter.post("/5", (req: Request, res: Response) => {
     });
 });
 
+//Question 6
 sectionOneARouter.get("/6", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "6",
         section: "1a",
-        instructions:
-            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. Ask the participant to maintain that position for five seconds.",
+        instructions: "",
         question: "",
         answers: [
-            "LEFT MISSING",
-            "LEFT UNABLE TO MOVE",
-            "RIGHT MISSING",
-            "RIGHT UNABLE TO MOVE",
-            "BOTH MISSING",
-            "BOTH UNABLE TO MOVE",
+            "One or both arms FALL DOWN within 5 seconds",
+            "One or both arms ROTATE (pronate)",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
+        imageUrl: "",
         videoUrl:
             "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
+        title: "Mingazzini - Upper Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -309,17 +318,11 @@ sectionOneARouter.post("/6", (req: Request, res: Response) => {
             if (error) throw error;
         }
     );
-    pool.query(
-        addOutcome,
-        [
-            data.uuid,
-            data.section,
-            "MISSING UL or UNABLE to move for non-neurological reasons",
-        ],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
+    if (req.body.answer === "One or both arms FALL DOWN within 5 seconds") {
+        nextQuestionID = 9;
+    } else if (req.body.answer === "One or both arms ROTATE (pronate)") {
+        nextQuestionID = 12;
+    }
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -327,124 +330,24 @@ sectionOneARouter.post("/6", (req: Request, res: Response) => {
     });
 });
 
+//Question 7
 sectionOneARouter.get("/7", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "7",
         section: "1a",
-        instructions:
-            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. Ask the participant to maintain that position for five seconds.",
+        instructions: "",
         question: "",
-        answers: ["LEFT", "RIGHT", "BOTH"],
-        imageUrl:
-            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+        answers: ["LEFT ARM", "RIGHT ARM", "BOTH ARMS"],
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Mingazzini - Upper Limb",
     };
 
     res.status(200).json(nextQuery);
 });
 
 sectionOneARouter.post("/7", (req: Request, res: Response) => {
-    let nextQuestionID = 1;
-    let nextSectionID = "2";
-
-    const data: saveQuery = {
-        uuid: req.body.id,
-        section: req.body.section,
-        q_id: req.body.q_id,
-        question: req.body.question,
-        answer: req.body.answer,
-    };
-    pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
-    pool.query(
-        addOutcome,
-        [data.uuid, data.section, "MILD UL Strength Impairment"],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
-
-    res.status(200).json({
-        nextQuestion: nextQuestionID,
-        nextSection: nextSectionID,
-    });
-});
-
-sectionOneARouter.get("/8", (req: Request, res: Response) => {
-    const nextQuery: sendQuery = {
-        q_id: "8",
-        section: "1a",
-        instructions:
-            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. Ask the participant to maintain that position for five seconds.",
-        question:
-            "Is the falling accompanied by SHAKING or involuntary movement?",
-        answers: ["Yes", "No"],
-        imageUrl:
-            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
-        mc: true,
-    };
-
-    res.status(200).json(nextQuery);
-});
-
-sectionOneARouter.post("/8", (req: Request, res: Response) => {
-    let nextQuestionID = 0;
-    let nextSectionID = "1a";
-
-    const data: saveQuery = {
-        uuid: req.body.id,
-        section: req.body.section,
-        q_id: req.body.q_id,
-        question: req.body.question,
-        answer: req.body.answer,
-    };
-    pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
-
-    if (req.body.answer === "Yes") {
-        nextQuestionID = 12;
-    } else if (req.body.answer === "No") {
-        nextQuestionID = 11;
-    }
-    res.status(200).json({
-        nextQuestion: nextQuestionID,
-        nextSection: nextSectionID,
-    });
-});
-
-sectionOneARouter.get("/9", (req: Request, res: Response) => {
-    const nextQuery: sendQuery = {
-        q_id: "9",
-        section: "1a",
-        instructions:
-            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. Ask the participant to maintain that position for five seconds.",
-        question: "",
-        answers: ["LEFT", "RIGHT", "BOTH"],
-        imageUrl:
-            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
-        mc: true,
-    };
-
-    res.status(200).json(nextQuery);
-});
-
-sectionOneARouter.post("/9", (req: Request, res: Response) => {
     let nextQuestionID = 1;
     let nextSectionID = "3";
 
@@ -464,7 +367,13 @@ sectionOneARouter.post("/9", (req: Request, res: Response) => {
     );
     pool.query(
         addOutcome,
-        [data.uuid, data.section, "SEVERE UL Strength Impairment"],
+        [
+            data.uuid,
+            data.section,
+            "SEVERE UL Strength Impairment with Extrapyramidal Signs" +
+                " - " +
+                data.answer,
+        ],
         (error, results) => {
             if (error) throw error;
         }
@@ -476,19 +385,117 @@ sectionOneARouter.post("/9", (req: Request, res: Response) => {
     });
 });
 
+//Question 8
+sectionOneARouter.get("/8", (req: Request, res: Response) => {
+    const nextQuery: sendQuery = {
+        q_id: "8",
+        section: "1a",
+        instructions: "",
+        question: "",
+        answers: ["LEFT ARM", "RIGHT ARM", "BOTH ARMS"],
+        imageUrl: "",
+        videoUrl: "",
+        mc: true,
+        title: "Mingazzini - Upper Limb",
+    };
+
+    res.status(200).json(nextQuery);
+});
+
+sectionOneARouter.post("/8", (req: Request, res: Response) => {
+    let nextQuestionID = 1;
+    let nextSectionID = "3";
+
+    const data: saveQuery = {
+        uuid: req.body.id,
+        section: req.body.section,
+        q_id: req.body.q_id,
+        question: req.body.question,
+        answer: req.body.answer,
+    };
+    pool.query(
+        addData,
+        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
+    pool.query(
+        addOutcome,
+        [
+            data.uuid,
+            data.section,
+            "SEVERE UL Strength Impairment " + " - " + data.answer,
+        ],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
+
+    res.status(200).json({
+        nextQuestion: nextQuestionID,
+        nextSection: nextSectionID,
+    });
+});
+
+sectionOneARouter.get("/9", (req: Request, res: Response) => {
+    const nextQuery: sendQuery = {
+        q_id: "9",
+        section: "1a",
+        instructions: "",
+        question: "Is the falling accompanied by ARM SHAKING or OSCILLATIONS?",
+        answers: ["Yes", "No"],
+        imageUrl: "",
+        videoUrl:
+            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+        mc: true,
+        title: "Mingazzini - Upper Limb",
+    };
+
+    res.status(200).json(nextQuery);
+});
+
+sectionOneARouter.post("/9", (req: Request, res: Response) => {
+    let nextQuestionID = 0;
+    let nextSectionID = "1a";
+
+    const data: saveQuery = {
+        uuid: req.body.id,
+        section: req.body.section,
+        q_id: req.body.q_id,
+        question: req.body.question,
+        answer: req.body.answer,
+    };
+    pool.query(
+        addData,
+        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        (error, results) => {
+            if (error) throw error;
+        }
+    );
+
+    if (req.body.answer === "Yes") {
+        nextQuestionID = 10;
+    } else if (req.body.answer === "No") {
+        nextQuestionID = 11;
+    }
+    res.status(200).json({
+        nextQuestion: nextQuestionID,
+        nextSection: nextSectionID,
+    });
+});
+
 sectionOneARouter.get("/10", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "10",
         section: "1a",
-        instructions:
-            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. Ask the participant to maintain that position for five seconds.",
+        instructions: "",
         question: "",
-        answers: ["LEFT", "RIGHT", "BOTH"],
-        imageUrl:
-            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+        answers: ["LEFT ARM", "RIGHT ARM", "BOTH ARMS"],
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Mingazzini - Upper Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -517,7 +524,9 @@ sectionOneARouter.post("/10", (req: Request, res: Response) => {
         [
             data.uuid,
             data.section,
-            "SEVERE UL Strength Impairment with Parkinsonian Signs",
+            "MODERATE UL Strength Impairment with Extrapyramidal Signs" +
+                " - " +
+                data.answer,
         ],
         (error, results) => {
             if (error) throw error;
@@ -534,15 +543,13 @@ sectionOneARouter.get("/11", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "11",
         section: "1a",
-        instructions:
-            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. Ask the participant to maintain that position for five seconds.",
+        instructions: "",
         question: "",
-        answers: ["LEFT", "RIGHT", "BOTH"],
-        imageUrl:
-            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+        answers: ["LEFT ARM", "RIGHT ARM", "BOTH ARMS"],
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Mingazzini - Upper Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -568,7 +575,11 @@ sectionOneARouter.post("/11", (req: Request, res: Response) => {
     );
     pool.query(
         addOutcome,
-        [data.uuid, data.section, "MODERATE UL Strength Impairment"],
+        [
+            data.uuid,
+            data.section,
+            "MODERATE UL Strength Impairment" + " - " + data.answer,
+        ],
         (error, results) => {
             if (error) throw error;
         }
@@ -584,15 +595,13 @@ sectionOneARouter.get("/12", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "12",
         section: "1a",
-        instructions:
-            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. Ask the participant to maintain that position for five seconds.",
+        instructions: "",
         question: "",
-        answers: ["LEFT", "RIGHT", "BOTH"],
-        imageUrl:
-            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+        answers: ["LEFT ARM", "RIGHT ARM", "BOTH ARMS"],
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Mingazzini - Upper Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -600,7 +609,7 @@ sectionOneARouter.get("/12", (req: Request, res: Response) => {
 
 sectionOneARouter.post("/12", (req: Request, res: Response) => {
     let nextQuestionID = 1;
-    let nextSectionID = "3";
+    let nextSectionID = "2";
 
     const data: saveQuery = {
         uuid: req.body.id,
@@ -622,7 +631,7 @@ sectionOneARouter.post("/12", (req: Request, res: Response) => {
         [
             data.uuid,
             data.section,
-            "MODERATE UL Strength Impairment with Parkinsonian Signs",
+            "MILD UL Strength Impairment" + " - " + data.answer,
         ],
         (error, results) => {
             if (error) throw error;

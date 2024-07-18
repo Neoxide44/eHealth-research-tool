@@ -14,15 +14,16 @@ sectionOneBRouter.get("/1", (req: Request, res: Response) => {
         q_id: "1",
         section: "1b",
         instructions:
-            "Ask the participant to lie down on their back and try to raise both of their legs above the waist, with both knees bent.\nAsk the participant to stay in that position for five seconds.",
+            "Ask the participant to sit down on the edge of a chair and raise both of their legs at waist level, stretching them forward.\nThe participant can hold on to the chair with their hands and lean back.\nAsk the participant to stay in that position for five seconds.",
         question:
-            "Is the participant able to REACH the Mingazzini position with both legs?",
+            "Is the participant able to REACH the position with both legs?",
         answers: ["Yes", "No"],
         imageUrl:
             "https://drive.google.com/file/d/1F4U7v-Jy9PwjhLPOso1PFiEsp2LawY8-/preview",
         videoUrl:
             "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
+        title: "Mingazzini - Lower Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -63,16 +64,15 @@ sectionOneBRouter.get("/2", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "1b",
-        instructions:
-            "Ask the participant to lie down on their back and try to raise both of their legs above the waist, with both knees bent.\nAsk the participant to stay in that position for five seconds.",
+        instructions: "",
         question:
-            "Is the  inability to reach position accompanied by SHAKING or involuntary movement?",
+            "Is the  inability to reach position accompanied by LEG SHAKING or OSCILLATIONS?",
         answers: ["Yes", "No"],
-        imageUrl:
-            "https://drive.google.com/file/d/1F4U7v-Jy9PwjhLPOso1PFiEsp2LawY8-/preview",
+        imageUrl: "",
         videoUrl:
             "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
+        title: "Mingazzini - Lower Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -113,16 +113,16 @@ sectionOneBRouter.get("/3", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "1b",
-        instructions:
-            "Ask the participant to lie down on their back and try to raise both of their legs above the waist, with both knees bent.\nAsk the participant to stay in that position for five seconds.",
+        instructions: "",
         question:
-            "Is the participant able to HOLD the Mingazzini in a steady position with both legs for at least 5 seconds?",
+            "Is the participant able to HOLD STEADILY the position with both legs for at least 5 seconds?",
         answers: ["Yes", "No"],
         imageUrl:
             "https://drive.google.com/file/d/1F4U7v-Jy9PwjhLPOso1PFiEsp2LawY8-/preview",
         videoUrl:
             "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
+        title: "Mingazzini - Lower Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -164,15 +164,13 @@ sectionOneBRouter.get("/4", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "4",
         section: "1b",
-        instructions:
-            "Ask the participant to lie down on their back and try to raise both of their legs above the waist, with both knees bent.\nAsk the participant to stay in that position for five seconds.",
+        instructions: "",
         question: "",
-        answers: ["LEFT", "RIGHT", "BOTH"],
-        imageUrl:
-            "https://drive.google.com/file/d/1F4U7v-Jy9PwjhLPOso1PFiEsp2LawY8-/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+        answers: ["LEFT LEG", "RIGHT LEG", "BOTH LEGS"],
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Mingazzini - Lower Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -201,7 +199,7 @@ sectionOneBRouter.post("/4", (req: Request, res: Response) => {
         if (error) throw error;
 
         check = results.rows[0].answer.includes(
-            "Participant is UNABLE to WALK ON A LINE"
+            "Participant is UNABLE to WALK IN A STRAIGHT LINE for 5 steps"
         );
         if (check) {
             nextQuestionID = 1;
@@ -222,7 +220,9 @@ sectionOneBRouter.post("/4", (req: Request, res: Response) => {
         [
             data.uuid,
             data.section,
-            "SEVERE LL Strength Impairment with Parkinsonian Signs",
+            "SEVERE LL Strength Impairment with Extrapyramidal Signs" +
+                " - " +
+                data.answer,
         ],
         (error, results) => {
             if (error) throw error;
@@ -235,15 +235,13 @@ sectionOneBRouter.get("/5", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "5",
         section: "1b",
-        instructions:
-            "Ask the participant to lie down on their back and try to raise both of their legs above the waist, with both knees bent.\nAsk the participant to stay in that position for five seconds.",
+        instructions: "",
         question: "",
-        answers: ["LEFT", "RIGHT", "BOTH"],
-        imageUrl:
-            "https://drive.google.com/file/d/1F4U7v-Jy9PwjhLPOso1PFiEsp2LawY8-/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+        answers: ["LEFT LEG", "RIGHT LEG", "BOTH LEGS"],
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Mingazzini - Lower Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -272,7 +270,7 @@ sectionOneBRouter.post("/5", (req: Request, res: Response) => {
         if (error) throw error;
 
         check = results.rows[0].answer.includes(
-            "Participant is UNABLE to WALK ON A LINE"
+            "Participant is UNABLE to WALK IN A STRAIGHT LINE for 5 steps"
         );
         if (check) {
             nextQuestionID = 1;
@@ -290,7 +288,11 @@ sectionOneBRouter.post("/5", (req: Request, res: Response) => {
 
     pool.query(
         addOutcome,
-        [data.uuid, data.section, "SEVERE LL Strength Impairmen"],
+        [
+            data.uuid,
+            data.section,
+            "SEVERE LL Strength Impairmen" + " - " + data.answer,
+        ],
         (error, results) => {
             if (error) throw error;
         }
@@ -302,16 +304,14 @@ sectionOneBRouter.get("/6", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "6",
         section: "1b",
-        instructions:
-            "Ask the participant to lie down on their back and try to raise both of their legs above the waist, with both knees bent.\nAsk the participant to stay in that position for five seconds.",
-        question:
-            "Is the falling accompanied by SHAKING or involuntary movement?",
+        instructions: "",
+        question: "Is the falling accompanied by LEG SHAKING or OSCILLATIONS?",
         answers: ["Yes", "No"],
-        imageUrl:
-            "https://drive.google.com/file/d/1F4U7v-Jy9PwjhLPOso1PFiEsp2LawY8-/preview",
+        imageUrl: "",
         videoUrl:
             "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
         mc: true,
+        title: "Mingazzini - Lower Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -352,15 +352,13 @@ sectionOneBRouter.get("/7", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "7",
         section: "1b",
-        instructions:
-            "Ask the participant to lie down on their back and try to raise both of their legs above the waist, with both knees bent.\nAsk the participant to stay in that position for five seconds.",
+        instructions: "",
         question: "",
-        answers: ["LEFT", "RIGHT", "BOTH"],
-        imageUrl:
-            "https://drive.google.com/file/d/1F4U7v-Jy9PwjhLPOso1PFiEsp2LawY8-/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+        answers: ["LEFT LEG", "RIGHT LEG", "BOTH LEGS"],
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Mingazzini - Lower Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -388,7 +386,7 @@ sectionOneBRouter.post("/7", (req: Request, res: Response) => {
     pool.query(getAnswer, [data.uuid, "4", 2], (error, results) => {
         if (error) throw error;
         check = results.rows[0].answer.includes(
-            "Participant is UNABLE to WALK ON A LINE"
+            "Participant is UNABLE to WALK IN A STRAIGHT LINE for 5 steps"
         );
         if (check) {
             nextQuestionID = 1;
@@ -409,7 +407,9 @@ sectionOneBRouter.post("/7", (req: Request, res: Response) => {
         [
             data.uuid,
             data.section,
-            "MODERATE LL Strength Impairment with Parkinsonian Signs",
+            "MODERATE LL Strength Impairment with Extrapyramidal Signs" +
+                " - " +
+                data.answer,
         ],
         (error, results) => {
             if (error) throw error;
@@ -422,15 +422,13 @@ sectionOneBRouter.get("/8", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "8",
         section: "1b",
-        instructions:
-            "Ask the participant to lie down on their back and try to raise both of their legs above the waist, with both knees bent.\nAsk the participant to stay in that position for five seconds.",
+        instructions: "",
         question: "",
-        answers: ["LEFT", "RIGHT", "BOTH"],
-        imageUrl:
-            "https://drive.google.com/file/d/1F4U7v-Jy9PwjhLPOso1PFiEsp2LawY8-/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+        answers: ["LEFT LEG", "RIGHT LEG", "BOTH LEGS"],
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
+        title: "Mingazzini - Lower Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -458,7 +456,7 @@ sectionOneBRouter.post("/8", (req: Request, res: Response) => {
     pool.query(getAnswer, [data.uuid, "4", 2], (error, results) => {
         if (error) throw error;
         check = results.rows[0].answer.includes(
-            "Participant is UNABLE to WALK ON A LINE"
+            "Participant is UNABLE to WALK IN A STRAIGHT LINE for 5 steps"
         );
         if (check) {
             nextQuestionID = 1;
@@ -475,7 +473,11 @@ sectionOneBRouter.post("/8", (req: Request, res: Response) => {
     });
     pool.query(
         addOutcome,
-        [data.uuid, data.section, "MODERATE UL Strength Impairment"],
+        [
+            data.uuid,
+            data.section,
+            "MODERATE UL Strength Impairment" + " - " + data.answer,
+        ],
         (error, results) => {
             if (error) throw error;
         }

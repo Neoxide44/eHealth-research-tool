@@ -22,6 +22,7 @@ sectionFiveRouter.get("/1", (req: Request, res: Response) => {
         videoUrl:
             "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
+        title: "Mini Mental State Examination",
     };
 
     res.status(200).json(nextQuery);
@@ -72,6 +73,7 @@ sectionFiveRouter.get("/2", (req: Request, res: Response) => {
         videoUrl:
             "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
+        title: "Mini Mental State Examination",
     };
 
     res.status(200).json(nextQuery);
@@ -134,6 +136,7 @@ sectionFiveRouter.get("/3", (req: Request, res: Response) => {
         videoUrl:
             "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
+        title: "Mini Mental State Examination",
     };
 
     res.status(200).json(nextQuery);
@@ -196,6 +199,7 @@ sectionFiveRouter.get("/4", (req: Request, res: Response) => {
         videoUrl:
             "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
+        title: "Mini Mental State Examination",
     };
 
     res.status(200).json(nextQuery);
@@ -258,6 +262,7 @@ sectionFiveRouter.get("/5", (req: Request, res: Response) => {
         videoUrl:
             "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
+        title: "Mini Mental State Examination",
     };
 
     res.status(200).json(nextQuery);
@@ -320,6 +325,7 @@ sectionFiveRouter.get("/6", (req: Request, res: Response) => {
         videoUrl:
             "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
+        title: "Mini Mental State Examination",
     };
 
     res.status(200).json(nextQuery);
@@ -382,6 +388,7 @@ sectionFiveRouter.get("/7", (req: Request, res: Response) => {
         videoUrl:
             "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
+        title: "Mini Mental State Examination",
     };
 
     res.status(200).json(nextQuery);
@@ -448,6 +455,7 @@ sectionFiveRouter.get("/8", (req: Request, res: Response) => {
         videoUrl:
             "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
+        title: "Mini Mental State Examination",
     };
 
     res.status(200).json(nextQuery);
@@ -510,6 +518,7 @@ sectionFiveRouter.get("/9", (req: Request, res: Response) => {
         videoUrl:
             "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
+        title: "Mini Mental State Examination",
     };
 
     res.status(200).json(nextQuery);
@@ -573,6 +582,7 @@ sectionFiveRouter.get("/10", (req: Request, res: Response) => {
         videoUrl:
             "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
+        title: "Mini Mental State Examination",
     };
 
     res.status(200).json(nextQuery);
@@ -636,6 +646,7 @@ sectionFiveRouter.get("/11", (req: Request, res: Response) => {
         videoUrl:
             "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: false,
+        title: "Mini Mental State Examination",
     };
 
     res.status(200).json(nextQuery);

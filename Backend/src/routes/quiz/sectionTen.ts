@@ -13,7 +13,7 @@ sectionTenRouter.get("/1", (req: Request, res: Response) => {
         q_id: "1",
         section: "10",
         instructions:
-            "The participant follows the instructors' fingers with their eyes. The instructor asks them to follow their finger to the left, to the right, upwards and downwards.",
+            "The instructor moves their finger to the ceiling, the floor, right and left, asking the participant to follow it with their eyes only, without moving their head.",
         question:
             "Are the eyes of the participant following the finger SYMMETRICALLY?",
         answers: ["Yes", "No"],
@@ -22,6 +22,7 @@ sectionTenRouter.get("/1", (req: Request, res: Response) => {
         videoUrl:
             "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
         mc: true,
+        title: "Eye Movement",
     };
 
     res.status(200).json(nextQuery);

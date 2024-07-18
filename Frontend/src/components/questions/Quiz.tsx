@@ -23,6 +23,7 @@ function Quiz() {
     const [instructions, setInstructions] = useState("");
     const [imageUrl, setImageUrl] = useState("");
     const [videoUrl, setVideoUrl] = useState("");
+    const [title, setTitle] = useState("Example Title - 1a");
     const [mc, setMc] = useState(false);
 
     useEffect(() => {
@@ -35,7 +36,8 @@ function Quiz() {
                 setOptions,
                 setImageUrl,
                 setVideoUrl,
-                setMc
+                setMc,
+                setTitle
             );
         };
 
@@ -56,7 +58,8 @@ function Quiz() {
             setOptions,
             setImageUrl,
             setVideoUrl,
-            setMc
+            setMc,
+            setTitle
         );
         setSelectedOption("");
     }
@@ -75,7 +78,8 @@ function Quiz() {
             setOptions,
             setImageUrl,
             setVideoUrl,
-            setMc
+            setMc,
+            setTitle
         );
     }
     function handleOptionChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -103,10 +107,12 @@ function Quiz() {
         <div>
             <Container>
                 <Stack gap={3}>
+                    <h1>{title}</h1>
                     <Header
                         imageUrl={imageUrl}
                         videoUrl={videoUrl}
                         instructions={instructions}
+                        haveTimer={section != "3"}
                     />
 
                     {mc && (
