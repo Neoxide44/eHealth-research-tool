@@ -22,6 +22,7 @@ testing 123
 20. ~~Swap eyes~~
 21. ~~Update wording in section 5~~
 22. ~~Make more sections be selectable in circle part~~
-23. Add a go back button
-24. Add amnesiac questions
-25. Look into adding the information box next to answers
+23. ~~Add a go back button~~
+24. ~~Add amnesiac questions~~
+25. ~~Header buttons are removed when they aren't~~
+26. Look into adding the information box next to answers

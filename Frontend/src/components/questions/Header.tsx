@@ -60,48 +60,53 @@ function Header(props: Props) {
 
             {/* Buttons */}
             <ButtonGroup>
-                <Button
-                    variant="primary"
-                    size="sm"
-                    onClick={handleShowInstructions}
-                    className="button-icon"
-                    disabled={!props.instructions}
-                >
-                    <FaInfo />
-                </Button>
-                <Button
-                    variant="primary"
-                    size="sm"
-                    as="a"
-                    href={props.imageUrl ? props.imageUrl : "#"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="button-icon"
-                    disabled={!props.imageUrl}
-                >
-                    <FaCamera />
-                </Button>
-                <Button
-                    variant="primary"
-                    size="sm"
-                    as="a"
-                    href={props.videoUrl ? props.videoUrl : "#"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="button-icon"
-                    disabled={!props.videoUrl}
-                >
-                    <FaVideo />
-                </Button>
-                <Button
-                    variant="primary"
-                    size="sm"
-                    onClick={handleShowStopwatch}
-                    className="button-icon"
-                    disabled={props.haveTimer}
-                >
-                    <FaStopwatch />
-                </Button>
+                {props.instructions && (
+                    <Button
+                        variant="primary"
+                        size="sm"
+                        onClick={handleShowInstructions}
+                        className="button-icon"
+                    >
+                        <FaInfo />
+                    </Button>
+                )}
+                {props.imageUrl && (
+                    <Button
+                        variant="primary"
+                        size="sm"
+                        as="a"
+                        href={props.imageUrl ? props.imageUrl : "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="button-icon"
+                    >
+                        <FaCamera />
+                    </Button>
+                )}
+                {props.videoUrl && (
+                    <Button
+                        variant="primary"
+                        size="sm"
+                        as="a"
+                        href={props.videoUrl ? props.videoUrl : "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="button-icon"
+                    >
+                        <FaVideo />
+                    </Button>
+                )}
+                {!props.haveTimer && (
+                    <Button
+                        variant="primary"
+                        size="sm"
+                        onClick={handleShowStopwatch}
+                        className="button-icon"
+                        disabled={props.haveTimer}
+                    >
+                        <FaStopwatch />
+                    </Button>
+                )}
             </ButtonGroup>
         </div>
     );

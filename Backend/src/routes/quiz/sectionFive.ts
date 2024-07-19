@@ -417,16 +417,23 @@ sectionFiveRouter.post("/4", (req: Request, res: Response) => {
             );
 
             pool.query(
-                addData,
-                [
-                    data.uuid,
-                    data.section,
-                    data.q_id,
-                    data.question,
-                    data.answer,
-                ],
+                deleteOneData,
+                [data.uuid, data.section, data.q_id],
                 (error, results) => {
                     if (error) throw error;
+                    pool.query(
+                        addData,
+                        [
+                            data.uuid,
+                            data.section,
+                            data.q_id,
+                            data.question,
+                            data.answer,
+                        ],
+                        (error, results) => {
+                            if (error) throw error;
+                        }
+                    );
                 }
             );
         }

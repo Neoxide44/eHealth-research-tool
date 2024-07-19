@@ -29,8 +29,8 @@ sectionTenRouter.get("/1/:language", (req: Request, res: Response) => {
 });
 
 sectionTenRouter.post("/1", (req: Request, res: Response) => {
-    let nextQuestionID = 0;
-    let nextSectionID = "42";
+    let nextQuestionID = 1;
+    let nextSectionID = "11";
 
     const data: saveQuery = {
         uuid: req.body.id,

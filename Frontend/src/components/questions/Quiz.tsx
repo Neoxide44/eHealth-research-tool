@@ -113,12 +113,14 @@ function Quiz() {
             <Container>
                 <Stack gap={3}>
                     <h1>{title}</h1>
-                    <Header
-                        imageUrl={imageUrl}
-                        videoUrl={videoUrl}
-                        instructions={instructions}
-                        haveTimer={section != "3"}
-                    />
+                    {(imageUrl || videoUrl || section != "3") && (
+                        <Header
+                            imageUrl={imageUrl}
+                            videoUrl={videoUrl}
+                            instructions={instructions}
+                            haveTimer={section != "3"}
+                        />
+                    )}
 
                     {mc && (
                         <Question
