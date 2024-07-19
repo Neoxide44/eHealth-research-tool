@@ -1,7 +1,7 @@
 // Question.tsx
 import React from "react";
 import MCOptions from "./MCOptions";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, ButtonGroup } from "react-bootstrap";
 
 interface Props {
     question: string;
@@ -9,6 +9,7 @@ interface Props {
     selectedOptions: string[];
     onOptionChange: React.ChangeEventHandler<HTMLInputElement>;
     onSubmit: () => void;
+    onGoBack: () => void;
 }
 
 function MCQuestion(props: Props) {
@@ -27,9 +28,23 @@ function MCQuestion(props: Props) {
                     selectedOptions={props.selectedOptions}
                     onOptionChange={props.onOptionChange}
                 />
-                <Button type="submit" className="btn btn-primary mt-2">
-                    Submit
-                </Button>
+                <ButtonGroup>
+                    <Button
+                        type="submit"
+                        className="btn btn-primary mt-2"
+                        disabled={!props.selectedOptions}
+                    >
+                        Submit Answer
+                    </Button>
+                    <Button
+                        className="btn btn-primary mt-2"
+                        onClick={() => {
+                            props.onGoBack();
+                        }}
+                    >
+                        Previous Question
+                    </Button>
+                </ButtonGroup>
             </Form>
         </div>
     );

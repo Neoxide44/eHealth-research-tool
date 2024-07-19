@@ -2,14 +2,14 @@ import { Router, Request, Response } from "express";
 import { saveQuery } from "../../models/saveQuery";
 import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
-import { addData } from "../../queries";
+import { addData, deleteOneData } from "../../queries";
 import { getAnswer } from "../../queries";
-import { addOutcome } from "../../queries";
+import { addOutcome, deleteOutcome } from "../../queries";
 
 const sectionOneBRouter = Router();
 
 //Section 1b Question 1
-sectionOneBRouter.get("/1", (req: Request, res: Response) => {
+sectionOneBRouter.get("/1/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "1",
         section: "1b",
@@ -40,10 +40,23 @@ sectionOneBRouter.post("/1", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -60,7 +73,7 @@ sectionOneBRouter.post("/1", (req: Request, res: Response) => {
 });
 
 //Section 1b Question 2
-sectionOneBRouter.get("/2", (req: Request, res: Response) => {
+sectionOneBRouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "1b",
@@ -89,10 +102,23 @@ sectionOneBRouter.post("/2", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -109,7 +135,7 @@ sectionOneBRouter.post("/2", (req: Request, res: Response) => {
 });
 
 //Section 1b Question 3
-sectionOneBRouter.get("/3", (req: Request, res: Response) => {
+sectionOneBRouter.get("/3/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "1b",
@@ -139,10 +165,23 @@ sectionOneBRouter.post("/3", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -160,7 +199,7 @@ sectionOneBRouter.post("/3", (req: Request, res: Response) => {
 });
 
 //Section 1b Question 4
-sectionOneBRouter.get("/4", (req: Request, res: Response) => {
+sectionOneBRouter.get("/4/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "4",
         section: "1b",
@@ -187,10 +226,23 @@ sectionOneBRouter.post("/4", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
     let check = false;
@@ -231,7 +283,7 @@ sectionOneBRouter.post("/4", (req: Request, res: Response) => {
 });
 
 //Section 1b Question 5
-sectionOneBRouter.get("/5", (req: Request, res: Response) => {
+sectionOneBRouter.get("/5/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "5",
         section: "1b",
@@ -258,10 +310,23 @@ sectionOneBRouter.post("/5", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
     let check = false;
@@ -286,21 +351,24 @@ sectionOneBRouter.post("/5", (req: Request, res: Response) => {
         });
     });
 
-    pool.query(
-        addOutcome,
-        [
-            data.uuid,
-            data.section,
-            "SEVERE LL Strength Impairmen" + " - " + data.answer,
-        ],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
+    pool.query(deleteOutcome, [data.uuid, data.section], (error, results) => {
+        if (error) throw error;
+        pool.query(
+            addOutcome,
+            [
+                data.uuid,
+                data.section,
+                "SEVERE LL Strength Impairmen" + " - " + data.answer,
+            ],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    });
 });
 
 //Section 1b Question 6
-sectionOneBRouter.get("/6", (req: Request, res: Response) => {
+sectionOneBRouter.get("/6/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "6",
         section: "1b",
@@ -328,10 +396,23 @@ sectionOneBRouter.post("/6", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -348,7 +429,7 @@ sectionOneBRouter.post("/6", (req: Request, res: Response) => {
 });
 
 //Section 1b Question 7
-sectionOneBRouter.get("/7", (req: Request, res: Response) => {
+sectionOneBRouter.get("/7/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "7",
         section: "1b",
@@ -375,10 +456,23 @@ sectionOneBRouter.post("/7", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
     let check = false;
@@ -402,23 +496,26 @@ sectionOneBRouter.post("/7", (req: Request, res: Response) => {
         });
     });
 
-    pool.query(
-        addOutcome,
-        [
-            data.uuid,
-            data.section,
-            "MODERATE LL Strength Impairment with Extrapyramidal Signs" +
-                " - " +
-                data.answer,
-        ],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
+    pool.query(deleteOutcome, [data.uuid, data.section], (error, results) => {
+        if (error) throw error;
+        pool.query(
+            addOutcome,
+            [
+                data.uuid,
+                data.section,
+                "MODERATE LL Strength Impairment with Extrapyramidal Signs" +
+                    " - " +
+                    data.answer,
+            ],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    });
 });
 
 //Section 1b Question 8
-sectionOneBRouter.get("/8", (req: Request, res: Response) => {
+sectionOneBRouter.get("/8/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "8",
         section: "1b",
@@ -445,10 +542,23 @@ sectionOneBRouter.post("/8", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
     let check = false;
@@ -471,17 +581,21 @@ sectionOneBRouter.post("/8", (req: Request, res: Response) => {
             nextSection: nextSectionID,
         });
     });
-    pool.query(
-        addOutcome,
-        [
-            data.uuid,
-            data.section,
-            "MODERATE UL Strength Impairment" + " - " + data.answer,
-        ],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
+
+    pool.query(deleteOutcome, [data.uuid, data.section], (error, results) => {
+        if (error) throw error;
+        pool.query(
+            addOutcome,
+            [
+                data.uuid,
+                data.section,
+                "MODERATE UL Strength Impairment" + " - " + data.answer,
+            ],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    });
 });
 
 export default sectionOneBRouter;

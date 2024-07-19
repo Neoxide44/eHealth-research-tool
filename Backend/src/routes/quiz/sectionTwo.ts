@@ -2,13 +2,13 @@ import { Router, Request, Response } from "express";
 import { saveQuery } from "../../models/saveQuery";
 import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
-import { addData } from "../../queries";
-import { addOutcome } from "../../queries";
+import { addData, deleteOneData } from "../../queries";
+import { addOutcome, deleteOutcome } from "../../queries";
 
 const sectionTwoRouter = Router();
 
 //Section 2 Question 1
-sectionTwoRouter.get("/1", (req: Request, res: Response) => {
+sectionTwoRouter.get("/1/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "1",
         section: "2",
@@ -39,10 +39,23 @@ sectionTwoRouter.post("/1", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -59,7 +72,7 @@ sectionTwoRouter.post("/1", (req: Request, res: Response) => {
 });
 
 //Section 2 Question 2
-sectionTwoRouter.get("/2", (req: Request, res: Response) => {
+sectionTwoRouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "2",
@@ -91,10 +104,23 @@ sectionTwoRouter.post("/2", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -117,7 +143,7 @@ sectionTwoRouter.post("/2", (req: Request, res: Response) => {
 });
 
 //Section 2 Question 3
-sectionTwoRouter.get("/3", (req: Request, res: Response) => {
+sectionTwoRouter.get("/3/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "2",
@@ -148,10 +174,23 @@ sectionTwoRouter.post("/3", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -169,7 +208,7 @@ sectionTwoRouter.post("/3", (req: Request, res: Response) => {
 });
 
 //Section 2 Question 4
-sectionTwoRouter.get("/4", (req: Request, res: Response) => {
+sectionTwoRouter.get("/4/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "4",
         section: "2",
@@ -197,24 +236,40 @@ sectionTwoRouter.post("/4", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
-    pool.query(
-        addOutcome,
-        [
-            data.uuid,
-            data.section,
-            "SEVERE UL Coordination Impairment" + " - " + data.answer,
-        ],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
+    pool.query(deleteOutcome, [data.uuid, data.section], (error, results) => {
+        if (error) throw error;
+        pool.query(
+            addOutcome,
+            [
+                data.uuid,
+                data.section,
+                "SEVERE UL Coordination Impairment" + " - " + data.answer,
+            ],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    });
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -223,7 +278,7 @@ sectionTwoRouter.post("/4", (req: Request, res: Response) => {
 });
 
 //Section 2 Question 5
-sectionTwoRouter.get("/5", (req: Request, res: Response) => {
+sectionTwoRouter.get("/5/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "5",
         section: "2",
@@ -251,24 +306,40 @@ sectionTwoRouter.post("/5", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
-    pool.query(
-        addOutcome,
-        [
-            data.uuid,
-            data.section,
-            "MILD UL Coordination Impairment" + " - " + data.answer,
-        ],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
+    pool.query(deleteOutcome, [data.uuid, data.section], (error, results) => {
+        if (error) throw error;
+        pool.query(
+            addOutcome,
+            [
+                data.uuid,
+                data.section,
+                "MILD UL Coordination Impairment" + " - " + data.answer,
+            ],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    });
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -277,7 +348,7 @@ sectionTwoRouter.post("/5", (req: Request, res: Response) => {
 });
 
 //Section 2 Question 6
-sectionTwoRouter.get("/6", (req: Request, res: Response) => {
+sectionTwoRouter.get("/6/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "6",
         section: "2",
@@ -309,10 +380,23 @@ sectionTwoRouter.post("/6", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -335,7 +419,7 @@ sectionTwoRouter.post("/6", (req: Request, res: Response) => {
 });
 
 //Section 2 Question 7
-sectionTwoRouter.get("/7", (req: Request, res: Response) => {
+sectionTwoRouter.get("/7/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "7",
         section: "2",
@@ -363,25 +447,42 @@ sectionTwoRouter.post("/7", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
-    pool.query(
-        addOutcome,
-        [
-            data.uuid,
-            data.section,
-            "POTENTIAL MODERATE UL Deep Sensitivity Impairment" +
-                " - " +
-                data.answer,
-        ],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
+
+    pool.query(deleteOutcome, [data.uuid, data.section], (error, results) => {
+        if (error) throw error;
+        pool.query(
+            addOutcome,
+            [
+                data.uuid,
+                data.section,
+                "POTENTIAL MODERATE UL Deep Sensitivity Impairment" +
+                    " - " +
+                    data.answer,
+            ],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    });
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -390,7 +491,7 @@ sectionTwoRouter.post("/7", (req: Request, res: Response) => {
 });
 
 //Section 2 Question 8
-sectionTwoRouter.get("/8", (req: Request, res: Response) => {
+sectionTwoRouter.get("/8/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "8",
         section: "2",
@@ -418,26 +519,42 @@ sectionTwoRouter.post("/8", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
-    pool.query(
-        addOutcome,
-        [
-            data.uuid,
-            data.section,
-            "POTENTIAL MILD UL Deep Sensitivity Impairment" +
-                " - " +
-                data.answer,
-        ],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
+    pool.query(deleteOutcome, [data.uuid, data.section], (error, results) => {
+        if (error) throw error;
+        pool.query(
+            addOutcome,
+            [
+                data.uuid,
+                data.section,
+                "POTENTIAL MILD UL Deep Sensitivity Impairment" +
+                    " - " +
+                    data.answer,
+            ],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    });
 
     res.status(200).json({
         nextQuestion: nextQuestionID,

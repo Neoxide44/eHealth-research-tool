@@ -2,12 +2,18 @@ import { Router, Request, Response } from "express";
 import { saveQuery } from "../../models/saveQuery";
 import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
-import { addData, addOutcome, appendOutcome, getAnswer } from "../../queries";
+import {
+    addData,
+    addOutcome,
+    appendOutcome,
+    getAnswer,
+    deleteOneData,
+} from "../../queries";
 
 const sectionSixRouter = Router();
 
 //Section 6 Question 1
-sectionSixRouter.get("/1", (req: Request, res: Response) => {
+sectionSixRouter.get("/1/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "1",
         section: "6",
@@ -39,10 +45,23 @@ sectionSixRouter.post("/1", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -59,7 +78,7 @@ sectionSixRouter.post("/1", (req: Request, res: Response) => {
 });
 
 //Section 6 Question 2
-sectionSixRouter.get("/2", (req: Request, res: Response) => {
+sectionSixRouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "6",
@@ -93,10 +112,23 @@ sectionSixRouter.post("/2", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
     if (
@@ -139,7 +171,7 @@ sectionSixRouter.post("/2", (req: Request, res: Response) => {
 });
 
 //Section 6 Question 3
-sectionSixRouter.get("/3", (req: Request, res: Response) => {
+sectionSixRouter.get("/3/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "6",
@@ -170,10 +202,23 @@ sectionSixRouter.post("/3", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -190,7 +235,7 @@ sectionSixRouter.post("/3", (req: Request, res: Response) => {
 });
 
 //Section 6 Question 4
-sectionSixRouter.get("/4", (req: Request, res: Response) => {
+sectionSixRouter.get("/4/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "4",
         section: "6",
@@ -224,10 +269,23 @@ sectionSixRouter.post("/4", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
     if (
@@ -270,7 +328,7 @@ sectionSixRouter.post("/4", (req: Request, res: Response) => {
 });
 
 //Section 6 Question 5
-sectionSixRouter.get("/5", (req: Request, res: Response) => {
+sectionSixRouter.get("/5/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "5",
         section: "6",
@@ -301,10 +359,23 @@ sectionSixRouter.post("/5", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -322,7 +393,7 @@ sectionSixRouter.post("/5", (req: Request, res: Response) => {
 });
 
 //Section 6 Question 6
-sectionSixRouter.get("/6", (req: Request, res: Response) => {
+sectionSixRouter.get("/6/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "6",
         section: "6",
@@ -356,10 +427,23 @@ sectionSixRouter.post("/6", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
     if (

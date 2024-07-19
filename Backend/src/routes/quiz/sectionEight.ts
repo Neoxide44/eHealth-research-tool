@@ -2,13 +2,13 @@ import { Router, Request, Response } from "express";
 import { saveQuery } from "../../models/saveQuery";
 import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
-import { addData } from "../../queries";
-import { addOutcome } from "../../queries";
+import { addData, deleteOneData } from "../../queries";
+import { addOutcome, deleteOutcome } from "../../queries";
 
 const sectionEightRouter = Router();
 
 //Section 8 Question 1
-sectionEightRouter.get("/1", (req: Request, res: Response) => {
+sectionEightRouter.get("/1/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "1",
         section: "8",
@@ -40,10 +40,23 @@ sectionEightRouter.post("/1", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -61,7 +74,7 @@ sectionEightRouter.post("/1", (req: Request, res: Response) => {
 });
 
 //Section 8 Question 2
-sectionEightRouter.get("/2", (req: Request, res: Response) => {
+sectionEightRouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "8",
@@ -93,10 +106,23 @@ sectionEightRouter.post("/2", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -104,14 +130,21 @@ sectionEightRouter.post("/2", (req: Request, res: Response) => {
         nextQuestionID = 1;
         nextSectionID = "9";
         pool.query(
-            addOutcome,
-            [
-                data.uuid,
-                data.section,
-                "MILD Strength Impairment" + " - " + data.answer,
-            ],
+            deleteOutcome,
+            [data.uuid, data.section],
             (error, results) => {
                 if (error) throw error;
+                pool.query(
+                    addOutcome,
+                    [
+                        data.uuid,
+                        data.section,
+                        "MILD Strength Impairment" + " - " + data.answer,
+                    ],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
             }
         );
     } else if (
@@ -128,7 +161,7 @@ sectionEightRouter.post("/2", (req: Request, res: Response) => {
 });
 
 //Section 8 Question 3
-sectionEightRouter.get("/3", (req: Request, res: Response) => {
+sectionEightRouter.get("/3/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "8",
@@ -156,24 +189,40 @@ sectionEightRouter.post("/3", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
-    pool.query(
-        addOutcome,
-        [
-            data.uuid,
-            data.section,
-            "Facial Nerve PARALYSIS (PERIPHERAL)" + " - " + data.answer,
-        ],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
+    pool.query(deleteOutcome, [data.uuid, data.section], (error, results) => {
+        if (error) throw error;
+        pool.query(
+            addOutcome,
+            [
+                data.uuid,
+                data.section,
+                "Facial Nerve PARALYSIS (PERIPHERAL)" + " - " + data.answer,
+            ],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    });
 
     res.status(200).json({
         nextQuestion: nextQuestionID,

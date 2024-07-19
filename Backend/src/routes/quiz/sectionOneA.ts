@@ -2,14 +2,14 @@ import { Router, Request, Response } from "express";
 import { saveQuery } from "../../models/saveQuery";
 import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
-import { addData } from "../../queries";
-import { addOutcome } from "../../queries";
+import { addData, deleteOneData } from "../../queries";
+import { addOutcome, deleteOutcome } from "../../queries";
 
 const sectionOneARouter = Router();
 let queries: saveQuery[] = [];
 
 //Question 1
-sectionOneARouter.get("/1", (req: Request, res: Response) => {
+sectionOneARouter.get("/1/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "1",
         section: "1a",
@@ -39,10 +39,23 @@ sectionOneARouter.post("/1", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -60,7 +73,7 @@ sectionOneARouter.post("/1", (req: Request, res: Response) => {
 
 //Question 2
 
-sectionOneARouter.get("/2", (req: Request, res: Response) => {
+sectionOneARouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "1a",
@@ -93,10 +106,23 @@ sectionOneARouter.post("/2", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -119,7 +145,7 @@ sectionOneARouter.post("/2", (req: Request, res: Response) => {
 
 //Question 3
 
-sectionOneARouter.get("/3", (req: Request, res: Response) => {
+sectionOneARouter.get("/3/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "1a",
@@ -150,10 +176,23 @@ sectionOneARouter.post("/3", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -170,7 +209,7 @@ sectionOneARouter.post("/3", (req: Request, res: Response) => {
 });
 
 //Question 4
-sectionOneARouter.get("/4", (req: Request, res: Response) => {
+sectionOneARouter.get("/4/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "4",
         section: "1a",
@@ -205,25 +244,43 @@ sectionOneARouter.post("/4", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
-    pool.query(
-        addOutcome,
-        [
-            data.uuid,
-            data.section,
-            "MISSING UL or UNABLE to move for non-neurological reasons" +
-                " - " +
-                data.answer,
-        ],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
+
+    pool.query(deleteOutcome, [data.uuid, data.section], (error, results) => {
+        if (error) throw error;
+        pool.query(
+            addOutcome,
+            [
+                data.uuid,
+                data.section,
+                "MISSING UL or UNABLE to move for non-neurological reasons" +
+                    " - " +
+                    data.answer,
+            ],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    });
+
     res.status(200).json({
         nextQuestion: nextQuestionID,
         nextSection: nextSectionID,
@@ -231,7 +288,7 @@ sectionOneARouter.post("/4", (req: Request, res: Response) => {
 });
 
 //Question 5
-sectionOneARouter.get("/5", (req: Request, res: Response) => {
+sectionOneARouter.get("/5/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "5",
         section: "1a",
@@ -261,10 +318,23 @@ sectionOneARouter.post("/5", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -280,7 +350,7 @@ sectionOneARouter.post("/5", (req: Request, res: Response) => {
 });
 
 //Question 6
-sectionOneARouter.get("/6", (req: Request, res: Response) => {
+sectionOneARouter.get("/6/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "6",
         section: "1a",
@@ -312,10 +382,23 @@ sectionOneARouter.post("/6", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
     if (req.body.answer === "One or both arms FALL DOWN within 5 seconds") {
@@ -331,7 +414,7 @@ sectionOneARouter.post("/6", (req: Request, res: Response) => {
 });
 
 //Question 7
-sectionOneARouter.get("/7", (req: Request, res: Response) => {
+sectionOneARouter.get("/7/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "7",
         section: "1a",
@@ -359,25 +442,42 @@ sectionOneARouter.post("/7", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
-    pool.query(
-        addOutcome,
-        [
-            data.uuid,
-            data.section,
-            "SEVERE UL Strength Impairment with Extrapyramidal Signs" +
-                " - " +
-                data.answer,
-        ],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
+
+    pool.query(deleteOutcome, [data.uuid, data.section], (error, results) => {
+        if (error) throw error;
+        pool.query(
+            addOutcome,
+            [
+                data.uuid,
+                data.section,
+                "SEVERE UL Strength Impairment with Extrapyramidal Signs" +
+                    " - " +
+                    data.answer,
+            ],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    });
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -386,7 +486,7 @@ sectionOneARouter.post("/7", (req: Request, res: Response) => {
 });
 
 //Question 8
-sectionOneARouter.get("/8", (req: Request, res: Response) => {
+sectionOneARouter.get("/8/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "8",
         section: "1a",
@@ -414,23 +514,40 @@ sectionOneARouter.post("/8", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
-    pool.query(
-        addOutcome,
-        [
-            data.uuid,
-            data.section,
-            "SEVERE UL Strength Impairment " + " - " + data.answer,
-        ],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
+
+    pool.query(deleteOutcome, [data.uuid, data.section], (error, results) => {
+        if (error) throw error;
+        pool.query(
+            addOutcome,
+            [
+                data.uuid,
+                data.section,
+                "SEVERE UL Strength Impairment " + " - " + data.answer,
+            ],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    });
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -438,7 +555,7 @@ sectionOneARouter.post("/8", (req: Request, res: Response) => {
     });
 });
 
-sectionOneARouter.get("/9", (req: Request, res: Response) => {
+sectionOneARouter.get("/9/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "9",
         section: "1a",
@@ -467,10 +584,23 @@ sectionOneARouter.post("/9", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -485,7 +615,7 @@ sectionOneARouter.post("/9", (req: Request, res: Response) => {
     });
 });
 
-sectionOneARouter.get("/10", (req: Request, res: Response) => {
+sectionOneARouter.get("/10/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "10",
         section: "1a",
@@ -513,25 +643,42 @@ sectionOneARouter.post("/10", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
-    pool.query(
-        addOutcome,
-        [
-            data.uuid,
-            data.section,
-            "MODERATE UL Strength Impairment with Extrapyramidal Signs" +
-                " - " +
-                data.answer,
-        ],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
+
+    pool.query(deleteOutcome, [data.uuid, data.section], (error, results) => {
+        if (error) throw error;
+        pool.query(
+            addOutcome,
+            [
+                data.uuid,
+                data.section,
+                "MODERATE UL Strength Impairment with Extrapyramidal Signs" +
+                    " - " +
+                    data.answer,
+            ],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    });
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -539,7 +686,7 @@ sectionOneARouter.post("/10", (req: Request, res: Response) => {
     });
 });
 
-sectionOneARouter.get("/11", (req: Request, res: Response) => {
+sectionOneARouter.get("/11/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "11",
         section: "1a",
@@ -567,23 +714,40 @@ sectionOneARouter.post("/11", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
-    pool.query(
-        addOutcome,
-        [
-            data.uuid,
-            data.section,
-            "MODERATE UL Strength Impairment" + " - " + data.answer,
-        ],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
+
+    pool.query(deleteOutcome, [data.uuid, data.section], (error, results) => {
+        if (error) throw error;
+        pool.query(
+            addOutcome,
+            [
+                data.uuid,
+                data.section,
+                "MODERATE UL Strength Impairment" + " - " + data.answer,
+            ],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    });
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -591,7 +755,7 @@ sectionOneARouter.post("/11", (req: Request, res: Response) => {
     });
 });
 
-sectionOneARouter.get("/12", (req: Request, res: Response) => {
+sectionOneARouter.get("/12/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "12",
         section: "1a",
@@ -619,24 +783,40 @@ sectionOneARouter.post("/12", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
-    pool.query(
-        addOutcome,
-        [
-            data.uuid,
-            data.section,
-            "MILD UL Strength Impairment" + " - " + data.answer,
-        ],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
+    pool.query(deleteOutcome, [data.uuid, data.section], (error, results) => {
+        if (error) throw error;
+        pool.query(
+            addOutcome,
+            [
+                data.uuid,
+                data.section,
+                "MILD UL Strength Impairment" + " - " + data.answer,
+            ],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    });
 
     res.status(200).json({
         nextQuestion: nextQuestionID,

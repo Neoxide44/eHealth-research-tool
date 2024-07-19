@@ -31,6 +31,7 @@ function Quiz() {
             await getQuery(
                 section,
                 q_id,
+                language,
                 setQuestion,
                 setInstructions,
                 setOptions,
@@ -42,7 +43,7 @@ function Quiz() {
         };
 
         fetchData();
-    }, []); // Dependency array is empty so it runs only once on mount
+    }, [section, q_id, language]); // Dependency array is empty so it runs only once on mount
 
     async function handleFormSubmit() {
         await postQuery(
@@ -86,6 +87,10 @@ function Quiz() {
         setSelectedOption(e.target.value);
     }
 
+    function handleGoBack() {
+        navigate(-1);
+    }
+
     const handleOptionsChange = (
         event: React.ChangeEvent<HTMLInputElement>
     ) => {
@@ -126,6 +131,7 @@ function Quiz() {
                                     handleFormSubmit();
                                 }
                             }}
+                            onGoBack={handleGoBack}
                         />
                     )}
 
@@ -138,6 +144,7 @@ function Quiz() {
                             onSubmit={() => {
                                 handleMCFormSubmit();
                             }}
+                            onGoBack={handleGoBack}
                         />
                     )}
 

@@ -26,6 +26,7 @@ const EyeQuestion: React.FC = () => {
             await getQuery(
                 section,
                 q_id,
+                language,
                 setQuestion,
                 setInstructions,
                 setOptions,
@@ -37,7 +38,7 @@ const EyeQuestion: React.FC = () => {
         };
 
         fetchData();
-    }, []); // Dependency array is empty so it runs only once on mount
+    }, [section, q_id, language]); // Dependency array is empty so it runs only once on mount
 
     const handleOptionChange = (updatedOptions: string[]) => {
         setSelectedOptions(updatedOptions);
@@ -62,6 +63,9 @@ const EyeQuestion: React.FC = () => {
         );
         setSelectedOptions([]);
     }
+    function handleGoBack() {
+        navigate(-1);
+    }
 
     return (
         <div className="eye-question">
@@ -79,6 +83,7 @@ const EyeQuestion: React.FC = () => {
                         selectedOptions={selectedOptions}
                         onOptionChange={handleOptionChange}
                         onSubmit={handleSubmit}
+                        onGoBack={handleGoBack}
                     />
                     <div className="selected-options-container">
                         <strong>Selected Options: </strong>

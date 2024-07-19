@@ -2,13 +2,13 @@ import { Router, Request, Response } from "express";
 import { saveQuery } from "../../models/saveQuery";
 import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
-import { addData } from "../../queries";
-import { addOutcome } from "../../queries";
+import { addData, deleteOneData } from "../../queries";
+import { addOutcome, deleteOutcome } from "../../queries";
 
 const sectionNineRouter = Router();
 
 //Section 9 Question 1
-sectionNineRouter.get("/1", (req: Request, res: Response) => {
+sectionNineRouter.get("/1/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "1",
         section: "9",
@@ -40,10 +40,23 @@ sectionNineRouter.post("/1", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -61,7 +74,7 @@ sectionNineRouter.post("/1", (req: Request, res: Response) => {
 });
 
 //Section 9 Question 2
-sectionNineRouter.get("/2", (req: Request, res: Response) => {
+sectionNineRouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "9",
@@ -89,19 +102,40 @@ sectionNineRouter.post("/2", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
-    pool.query(
-        addOutcome,
-        [data.uuid, data.section, "REDUCED VISUAL FIELD" + " - " + data.answer],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
+
+    pool.query(deleteOutcome, [data.uuid, data.section], (error, results) => {
+        if (error) throw error;
+        pool.query(
+            addOutcome,
+            [
+                data.uuid,
+                data.section,
+                "REDUCED VISUAL FIELD" + " - " + data.answer,
+            ],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    });
 
     res.status(200).json({
         nextQuestion: nextQuestionID,

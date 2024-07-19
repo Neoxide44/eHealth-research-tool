@@ -13,13 +13,15 @@ testing 123
 11. ~~Add a timer to section 3 and a reference value~~
 12. ~~Add a copyright disclaimer at the bottom of the page, Vasco will get exact wording~~
 13. Update images
-14. Section 5 in multiple languages
+14. ~~Section 5 in multiple languages~~
 15. Host on uni server
 16. ~~Buttons are disabled when you don't have a image, video, timer or instructions~~
 17. ~~Spelling error in Proguguese in the participant info section.~~
 18. ~~Add the warning before the language select.~~
 19. ~~Add title to each section~~
 20. ~~Swap eyes~~
-21. Update wording in section 5
+21. ~~Update wording in section 5~~
 22. ~~Make more sections be selectable in circle part~~
 23. Add a go back button
+24. Add amnesiac questions
+25. Look into adding the information box next to answers

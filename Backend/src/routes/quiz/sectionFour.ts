@@ -2,12 +2,17 @@ import { Router, Request, Response } from "express";
 import { saveQuery } from "../../models/saveQuery";
 import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
-import { addData, addOutcome } from "../../queries";
+import {
+    addData,
+    addOutcome,
+    deleteOneData,
+    deleteOutcome,
+} from "../../queries";
 
 const sectionFourRouter = Router();
 
 //Section 4 Question 1
-sectionFourRouter.get("/1", (req: Request, res: Response) => {
+sectionFourRouter.get("/1/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "1",
         section: "4",
@@ -39,10 +44,23 @@ sectionFourRouter.post("/1", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -60,7 +78,7 @@ sectionFourRouter.post("/1", (req: Request, res: Response) => {
 });
 
 //Section 4 Question 2
-sectionFourRouter.get("/2", (req: Request, res: Response) => {
+sectionFourRouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "4",
@@ -95,10 +113,23 @@ sectionFourRouter.post("/2", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -137,13 +168,16 @@ sectionFourRouter.post("/2", (req: Request, res: Response) => {
         outcome += "'MODERATE LL Coordination Impairment'";
     }
 
-    pool.query(
-        addOutcome,
-        [data.uuid, data.section, outcome + " - " + data.answer],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
+    pool.query(deleteOutcome, [data.uuid, data.section], (error, results) => {
+        if (error) throw error;
+        pool.query(
+            addOutcome,
+            [data.uuid, data.section, outcome + " - " + data.answer],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    });
 
     res.status(200).json({
         nextQuestion: nextQuestionID,

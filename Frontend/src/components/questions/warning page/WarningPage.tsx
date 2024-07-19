@@ -1,6 +1,6 @@
 import React from "react";
 import "./WarningPage.css";
-import { Button } from "react-bootstrap";
+import { Button, ButtonGroup } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -16,15 +16,24 @@ function WarningPage() {
                         Please inform the participant that the following section
                         might cause discomfort.
                     </h1>
-                    <Button
-                        onClick={() => {
-                            navigate(
-                                `/quiz/${language}/${section}/${q_id}/${id}`
-                            );
-                        }}
-                    >
-                        Continue
-                    </Button>
+                    <ButtonGroup>
+                        <Button
+                            onClick={() => {
+                                navigate(
+                                    `/quiz/${language}/${section}/${q_id}/${id}`
+                                );
+                            }}
+                        >
+                            Continue
+                        </Button>
+                        <Button
+                            onClick={() => {
+                                navigate(-1);
+                            }}
+                        >
+                            Go Back
+                        </Button>
+                    </ButtonGroup>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import Options from "./Options.tsx";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, ButtonGroup } from "react-bootstrap";
 
 interface Props {
     question: string;
@@ -8,6 +8,7 @@ interface Props {
 
     selectedOption: string;
     onOptionChange: React.ChangeEventHandler<HTMLInputElement>;
+    onGoBack: () => void;
     onSubmit: () => void;
 }
 
@@ -27,13 +28,23 @@ function Question(props: Props) {
                     selectedOption={props.selectedOption}
                     onOptionChange={props.onOptionChange}
                 />
-                <Button
-                    type="submit"
-                    className="btn btn-primary mt-2"
-                    disabled={!props.selectedOption}
-                >
-                    Submit
-                </Button>
+                <ButtonGroup>
+                    <Button
+                        type="submit"
+                        className="btn btn-primary mt-2"
+                        disabled={!props.selectedOption}
+                    >
+                        Submit Answer
+                    </Button>
+                    <Button
+                        className="btn btn-primary mt-2"
+                        onClick={() => {
+                            props.onGoBack();
+                        }}
+                    >
+                        Previous Question
+                    </Button>
+                </ButtonGroup>
             </Form>
         </div>
     );

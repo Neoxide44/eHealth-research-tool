@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, ButtonGroup } from "react-bootstrap";
 import "./CircleComponent.css";
 import { useState } from "react";
 
@@ -11,6 +11,7 @@ interface Answer {
 interface Props {
     selectedOptions: string[];
     onOptionChange: (selectedOptions: string[]) => void;
+    onGoBack: () => void;
     onSubmit: () => void;
 }
 
@@ -18,6 +19,7 @@ const CircleComponent: React.FC<Props> = ({
     selectedOptions,
     onOptionChange,
     onSubmit,
+    onGoBack,
 }) => {
     const handleClick = (circle: string, quadrant: string) => {
         const option = `${circle} Eye - ${quadrant} Quadrant`;
@@ -120,13 +122,23 @@ const CircleComponent: React.FC<Props> = ({
                     ></div>
                 </div>
             </div>
-            <Button
-                className="submit-button"
-                onClick={onSubmit}
-                disabled={selectedOptions.length === 0}
-            >
-                SUBMIT
-            </Button>
+            <ButtonGroup>
+                <Button
+                    className="submit-button"
+                    onClick={onSubmit}
+                    disabled={selectedOptions.length === 0}
+                >
+                    Submit Answer
+                </Button>
+                <Button
+                    className="submit-button"
+                    onClick={() => {
+                        onGoBack();
+                    }}
+                >
+                    Previous Question
+                </Button>
+            </ButtonGroup>
         </div>
     );
 };

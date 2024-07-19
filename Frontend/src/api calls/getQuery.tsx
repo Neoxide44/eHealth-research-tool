@@ -1,6 +1,7 @@
 export const getQuery = async (
     section: string | undefined,
     q_id: string | undefined,
+    language: string | undefined,
     setQuestion: React.Dispatch<React.SetStateAction<string>>,
     setInstructions: React.Dispatch<React.SetStateAction<string>>,
     setOptions: React.Dispatch<React.SetStateAction<string[]>>,
@@ -9,7 +10,7 @@ export const getQuery = async (
     setMc: React.Dispatch<React.SetStateAction<boolean>>,
     setTitle: React.Dispatch<React.SetStateAction<string>>
 ) => {
-    const endpoint = `http://localhost:3000/queries/${section}/${q_id}`;
+    const endpoint = `http://localhost:3000/queries/${section}/${q_id}/${language}`;
 
     try {
         const response = await fetch(endpoint, {

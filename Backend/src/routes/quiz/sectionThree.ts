@@ -2,13 +2,13 @@ import { Router, Request, Response } from "express";
 import { saveQuery } from "../../models/saveQuery";
 import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
-import { addData } from "../../queries";
-import { addOutcome } from "../../queries";
+import { addData, deleteOneData } from "../../queries";
+import { addOutcome, deleteOutcome } from "../../queries";
 
 const sectionThreeRouter = Router();
 
 //Section 3 Question 1
-sectionThreeRouter.get("/1", (req: Request, res: Response) => {
+sectionThreeRouter.get("/1/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "1",
         section: "3",
@@ -40,10 +40,23 @@ sectionThreeRouter.post("/1", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -61,7 +74,7 @@ sectionThreeRouter.post("/1", (req: Request, res: Response) => {
 });
 
 //Section 3 Question 2
-sectionThreeRouter.get("/2", (req: Request, res: Response) => {
+sectionThreeRouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "3",
@@ -95,10 +108,23 @@ sectionThreeRouter.post("/2", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
@@ -111,42 +137,63 @@ sectionThreeRouter.post("/2", (req: Request, res: Response) => {
         nextQuestionID = 1;
         nextSectionID = "5";
         pool.query(
-            addOutcome,
-            [
-                data.uuid,
-                data.section,
-                "SEVERE LL Strength Impairment" + " - " + data.answer,
-            ],
+            deleteOutcome,
+            [data.uuid, data.section],
             (error, results) => {
                 if (error) throw error;
+                pool.query(
+                    addOutcome,
+                    [
+                        data.uuid,
+                        data.section,
+                        "SEVERE LL Strength Impairment" + " - " + data.answer,
+                    ],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
             }
         );
     } else if (req.body.answer === "ABLE only with HELP") {
         nextQuestionID = 1;
         nextSectionID = "4";
         pool.query(
-            addOutcome,
-            [
-                data.uuid,
-                data.section,
-                "MODERATE LL Strength Impairment" + " - " + data.answer,
-            ],
+            deleteOutcome,
+            [data.uuid, data.section],
             (error, results) => {
                 if (error) throw error;
+                pool.query(
+                    addOutcome,
+                    [
+                        data.uuid,
+                        data.section,
+                        "MODERATE LL Strength Impairment" + " - " + data.answer,
+                    ],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
             }
         );
     } else if (req.body.answer === "ABLE without HELP, but with DIFFICULTY") {
         nextQuestionID = 1;
         nextSectionID = "4";
         pool.query(
-            addOutcome,
-            [
-                data.uuid,
-                data.section,
-                "MILD LL Strength Impairment" + " - " + data.answer,
-            ],
+            deleteOutcome,
+            [data.uuid, data.section],
             (error, results) => {
                 if (error) throw error;
+                pool.query(
+                    addOutcome,
+                    [
+                        data.uuid,
+                        data.section,
+                        "MILD LL Strength Impairment" + " - " + data.answer,
+                    ],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
             }
         );
     }
@@ -158,7 +205,7 @@ sectionThreeRouter.post("/2", (req: Request, res: Response) => {
 });
 
 //Section 3 Question 3
-sectionThreeRouter.get("/3", (req: Request, res: Response) => {
+sectionThreeRouter.get("/3/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "3",
@@ -193,26 +240,42 @@ sectionThreeRouter.post("/3", (req: Request, res: Response) => {
         answer: req.body.answer,
     };
     pool.query(
-        addData,
-        [data.uuid, data.section, data.q_id, data.question, data.answer],
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
         (error, results) => {
             if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
         }
     );
 
-    pool.query(
-        addOutcome,
-        [
-            data.uuid,
-            data.section,
-            "MISSING LL or UNABLE to move for non-neurological reasons" +
-                " - " +
-                data.answer,
-        ],
-        (error, results) => {
-            if (error) throw error;
-        }
-    );
+    pool.query(deleteOutcome, [data.uuid, data.section], (error, results) => {
+        if (error) throw error;
+        pool.query(
+            addOutcome,
+            [
+                data.uuid,
+                data.section,
+                "MISSING LL or UNABLE to move for non-neurological reasons" +
+                    " - " +
+                    data.answer,
+            ],
+            (error, results) => {
+                if (error) throw error;
+            }
+        );
+    });
 
     res.status(200).json({
         nextQuestion: nextQuestionID,

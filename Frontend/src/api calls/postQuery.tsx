@@ -59,6 +59,7 @@ export const postQuery = async (
             await getQuery(
                 section,
                 q_id,
+                language,
                 setQuestion,
                 setInstructions,
                 setOptions,
