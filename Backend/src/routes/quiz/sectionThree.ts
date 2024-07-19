@@ -78,7 +78,8 @@ sectionThreeRouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "3",
-        instructions: "",
+        instructions:
+            "Ask the participant to consecutively sit and stand up from a chair with their arms crossed on their chest and without holding on.\nIf possible, count how many times the participant can perform this properly in 30 seconds.",
         question: "",
         answers: [
             "MISSING limb or UNABLE to move for non-neurological reasons",
@@ -209,7 +210,8 @@ sectionThreeRouter.get("/3/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "3",
-        instructions: "",
+        instructions:
+            "Ask the participant to consecutively sit and stand up from a chair with their arms crossed on their chest and without holding on.\nIf possible, count how many times the participant can perform this properly in 30 seconds.",
         question: "",
         answers: [
             "LEFT LEG MISSING",

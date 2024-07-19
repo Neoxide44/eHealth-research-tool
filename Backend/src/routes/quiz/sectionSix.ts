@@ -82,7 +82,8 @@ sectionSixRouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "6",
-        instructions: "",
+        instructions:
+            "With the participant sitting on a chair, touch simultaneously both sides of their body (left and right), on the following areas:\nFace - forehead, high cheek, around the jaw;\nUpper limbs - forearm;\nLower limbs - thighs and below the knees\nAsk the participant if they feel the touch with the same intensity, comparing left and right.",
         question: "",
         answers: [
             "Less on the LEFT SIDE",
@@ -175,7 +176,8 @@ sectionSixRouter.get("/3/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "6",
-        instructions: "",
+        instructions:
+            "With the participant sitting on a chair, touch simultaneously both sides of their body (left and right), on the following areas:\nFace - forehead, high cheek, around the jaw;\nUpper limbs - forearm;\nLower limbs - thighs and below the knees\nAsk the participant if they feel the touch with the same intensity, comparing left and right.",
         question:
             "Is the participant able to FEEL WITH THE SAME INTENSITY the touch points on both sides of the UPPER LIMBS?",
         answers: ["Yes", "No"],
@@ -239,7 +241,8 @@ sectionSixRouter.get("/4/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "4",
         section: "6",
-        instructions: "",
+        instructions:
+            "With the participant sitting on a chair, touch simultaneously both sides of their body (left and right), on the following areas:\nFace - forehead, high cheek, around the jaw;\nUpper limbs - forearm;\nLower limbs - thighs and below the knees\nAsk the participant if they feel the touch with the same intensity, comparing left and right.",
         question: "",
         answers: [
             "Less on the LEFT SIDE",
@@ -332,7 +335,8 @@ sectionSixRouter.get("/5/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "5",
         section: "6",
-        instructions: "",
+        instructions:
+            "With the participant sitting on a chair, touch simultaneously both sides of their body (left and right), on the following areas:\nFace - forehead, high cheek, around the jaw;\nUpper limbs - forearm;\nLower limbs - thighs and below the knees\nAsk the participant if they feel the touch with the same intensity, comparing left and right.",
         question:
             "Is the participant able to FEEL WITH THE SAME INTENSITY the touch points on both sides of the LOWER LIMBS?",
         answers: ["Yes", "No"],
@@ -397,7 +401,8 @@ sectionSixRouter.get("/6/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "6",
         section: "6",
-        instructions: "",
+        instructions:
+            "With the participant sitting on a chair, touch simultaneously both sides of their body (left and right), on the following areas:\nFace - forehead, high cheek, around the jaw;\nUpper limbs - forearm;\nLower limbs - thighs and below the knees\nAsk the participant if they feel the touch with the same intensity, comparing left and right.",
         question: "",
         answers: [
             "Less on the LEFT SIDE",

@@ -77,7 +77,8 @@ sectionOneARouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "1a",
-        instructions: "",
+        instructions:
+            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. If the participant reaches the position, ask them to maintain that position for five seconds.",
         question: "",
         answers: [
             "One or both arms are MISSING or UNABLE to move for known non-neurological reasons.",
@@ -149,7 +150,8 @@ sectionOneARouter.get("/3/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "1a",
-        instructions: "",
+        instructions:
+            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. If the participant reaches the position, ask them to maintain that position for five seconds.",
         question:
             "Is the participant able to HOLD STEADILY the position for at least 5 seconds?",
         answers: ["Yes", "No"],
@@ -213,7 +215,8 @@ sectionOneARouter.get("/4/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "4",
         section: "1a",
-        instructions: "",
+        instructions:
+            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. If the participant reaches the position, ask them to maintain that position for five seconds.",
         question: "",
         answers: [
             "LEFT ARM MISSING",
@@ -292,7 +295,8 @@ sectionOneARouter.get("/5/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "5",
         section: "1a",
-        instructions: "",
+        instructions:
+            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. If the participant reaches the position, ask them to maintain that position for five seconds.",
         question:
             "Is the inability to reach the position accompanied by ARM SHAKING or OSCILLATIONS?",
         answers: ["Yes", "No"],
@@ -354,7 +358,8 @@ sectionOneARouter.get("/6/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "6",
         section: "1a",
-        instructions: "",
+        instructions:
+            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. If the participant reaches the position, ask them to maintain that position for five seconds.",
         question: "",
         answers: [
             "One or both arms FALL DOWN within 5 seconds",
@@ -418,7 +423,8 @@ sectionOneARouter.get("/7/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "7",
         section: "1a",
-        instructions: "",
+        instructions:
+            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. If the participant reaches the position, ask them to maintain that position for five seconds.",
         question: "",
         answers: ["LEFT ARM", "RIGHT ARM", "BOTH ARMS"],
         imageUrl: "",
@@ -490,7 +496,8 @@ sectionOneARouter.get("/8/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "8",
         section: "1a",
-        instructions: "",
+        instructions:
+            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. If the participant reaches the position, ask them to maintain that position for five seconds.",
         question: "",
         answers: ["LEFT ARM", "RIGHT ARM", "BOTH ARMS"],
         imageUrl: "",
@@ -559,7 +566,8 @@ sectionOneARouter.get("/9/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "9",
         section: "1a",
-        instructions: "",
+        instructions:
+            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. If the participant reaches the position, ask them to maintain that position for five seconds.",
         question: "Is the falling accompanied by ARM SHAKING or OSCILLATIONS?",
         answers: ["Yes", "No"],
         imageUrl: "",
@@ -619,7 +627,8 @@ sectionOneARouter.get("/10/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "10",
         section: "1a",
-        instructions: "",
+        instructions:
+            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. If the participant reaches the position, ask them to maintain that position for five seconds.",
         question: "",
         answers: ["LEFT ARM", "RIGHT ARM", "BOTH ARMS"],
         imageUrl: "",
@@ -690,7 +699,8 @@ sectionOneARouter.get("/11/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "11",
         section: "1a",
-        instructions: "",
+        instructions:
+            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. If the participant reaches the position, ask them to maintain that position for five seconds.",
         question: "",
         answers: ["LEFT ARM", "RIGHT ARM", "BOTH ARMS"],
         imageUrl: "",
@@ -759,7 +769,8 @@ sectionOneARouter.get("/12/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "12",
         section: "1a",
-        instructions: "",
+        instructions:
+            "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. If the participant reaches the position, ask them to maintain that position for five seconds.",
         question: "",
         answers: ["LEFT ARM", "RIGHT ARM", "BOTH ARMS"],
         imageUrl: "",

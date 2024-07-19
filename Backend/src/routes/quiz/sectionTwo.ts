@@ -76,7 +76,8 @@ sectionTwoRouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "2",
-        instructions: "",
+        instructions:
+            "Ask the participant to touch the tip of their nose with the tip of both index fingers alternatively.\n Repeat at least ten times (five with each hand) with eyes open, and ten times with eyes closed.",
         question: "",
         answers: [
             "Participant is  UNABLE to precisely REACH nose with one or both hands",
@@ -147,7 +148,8 @@ sectionTwoRouter.get("/3/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "2",
-        instructions: "",
+        instructions:
+            "Ask the participant to touch the tip of their nose with the tip of both index fingers alternatively.\n Repeat at least ten times (five with each hand) with eyes open, and ten times with eyes closed.",
         question:
             "Is the participant able to perform the task with EYES CLOSED?",
         answers: ["Yes", "No"],
@@ -212,7 +214,8 @@ sectionTwoRouter.get("/4/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "4",
         section: "2",
-        instructions: "",
+        instructions:
+            "Ask the participant to touch the tip of their nose with the tip of both index fingers alternatively.\n Repeat at least ten times (five with each hand) with eyes open, and ten times with eyes closed.",
         question: "",
         answers: ["LEFT HAND", "RIGHT HAND", "BOTH HANDS"],
         imageUrl: "",
@@ -282,7 +285,8 @@ sectionTwoRouter.get("/5/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "5",
         section: "2",
-        instructions: "",
+        instructions:
+            "Ask the participant to touch the tip of their nose with the tip of both index fingers alternatively.\n Repeat at least ten times (five with each hand) with eyes open, and ten times with eyes closed.",
         question: "",
         answers: ["LEFT HAND", "RIGHT HAND", "BOTH HANDS"],
         imageUrl: "",
@@ -352,7 +356,8 @@ sectionTwoRouter.get("/6/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "6",
         section: "2",
-        instructions: "",
+        instructions:
+            "Ask the participant to touch the tip of their nose with the tip of both index fingers alternatively.\n Repeat at least ten times (five with each hand) with eyes open, and ten times with eyes closed.",
         question: "",
         answers: [
             "Participant is UNABLE to precisely REACH nose with one or both hands",
@@ -423,7 +428,8 @@ sectionTwoRouter.get("/7/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "7",
         section: "2",
-        instructions: "",
+        instructions:
+            "Ask the participant to touch the tip of their nose with the tip of both index fingers alternatively.\n Repeat at least ten times (five with each hand) with eyes open, and ten times with eyes closed.",
         question: "",
         answers: ["LEFT HAND", "RIGHT HAND", "BOTH HANDS"],
         imageUrl: "",
@@ -495,7 +501,8 @@ sectionTwoRouter.get("/8/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "8",
         section: "2",
-        instructions: "",
+        instructions:
+            "Ask the participant to touch the tip of their nose with the tip of both index fingers alternatively.\n Repeat at least ten times (five with each hand) with eyes open, and ten times with eyes closed.",
         question: "",
         answers: ["LEFT HAND", "RIGHT HAND", "BOTH HANDS"],
         imageUrl: "",

@@ -78,7 +78,8 @@ sectionSevenBRouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "7b",
-        instructions: "",
+        instructions:
+            "With the participant sitting on a chair with their eyes closed, touch alternatively their big toes and ask which part of their body is being touched.\nThen move the toe up, and ask in which direction the toe is being moved.",
         question: "",
         answers: [
             "Participant is ABLE to IDENTIFY the TOE but NOT the DIRECTION",
@@ -155,7 +156,8 @@ sectionSevenBRouter.get("/3/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "7b",
-        instructions: "",
+        instructions:
+            "With the participant sitting on a chair with their eyes closed, touch alternatively their big toes and ask which part of their body is being touched.\nThen move the toe up, and ask in which direction the toe is being moved.",
         question: "",
         answers: ["LEFT TOE", "RIGHT TOE", "BOTH TOES"],
         imageUrl: "",
@@ -225,7 +227,8 @@ sectionSevenBRouter.get("/4/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "4",
         section: "7b",
-        instructions: "",
+        instructions:
+            "With the participant sitting on a chair with their eyes closed, touch alternatively their big toes and ask which part of their body is being touched.\nThen move the toe up, and ask in which direction the toe is being moved.",
         question: "",
         answers: ["LEFT TOE", "RIGHT TOE", "BOTH TOES"],
         imageUrl: "",
@@ -295,7 +298,8 @@ sectionSevenBRouter.get("/5/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "5",
         section: "7b",
-        instructions: "",
+        instructions:
+            "With the participant sitting on a chair with their eyes closed, touch alternatively their big toes and ask which part of their body is being touched.\nThen move the toe up, and ask in which direction the toe is being moved.",
         question: "",
         answers: ["LEFT TOE", "RIGHT TOE", "BOTH TOES"],
         imageUrl: "",

@@ -78,7 +78,8 @@ sectionEightRouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "8",
-        instructions: "",
+        instructions:
+            "Ask the participant to close their eyes with force for a few seconds.\nThen, ask them to smile showing their teeth.",
         question: "",
         answers: [
             "Participant shows ASYMMETRY of the MOUTH",
@@ -165,7 +166,8 @@ sectionEightRouter.get("/3/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "8",
-        instructions: "",
+        instructions:
+            "Ask the participant to close their eyes with force for a few seconds.\nThen, ask them to smile showing their teeth.",
         question: "",
         answers: ["LEFT eye blink impaired", "RIGHT eye blink impaired"],
         imageUrl: "",

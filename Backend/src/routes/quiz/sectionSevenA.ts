@@ -78,7 +78,8 @@ sectionSevenARouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "7a",
-        instructions: "",
+        instructions:
+            "With the participant sitting on a chair with eyes closed, grab one of their wrists and touch its index finger, asking which part of their body is being touched.\nMove the finger up, then ask in which direction the finger is being moved (up or down?).",
         question: "",
         answers: [
             "Participant is ABLE to IDENTIFY the FINGER but NOT the DIRECTION",
@@ -155,7 +156,8 @@ sectionSevenARouter.get("/3/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "7a",
-        instructions: "",
+        instructions:
+            "With the participant sitting on a chair with eyes closed, grab one of their wrists and touch its index finger, asking which part of their body is being touched.\nMove the finger up, then ask in which direction the finger is being moved (up or down?).",
         question: "",
         answers: ["LEFT FINGER", "RIGHT FINGER", "BOTH FINGERS"],
         imageUrl: "",
@@ -225,7 +227,8 @@ sectionSevenARouter.get("/4/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "4",
         section: "7a",
-        instructions: "",
+        instructions:
+            "With the participant sitting on a chair with eyes closed, grab one of their wrists and touch its index finger, asking which part of their body is being touched.\nMove the finger up, then ask in which direction the finger is being moved (up or down?).",
         question: "",
         answers: ["LEFT FINGER", "RIGHT FINGER", "BOTH FINGERS"],
         imageUrl: "",
@@ -295,7 +298,8 @@ sectionSevenARouter.get("/5/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "5",
         section: "7a",
-        instructions: "",
+        instructions:
+            "With the participant sitting on a chair with eyes closed, grab one of their wrists and touch its index finger, asking which part of their body is being touched.\nMove the finger up, then ask in which direction the finger is being moved (up or down?).",
         question: "",
         answers: ["LEFT FINGER", "RIGHT FINGER", "BOTH FINGERS"],
         imageUrl: "",

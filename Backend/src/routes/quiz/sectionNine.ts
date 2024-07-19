@@ -13,7 +13,7 @@ sectionNineRouter.get("/1/:language", (req: Request, res: Response) => {
         q_id: "1",
         section: "9",
         instructions:
-            "This test explores the participant's visual field by comparison with that of the instructor.\nThe instructor asks the participant to look at the tip of the instructor's nose throughout the duration of the test.\nThe instructor moves one of their hands from the periphery entering their shared visual field towards the nose, asking the participant at what point they see the hand with the corner of their eyes. The instructor repeats this movement from the top right and the top left, and the bottom right and the bottom left of both eyes.\nWhen the participant sees the hand at the same point as the examiner, the visual filed of that quadrant is normal. ",
+            "This test explores the participant's visual field by comparison with that of the instructor.\nThe instructor asks the participant to look at the tip of the instructor's nose throughout the duration of the test.\nThe instructor moves one of their hands from the periphery entering their shared visual field towards the nose, asking the participant at what point they see the hand with the corner of their eyes. The instructor repeats this movement from the top right and the top left, and the bottom right and the bottom left of both eyes.\nWhen the participant sees the hand at the same point as the examiner, the visual filed of that quadrant is normal.",
         question:
             "Is the participant ABLE to DETECT HAND in ALL POSITIONS (QUADRANTS)",
         answers: ["Yes", "No"],

@@ -25,4 +25,5 @@ testing 123
 23. ~~Add a go back button~~
 24. ~~Add amnesiac questions~~
 25. ~~Header buttons are removed when they aren't~~
-26. Look into adding the information box next to answers
+26. Ask Vasco about outcome from amnesiac
+27. Look into adding the information box next to answers

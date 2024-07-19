@@ -77,7 +77,8 @@ sectionOneBRouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "1b",
-        instructions: "",
+        instructions:
+            "Ask the participant to sit down on the edge of a chair and raise both of their legs at waist level, stretching them forward.\nThe participant can hold on to the chair with their hands and lean back.\nAsk the participant to stay in that position for five seconds.",
         question:
             "Is the  inability to reach position accompanied by LEG SHAKING or OSCILLATIONS?",
         answers: ["Yes", "No"],
@@ -139,7 +140,8 @@ sectionOneBRouter.get("/3/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "1b",
-        instructions: "",
+        instructions:
+            "Ask the participant to sit down on the edge of a chair and raise both of their legs at waist level, stretching them forward.\nThe participant can hold on to the chair with their hands and lean back.\nAsk the participant to stay in that position for five seconds.",
         question:
             "Is the participant able to HOLD STEADILY the position with both legs for at least 5 seconds?",
         answers: ["Yes", "No"],
@@ -203,7 +205,8 @@ sectionOneBRouter.get("/4/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "4",
         section: "1b",
-        instructions: "",
+        instructions:
+            "Ask the participant to sit down on the edge of a chair and raise both of their legs at waist level, stretching them forward.\nThe participant can hold on to the chair with their hands and lean back.\nAsk the participant to stay in that position for five seconds.",
         question: "",
         answers: ["LEFT LEG", "RIGHT LEG", "BOTH LEGS"],
         imageUrl: "",
@@ -287,7 +290,8 @@ sectionOneBRouter.get("/5/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "5",
         section: "1b",
-        instructions: "",
+        instructions:
+            "Ask the participant to sit down on the edge of a chair and raise both of their legs at waist level, stretching them forward.\nThe participant can hold on to the chair with their hands and lean back.\nAsk the participant to stay in that position for five seconds.",
         question: "",
         answers: ["LEFT LEG", "RIGHT LEG", "BOTH LEGS"],
         imageUrl: "",
@@ -372,7 +376,8 @@ sectionOneBRouter.get("/6/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "6",
         section: "1b",
-        instructions: "",
+        instructions:
+            "Ask the participant to sit down on the edge of a chair and raise both of their legs at waist level, stretching them forward.\nThe participant can hold on to the chair with their hands and lean back.\nAsk the participant to stay in that position for five seconds.",
         question: "Is the falling accompanied by LEG SHAKING or OSCILLATIONS?",
         answers: ["Yes", "No"],
         imageUrl: "",
@@ -433,7 +438,8 @@ sectionOneBRouter.get("/7/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "7",
         section: "1b",
-        instructions: "",
+        instructions:
+            "Ask the participant to sit down on the edge of a chair and raise both of their legs at waist level, stretching them forward.\nThe participant can hold on to the chair with their hands and lean back.\nAsk the participant to stay in that position for five seconds.",
         question: "",
         answers: ["LEFT LEG", "RIGHT LEG", "BOTH LEGS"],
         imageUrl: "",
@@ -519,7 +525,8 @@ sectionOneBRouter.get("/8/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "8",
         section: "1b",
-        instructions: "",
+        instructions:
+            "Ask the participant to sit down on the edge of a chair and raise both of their legs at waist level, stretching them forward.\nThe participant can hold on to the chair with their hands and lean back.\nAsk the participant to stay in that position for five seconds.",
         question: "",
         answers: ["LEFT LEG", "RIGHT LEG", "BOTH LEGS"],
         imageUrl: "",

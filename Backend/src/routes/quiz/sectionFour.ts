@@ -82,7 +82,8 @@ sectionFourRouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "4",
-        instructions: "",
+        instructions:
+            "Ask the participant to walk normally and comfortably for five steps, stop, then turn around and come back on heels. Then, ask them to repeat the walk, this time going on tiptoes for five steps, stop, turn and come back walking in a straight line (one foot in front of the other, the front foot placed such that its heel touches the toe of the standing foot).",
         question: "",
         answers: [
             "Participant is UNABLE to walk on TIPTOES for 5 steps",
