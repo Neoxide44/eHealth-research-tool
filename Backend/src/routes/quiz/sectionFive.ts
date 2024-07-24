@@ -25,12 +25,10 @@ sectionFiveRouter.get("/1/:language", (req: Request, res: Response) => {
             "Current MONTH?",
             "Today's DATE?",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -89,12 +87,10 @@ sectionFiveRouter.get("/2/:language", (req: Request, res: Response) => {
             "FACILITY we are in?",
             "FLOOR we are in?",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -158,12 +154,10 @@ sectionFiveRouter.get("/3/English", (req: Request, res: Response) => {
             "Ask the participant to repeat back three words (APPLE, TABLE, PENNY), and remember them for later.",
         question: "Does the participant repeat correctly...",
         answers: ["The word APPLE?", "The word TABLE?", "The word PENNY?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -177,12 +171,10 @@ sectionFiveRouter.get("/3/Italian", (req: Request, res: Response) => {
             "Ask the participant to repeat back three words (CASA, PANE, GATTO), and remember them for later.",
         question: "Does the participant repeat correctly...",
         answers: ["The word CASA?", "The word PANE?", "The word GATTO?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -200,12 +192,10 @@ sectionFiveRouter.get("/3/Spanish", (req: Request, res: Response) => {
             "The word CUCHARA?",
             "The word MANZANA?",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -219,12 +209,10 @@ sectionFiveRouter.get("/3/French", (req: Request, res: Response) => {
             "Ask the participant to repeat back three words (CIGARE, FLEUR, PORTE), and remember them for later.",
         question: "Does the participant repeat correctly...",
         answers: ["The word CIGARE?", "The word FLEUR?", "The word PORTE?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -238,12 +226,10 @@ sectionFiveRouter.get("/3/Portuguese", (req: Request, res: Response) => {
             "Ask the participant to repeat back three words (PÊRA, GATO, BOLA), and remember them for later.",
         question: "Does the participant repeat correctly...",
         answers: ["The word PÊRA?", "The word GATO?", "The word BOLA?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -257,12 +243,10 @@ sectionFiveRouter.get("/3/Dutch", (req: Request, res: Response) => {
             "Ask the participant to repeat back three words (APPEL, SLEUTEL, TAFEL), and remember them for later.",
         question: "Does the participant repeat correctly...",
         answers: ["The word APPEL?", "The word SLEUTEL?", "The word TAFEL?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -276,12 +260,10 @@ sectionFiveRouter.get("/3/Indonesian", (req: Request, res: Response) => {
             "Ask the participant to repeat back three words (JERUK, UANG, MAWAR), and remember them for later.",
         question: "Does the participant repeat correctly...",
         answers: ["The word JERUK?", "The word UANG?", "The word MAWAR?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -295,12 +277,10 @@ sectionFiveRouter.get("/3/Turkish", (req: Request, res: Response) => {
             "Ask the participant to repeat back three words (MASA, BAYRAK, ELBISE), and remember them for later.",
         question: "Does the participant repeat correctly...",
         answers: ["The word MASA?", "The word BAYRAK?", "The word ELBISE?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -314,12 +294,10 @@ sectionFiveRouter.get("/3/Chinese", (req: Request, res: Response) => {
             "Ask the participant to repeat back three words (皮球 - BALL, 国旗- NATIONAL FLAG, 树木 - TREE), and remember them for later.",
         question: "Does the participant repeat correctly...",
         answers: ["The word 皮球?", "The word 国旗?", "The word 树木?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -384,12 +362,10 @@ sectionFiveRouter.get("/4/:language", (req: Request, res: Response) => {
             "Ask the participant to count backward from 100 by sevens.",
         question: "Does the participant count correctly...",
         answers: ["93", "86", "79", "72", "65"],
-        imageUrl:
-            "https://drive.google.com/file/d/1Lzo3xzcZjLIGHNuBnca-4l49oB_BnLWW/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -454,12 +430,10 @@ sectionFiveRouter.get("/5/English", (req: Request, res: Response) => {
             "Ask the participant to repeat back the three previous words (APPLE, TABLE, PENNY).",
         question: "Does the participant remember correctly...",
         answers: ["The word APPLE?", "The word TABLE?", "The word PENNY?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -474,12 +448,10 @@ sectionFiveRouter.get("/5/Italian", (req: Request, res: Response) => {
             "Ask the participant to repeat back the three previous words (CASA, PANE, GATTO).",
         question: "Does the participant remember correctly...",
         answers: ["The word CASA?", "The word PANE?", "The word GATTO?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -497,12 +469,10 @@ sectionFiveRouter.get("/5/Spanish", (req: Request, res: Response) => {
             "The word CUCHARA?",
             "The word MANZANA?",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -516,12 +486,10 @@ sectionFiveRouter.get("/5/French", (req: Request, res: Response) => {
             "Ask the participant to repeat back the three previous words (CIGARE, FLEUR, PORTE).",
         question: "Does the participant remember correctly...",
         answers: ["The word CIGARE?", "The word FLEUR?", "The word PORTE?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -535,12 +503,10 @@ sectionFiveRouter.get("/5/Portuguese", (req: Request, res: Response) => {
             "Ask the participant to repeat back the three previous words (PÊRA, GATO, BOLA).",
         question: "Does the participant remember correctly...",
         answers: ["The word PÊRA?", "The word GATO?", "The word BOLA?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -554,12 +520,10 @@ sectionFiveRouter.get("/5/Dutch", (req: Request, res: Response) => {
             "Ask the participant to repeat back the three previous words (APPEL, SLEUTEL, TAFEL).",
         question: "Does the participant remember correctly...",
         answers: ["The word APPEL?", "The word SLEUTEL?", "The word TAFEL?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -573,12 +537,10 @@ sectionFiveRouter.get("/5/Indonesian", (req: Request, res: Response) => {
             "Ask the participant to repeat back the three previous words (JERUK, UANG, MAWAR).",
         question: "Does the participant remember correctly...",
         answers: ["The word JERUK?", "The word UANG?", "The word MAWAR?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -592,12 +554,10 @@ sectionFiveRouter.get("/5/Turkish", (req: Request, res: Response) => {
             "Ask the participant to repeat back the three previous words (MASA, BAYRAK, ELBISE).",
         question: "Does the participant remember correctly...",
         answers: ["The word MASA?", "The word BAYRAK?", "The word ELBISE?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -611,12 +571,10 @@ sectionFiveRouter.get("/5/Chinese", (req: Request, res: Response) => {
             "Ask the participant to repeat back the three previous words (皮球 - BALL, 国旗- NATIONAL FLAG, 树木 - TREE).",
         question: "Does the participant remember correctly...",
         answers: ["The word 皮球?", "The word 国旗?", "The word 树木?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -680,13 +638,14 @@ sectionFiveRouter.get("/6/:language", (req: Request, res: Response) => {
         instructions:
             "Ask the participant to name the objects shown in the pictures.",
         question: "Does the participant name correctly...",
-        answers: ["The WRISTWATCH?", "The PENCIL?"],
-        imageUrl:
-            "https://drive.google.com/file/d/1XD9rkCs6Q4Y3xS3u-PQ-8jDqrPEjyY5J/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        answers: [
+            "The WRISTWATCH?;https://drive.google.com/file/d/1CbDBB_CCQNT9lrCybVJN7rGpCpHcBCPS/view?usp=sharing;",
+            "The PENCIL?;https://drive.google.com/file/d/1pyHf0YudszhB6dIF_a25OGYNj-qF7jaq/view?usp=sharing;",
+        ],
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -751,12 +710,10 @@ sectionFiveRouter.get("/7/English", (req: Request, res: Response) => {
             "Ask the participant to repeat back the phrase 'NO IFS, AND OR BUTS.'",
         question: "Does the participant repeat correctly...",
         answers: ["The FULL SENTENCE?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -770,12 +727,10 @@ sectionFiveRouter.get("/7/Italian", (req: Request, res: Response) => {
             "Ask the participant to repeat back the phrase 'TIGRE CONTRO TIGRE.'",
         question: "Does the participant repeat correctly...",
         answers: ["The FULL SENTENCE?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -789,12 +744,10 @@ sectionFiveRouter.get("/7/Spanish", (req: Request, res: Response) => {
             "Ask the participant to repeat back the phrase 'NI SÍ, NI NO, NI PEROS.'",
         question: "Does the participant repeat correctly...",
         answers: ["The FULL SENTENCE?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -808,12 +761,10 @@ sectionFiveRouter.get("/7/French", (req: Request, res: Response) => {
             "Ask the participant to repeat back the phrase 'PAS DE MAIS, DE SI, NI DE ET.'",
         question: "Does the participant repeat correctly...",
         answers: ["The FULL SENTENCE?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -827,12 +778,10 @@ sectionFiveRouter.get("/7/Portuguese", (req: Request, res: Response) => {
             "Ask the participant to repeat back the phrase 'O RATO ROEU A ROLHA.'",
         question: "Does the participant repeat correctly...",
         answers: ["The FULL SENTENCE?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -846,12 +795,10 @@ sectionFiveRouter.get("/7/Dutch", (req: Request, res: Response) => {
             "Ask the participant to repeat back the phrase 'NU EENS DIT EN DAN WEER DAT.'",
         question: "Does the participant repeat correctly...",
         answers: ["The FULL SENTENCE?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -865,12 +812,10 @@ sectionFiveRouter.get("/7/Indonesian", (req: Request, res: Response) => {
             "Ask the participant to repeat back the phrase 'TANPA KALAU DAN ATAU TETAPI.'",
         question: "Does the participant repeat correctly...",
         answers: ["The FULL SENTENCE?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -884,12 +829,10 @@ sectionFiveRouter.get("/7/Turkish", (req: Request, res: Response) => {
             "Ask the participant to repeat back the phrase 'EĞER VE FAKAT ISTEMIYORUM.'",
         question: "Does the participant repeat correctly...",
         answers: ["The FULL SENTENCE?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -903,12 +846,10 @@ sectionFiveRouter.get("/7/Chinese", (req: Request, res: Response) => {
             "Ask the participant to repeat back the phrase '大家齐心协力拉紧绳.' (everyone works together to tighten the rope)",
         question: "Does the participant repeat correctly...",
         answers: ["The FULL SENTENCE?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -977,12 +918,10 @@ sectionFiveRouter.get("/8/English", (req: Request, res: Response) => {
             "The SECOND INSTRUCTION? ('Fold the paper in half')",
             "The THIRD INSTRUCTION? ('Put the paper on the floor')",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1000,12 +939,10 @@ sectionFiveRouter.get("/8/Italian", (req: Request, res: Response) => {
             "The SECOND INSTRUCTION? ('Lo pieghi a metà') - Fold the paper in half",
             "The THIRD INSTRUCTION? ('Lo butti dal tavolo') - Throw it off the table",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1023,12 +960,10 @@ sectionFiveRouter.get("/8/Spanish", (req: Request, res: Response) => {
             "The SECOND INSTRUCTION? ('Doblelo por la mitad') - Fold the paper in half",
             "The THIRD INSTRUCTION? ('Y déjelo en el suelo') - Put it on the floor",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1046,12 +981,10 @@ sectionFiveRouter.get("/8/French", (req: Request, res: Response) => {
             "The SECOND INSTRUCTION? ('Pliez-la en deux') - Fold the paper in half",
             "The THIRD INSTRUCTION? ('Et jetez-la par terre') - Throw it on the floor",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1069,12 +1002,10 @@ sectionFiveRouter.get("/8/Portuguese", (req: Request, res: Response) => {
             "The SECOND INSTRUCTION? ('Dobre-a ao meio') - Fold the paper in half",
             "The THIRD INSTRUCTION? ('E ponha sobre a mesa') - Put it on the table",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1092,12 +1023,10 @@ sectionFiveRouter.get("/8/Dutch", (req: Request, res: Response) => {
             "The SECOND INSTRUCTION? ('Het dubbelvouwen') - Fold the paper in half",
             "The THIRD INSTRUCTION? ('En het op uw schoot leggen') - Put it on your lap",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1115,12 +1044,10 @@ sectionFiveRouter.get("/8/Indonesian", (req: Request, res: Response) => {
             "The SECOND INSTRUCTION? ('Dobre-a ao meio') - Fold the paper in half",
             "The THIRD INSTRUCTION? ('E ponha sobre a mesa') - Put it on the table",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1138,12 +1065,10 @@ sectionFiveRouter.get("/8/Turkish", (req: Request, res: Response) => {
             "The SECOND INSTRUCTION? ('Iki elinizle ikiye katlayın') - Fold the paper in half",
             "The THIRD INSTRUCTION? ('Ve yere birakin lütfen') - Drop it on the ground",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1161,12 +1086,10 @@ sectionFiveRouter.get("/8/Chinese", (req: Request, res: Response) => {
             "The SECOND INSTRUCTION? ('患者将纸对折1') - Fold the paper in half",
             "The THIRD INSTRUCTION? ('患者将纸放在左腿上') - Put it on the table",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1231,12 +1154,10 @@ sectionFiveRouter.get("/9/English", (req: Request, res: Response) => {
             "Ask the participant to follow the instruction that will appear on the screen.\n'CLOSE YOUR EYES'",
         question: "Does the participant follow correctly...",
         answers: ["The INSTRUCTION? (By closing their eyes)"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1250,12 +1171,10 @@ sectionFiveRouter.get("/9/Italian", (req: Request, res: Response) => {
             "Ask the participant to follow the instruction that will appear on the screen.\n'CHIUDA GLI OCCHI'",
         question: "Does the participant follow correctly...",
         answers: ["The INSTRUCTION? (By closing their eyes)"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1269,12 +1188,10 @@ sectionFiveRouter.get("/9/Spanish", (req: Request, res: Response) => {
             "Ask the participant to follow the instruction that will appear on the screen.\n'CIERRE LOS OJOS.'",
         question: "Does the participant follow correctly...",
         answers: ["The INSTRUCTION? (By closing their eyes)"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1288,12 +1205,10 @@ sectionFiveRouter.get("/9/French", (req: Request, res: Response) => {
             "Ask the participant to follow the instruction that will appear on the screen.\n'FERMEZ LES YEUX.'",
         question: "Does the participant follow correctly...",
         answers: ["The INSTRUCTION? (By closing their eyes)"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1307,12 +1222,10 @@ sectionFiveRouter.get("/9/Portuguese", (req: Request, res: Response) => {
             "Ask the participant to follow the instruction that will appear on the screen.\n'FECHE OS OLHOS.'",
         question: "Does the participant follow correctly...",
         answers: ["The INSTRUCTION? (By closing their eyes)"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1326,12 +1239,10 @@ sectionFiveRouter.get("/9/Dutch", (req: Request, res: Response) => {
             "Ask the participant to follow the instruction that will appear on the screen.\n'SLUIT UW OGEN.'",
         question: "Does the participant follow correctly...",
         answers: ["The INSTRUCTION? (By closing their eyes)"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1345,12 +1256,10 @@ sectionFiveRouter.get("/9/Indonesian", (req: Request, res: Response) => {
             "Ask the participant to follow the instruction that will appear on the screen.\n'FECHE OS OLHOS.'",
         question: "Does the participant follow correctly...",
         answers: ["The INSTRUCTION? (By closing their eyes)"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1364,12 +1273,10 @@ sectionFiveRouter.get("/9/Turkish", (req: Request, res: Response) => {
             "Ask the participant to follow the instruction that will appear on the screen.\n'GÖZLERİNİZİ KAPATIN.'",
         question: "Does the participant follow correctly...",
         answers: ["The INSTRUCTION? (By closing their eyes)"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1383,12 +1290,10 @@ sectionFiveRouter.get("/9/Chinese", (req: Request, res: Response) => {
             "Ask the participant to follow the instruction that will appear on the screen. '请闭上您的眼睛1.' (close your eyes)",
         question: "Does the participant follow correctly...",
         answers: ["The INSTRUCTION? (By closing their eyes)"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1453,12 +1358,10 @@ sectionFiveRouter.get("/10/:language", (req: Request, res: Response) => {
             "Ask the participant to write a sentence about anything, containing a noun and a verb.",
         question: "Does the participant correctly...",
         answers: ["Write the SENTENCE?"],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1525,10 +1428,9 @@ sectionFiveRouter.get("/11/:language", (req: Request, res: Response) => {
         answers: ["Copy the PICTURE?"],
         imageUrl:
             "https://drive.google.com/file/d/14O2RZ4nz2JSaeswVj8v1Bn7aS7xAInbF/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+        videoUrl: "",
         mc: false,
-        title: "Mini Mental State Examination",
+        title: "Cognitive Assesment",
     };
 
     res.status(200).json(nextQuery);
@@ -1575,20 +1477,26 @@ sectionFiveRouter.post("/11", (req: Request, res: Response) => {
                     );
                 }
             );
-            pool.query(
-                deleteOutcome,
-                [data.uuid, data.section],
-                (error, results) => {
-                    if (error) throw error;
-                    pool.query(
-                        addOutcome,
-                        [data.uuid, data.section, "MILD COGNITIVE IMPAIRMENT"],
-                        (error, results) => {
-                            if (error) throw error;
-                        }
-                    );
-                }
-            );
+            if (parseInt(data.answer) < 24) {
+                pool.query(
+                    deleteOutcome,
+                    [data.uuid, data.section],
+                    (error, results) => {
+                        if (error) throw error;
+                        pool.query(
+                            addOutcome,
+                            [
+                                data.uuid,
+                                data.section,
+                                "MILD COGNITIVE IMPAIRMENT",
+                            ],
+                            (error, results) => {
+                                if (error) throw error;
+                            }
+                        );
+                    }
+                );
+            }
         }
     );
 

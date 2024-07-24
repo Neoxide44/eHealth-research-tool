@@ -18,9 +18,9 @@ sectionTenRouter.get("/1/:language", (req: Request, res: Response) => {
             "Are the eyes of the participant following the finger SYMMETRICALLY?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+            "https://drive.google.com/file/d/1HaOimt5u7hjmobVP5ggMuMO5Lrl6vgDn/view?usp=sharing",
         videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+            "https://drive.google.com/file/d/1kscrulhKMXyUjS2yk8s9cS-8fljNdA0m/view?usp=sharing",
         mc: true,
         title: "Eye Movement",
     };

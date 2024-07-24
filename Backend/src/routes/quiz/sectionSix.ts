@@ -8,6 +8,7 @@ import {
     appendOutcome,
     getAnswer,
     deleteOneData,
+    addOutcome2,
 } from "../../queries";
 
 const sectionSixRouter = Router();
@@ -21,13 +22,16 @@ sectionSixRouter.get("/1/:language", (req: Request, res: Response) => {
             "With the participant sitting on a chair, touch simultaneously both sides of their body (left and right), on the following areas:\nFace - forehead, high cheek, around the jaw;\nUpper limbs - forearm;\nLower limbs - thighs and below the knees\nAsk the participant if they feel the touch with the same intensity, comparing left and right.",
         question:
             "Is the participant able to FEEL WITH THE SAME INTENSITY the touch points on both sides of the FACE?",
-        answers: ["Yes", "No"],
+        answers: [
+            "Yes",
+            "No;;Participant perceives a DIFFERENCE between left and right, or is UNABLE TO FEEL at least one touch point",
+        ],
         imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+            "https://drive.google.com/file/d/11zAnBMRT-dxo_5xLqEofEIPeGXy8mpG6/view?usp=sharing",
         videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+            "https://drive.google.com/file/d/1lAcr7X5f4cn9AE-72RfbGyDdg2sqUK0l/view?usp=sharing",
         mc: true,
-        title: "Superficial Sensetivity",
+        title: "Superficial Sensitivity",
     };
 
     res.status(200).json(nextQuery);
@@ -90,12 +94,12 @@ sectionSixRouter.get("/2/:language", (req: Request, res: Response) => {
             "Less on the RIGHT SIDE",
             "Nothing on the LEFT SIDE",
             "Nothing on the RIGHT SIDE",
-            "Perceives nothing on EITHER SIDE",
+            "Nothing on EITHER SIDE",
         ],
         imageUrl: "",
         videoUrl: "",
-        mc: false,
-        title: "Superficial Sensetivity",
+        mc: true,
+        title: "Superficial Sensitivity",
     };
 
     res.status(200).json(nextQuery);
@@ -132,38 +136,6 @@ sectionSixRouter.post("/2", (req: Request, res: Response) => {
             );
         }
     );
-    if (
-        data.answer === "Less on the LEFT SIDE" ||
-        data.answer === "Less on the RIGHT SIDE"
-    ) {
-        pool.query(
-            addOutcome,
-            [
-                data.uuid,
-                data.section,
-                "MILD Superficial Sensitivity Impairment of the FACE" +
-                    " - " +
-                    data.answer,
-            ],
-            (error, results) => {
-                if (error) throw error;
-            }
-        );
-    } else {
-        pool.query(
-            addOutcome,
-            [
-                data.uuid,
-                data.section,
-                "MODERATE Superficial Sensitivity Impairment of the FACE" +
-                    " - " +
-                    data.answer,
-            ],
-            (error, results) => {
-                if (error) throw error;
-            }
-        );
-    }
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -180,13 +152,15 @@ sectionSixRouter.get("/3/:language", (req: Request, res: Response) => {
             "With the participant sitting on a chair, touch simultaneously both sides of their body (left and right), on the following areas:\nFace - forehead, high cheek, around the jaw;\nUpper limbs - forearm;\nLower limbs - thighs and below the knees\nAsk the participant if they feel the touch with the same intensity, comparing left and right.",
         question:
             "Is the participant able to FEEL WITH THE SAME INTENSITY the touch points on both sides of the UPPER LIMBS?",
-        answers: ["Yes", "No"],
+        answers: [
+            "Yes",
+            "No;;Participant perceives a DIFFERENCE between left and right on UPPER LIMBS, or is UNABLE TO FEEL at least one touch point",
+        ],
         imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+            "https://drive.google.com/file/d/1uLsqggL2WOlkQE7kzutpKDGvBJ8tFhaC/view?usp=sharing",
+        videoUrl: "",
         mc: true,
-        title: "Superficial Sensetivity",
+        title: "Superficial Sensitivity",
     };
 
     res.status(200).json(nextQuery);
@@ -249,12 +223,12 @@ sectionSixRouter.get("/4/:language", (req: Request, res: Response) => {
             "Less on the RIGHT SIDE",
             "Nothing on the LEFT SIDE",
             "Nothing on the RIGHT SIDE",
-            "Perceives nothing on EITHER SIDE",
+            "Nothing on EITHER SIDE",
         ],
         imageUrl: "",
         videoUrl: "",
-        mc: false,
-        title: "Superficial Sensetivity",
+        mc: true,
+        title: "Superficial Sensitivity",
     };
 
     res.status(200).json(nextQuery);
@@ -291,38 +265,6 @@ sectionSixRouter.post("/4", (req: Request, res: Response) => {
             );
         }
     );
-    if (
-        data.answer === "Less on the LEFT SIDE" ||
-        data.answer === "Less on the RIGHT SIDE"
-    ) {
-        pool.query(
-            appendOutcome,
-            [
-                ", MILD Superficial Sensitivity Impairment of the UL" +
-                    " - " +
-                    data.answer,
-                data.uuid,
-                data.section,
-            ],
-            (error, results) => {
-                if (error) throw error;
-            }
-        );
-    } else {
-        pool.query(
-            appendOutcome,
-            [
-                ", MODERATE Superficial Sensitivity Impairment of the UL" +
-                    " - " +
-                    data.answer,
-                data.uuid,
-                data.section,
-            ],
-            (error, results) => {
-                if (error) throw error;
-            }
-        );
-    }
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -339,13 +281,15 @@ sectionSixRouter.get("/5/:language", (req: Request, res: Response) => {
             "With the participant sitting on a chair, touch simultaneously both sides of their body (left and right), on the following areas:\nFace - forehead, high cheek, around the jaw;\nUpper limbs - forearm;\nLower limbs - thighs and below the knees\nAsk the participant if they feel the touch with the same intensity, comparing left and right.",
         question:
             "Is the participant able to FEEL WITH THE SAME INTENSITY the touch points on both sides of the LOWER LIMBS?",
-        answers: ["Yes", "No"],
+        answers: [
+            "Yes",
+            "No;;Participant perceives a DIFFERENCE between left and right on the LOWER LIMBS, or is UNABLE TO FEEL at least one touch point",
+        ],
         imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+            "https://drive.google.com/file/d/1340vj-lf2a0XaeLMdkx4uSuObDE369um/view?usp=sharing",
+        videoUrl: "",
         mc: true,
-        title: "Superficial Sensetivity",
+        title: "Superficial Sensitivity",
     };
 
     res.status(200).json(nextQuery);
@@ -378,22 +322,23 @@ sectionSixRouter.post("/5", (req: Request, res: Response) => {
                 ],
                 (error, results) => {
                     if (error) throw error;
+
+                    if (req.body.answer === "Yes") {
+                        nextQuestionID = 1;
+                        nextSectionID = "8";
+                        addOutcomeForSixTwo(data.uuid, data.section, false);
+                    } else if (req.body.answer === "No") {
+                        nextQuestionID = 6;
+                    }
+
+                    res.status(200).json({
+                        nextQuestion: nextQuestionID,
+                        nextSection: nextSectionID,
+                    });
                 }
             );
         }
     );
-
-    if (req.body.answer === "Yes") {
-        nextQuestionID = 1;
-        nextSectionID = "8";
-    } else if (req.body.answer === "No") {
-        nextQuestionID = 6;
-    }
-
-    res.status(200).json({
-        nextQuestion: nextQuestionID,
-        nextSection: nextSectionID,
-    });
 });
 
 //Section 6 Question 6
@@ -409,12 +354,12 @@ sectionSixRouter.get("/6/:language", (req: Request, res: Response) => {
             "Less on the RIGHT SIDE",
             "Nothing on the LEFT SIDE",
             "Nothing on the RIGHT SIDE",
-            "Perceives nothing on EITHER SIDE",
+            "Nothing on EITHER SIDE",
         ],
         imageUrl: "",
         videoUrl: "",
-        mc: false,
-        title: "Superficial Sensetivity",
+        mc: true,
+        title: "Superficial Sensitivity",
     };
 
     res.status(200).json(nextQuery);
@@ -447,42 +392,11 @@ sectionSixRouter.post("/6", (req: Request, res: Response) => {
                 ],
                 (error, results) => {
                     if (error) throw error;
+                    addOutcomeForSixTwo(data.uuid, data.section, true);
                 }
             );
         }
     );
-    if (
-        data.answer === "Less on the LEFT SIDE" ||
-        data.answer === "Less on the RIGHT SIDE"
-    ) {
-        pool.query(
-            appendOutcome,
-            [
-                ", MILD Superficial Sensitivity Impairment of the LL" +
-                    " - " +
-                    data.answer,
-                data.uuid,
-                data.section,
-            ],
-            (error, results) => {
-                if (error) throw error;
-            }
-        );
-    } else {
-        pool.query(
-            appendOutcome,
-            [
-                ", MODERATE Superficial Sensitivity Impairment of the LL" +
-                    " - " +
-                    data.answer,
-                data.uuid,
-                data.section,
-            ],
-            (error, results) => {
-                if (error) throw error;
-            }
-        );
-    }
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -490,4 +404,165 @@ sectionSixRouter.post("/6", (req: Request, res: Response) => {
     });
 });
 
+function addOutcomeForSixTwo(uuid: string, section: string, doSixSix: boolean) {
+    pool.query(getAnswer, [uuid, 6, 2], (error, results) => {
+        if (error) throw error;
+        if (results.rows.length > 0) {
+            if (
+                results.rows[0].answer.includes("Less on the LEFT SIDE") ||
+                results.rows[0].answer.includes("Less on the RIGHT SIDE")
+            ) {
+                pool.query(
+                    addOutcome,
+                    [
+                        uuid,
+                        section,
+                        "MILD Superficial Sensitivity Impairment of the FACE" +
+                            " - " +
+                            results.rows[0].answer,
+                    ],
+                    (error, results) => {
+                        if (error) throw error;
+                        addOutcomeForSixFour(uuid, section, doSixSix, true);
+                    }
+                );
+            } else if (
+                results.rows[0].answer.includes("Nothing on the LEFT SIDE") ||
+                results.rows[0].answer.includes("Nothing on the RIGHT SIDE") ||
+                results.rows[0].answer.includes("Nothing on EITHER SIDE")
+            ) {
+                pool.query(
+                    addOutcome,
+                    [
+                        uuid,
+                        section,
+                        "MODERATE Superficial Sensitivity Impairment of the FACE" +
+                            " - " +
+                            results.rows[0].answer,
+                    ],
+                    (error, results) => {
+                        if (error) throw error;
+                        addOutcomeForSixFour(uuid, section, doSixSix, true);
+                    }
+                );
+            }
+        } else {
+            addOutcomeForSixFour(uuid, section, doSixSix, false);
+        }
+    });
+}
+
+function addOutcomeForSixFour(
+    uuid: string,
+    section: string,
+    doSixSix: boolean,
+    wasThereATwo: boolean
+) {
+    pool.query(getAnswer, [uuid, 6, 4], (error, results) => {
+        if (error) throw error;
+
+        if (results.rows.length > 0) {
+            let query = "";
+            if (wasThereATwo) {
+                query = appendOutcome;
+            } else {
+                query = addOutcome2;
+            }
+            if (
+                results.rows[0].answer.includes("Less on the LEFT SIDE") ||
+                results.rows[0].answer.includes("Less on the RIGHT SIDE")
+            ) {
+                pool.query(
+                    query,
+                    [
+                        ", MILD Superficial Sensitivity Impairment of the UL" +
+                            " - " +
+                            results.rows[0].answer,
+                        uuid,
+                        section,
+                    ],
+                    (error, results) => {
+                        if (error) throw error;
+                        if (doSixSix) addOutcomeForSixSix(uuid, section, true);
+                    }
+                );
+            } else if (
+                results.rows[0].answer.includes("Nothing on the LEFT SIDE") ||
+                results.rows[0].answer.includes("Nothing on the RIGHT SIDE") ||
+                results.rows[0].answer.includes("Nothing on EITHER SIDE")
+            ) {
+                pool.query(
+                    query,
+                    [
+                        ", MODERATE Superficial Sensitivity Impairment of the UL" +
+                            " - " +
+                            results.rows[0].answer,
+                        uuid,
+                        section,
+                    ],
+                    (error, results) => {
+                        if (error) throw error;
+                        if (doSixSix) addOutcomeForSixSix(uuid, section, true);
+                    }
+                );
+            }
+        } else {
+            if (doSixSix) addOutcomeForSixSix(uuid, section, wasThereATwo);
+        }
+    });
+}
+
+function addOutcomeForSixSix(
+    uuid: string,
+    section: string,
+    wasTherePrevious: boolean
+) {
+    pool.query(getAnswer, [uuid, 6, 6], (error, results) => {
+        if (error) throw error;
+        if (results.rows.length > 0) {
+            let query = "";
+            if (wasTherePrevious) {
+                query = appendOutcome;
+            } else {
+                query = addOutcome2;
+            }
+            if (
+                results.rows[0].answer.includes("Less on the LEFT SIDE") ||
+                results.rows[0].answer.includes("Less on the RIGHT SIDE")
+            ) {
+                pool.query(
+                    query,
+                    [
+                        ", MILD Superficial Sensitivity Impairment of the LL" +
+                            " - " +
+                            results.rows[0].answer,
+                        uuid,
+                        section,
+                    ],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
+            } else if (
+                results.rows[0].answer.includes("Nothing on the LEFT SIDE") ||
+                results.rows[0].answer.includes("Nothing on the RIGHT SIDE") ||
+                results.rows[0].answer.includes("Nothing on EITHER SIDE")
+            ) {
+                pool.query(
+                    query,
+                    [
+                        ", MODERATE Superficial Sensitivity Impairment of the LL" +
+                            " - " +
+                            results.rows[0].answer,
+                        uuid,
+                        section,
+                    ],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
+            }
+        }
+    });
+}
 export default sectionSixRouter;

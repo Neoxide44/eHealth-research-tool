@@ -8,6 +8,7 @@ interface Props {
 
     selectedOption: string;
     onOptionChange: React.ChangeEventHandler<HTMLInputElement>;
+    q_id: string | undefined;
     onGoBack: () => void;
     onSubmit: () => void;
 }
@@ -38,6 +39,7 @@ function Question(props: Props) {
                     </Button>
                     <Button
                         className="btn btn-primary mt-2"
+                        disabled={props.q_id === "1"}
                         onClick={() => {
                             props.onGoBack();
                         }}

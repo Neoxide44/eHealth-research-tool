@@ -22,9 +22,9 @@ sectionFourRouter.get("/1/:language", (req: Request, res: Response) => {
             "Is the participant able to WALK IN A LINE, on TIPTOES, HEELS, and smoothly TURNING AROUND?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://drive.google.com/file/d/1mFOhc12mjfX2rwAIyr1QmkvAeBJXllfW/preview",
+            "https://drive.google.com/file/d/1FLnIR187Mz8b_3ytiSMcCIwcbaU8bb3G/view?usp=sharing",
         videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+            "https://drive.google.com/file/d/1lW1TAUgAzBxilmqzw6Cj3O5SpH4fs5as/view?usp=sharing",
         mc: true,
         title: "Walking On A Line",
     };
@@ -86,10 +86,10 @@ sectionFourRouter.get("/2/:language", (req: Request, res: Response) => {
             "Ask the participant to walk normally and comfortably for five steps, stop, then turn around and come back on heels. Then, ask them to repeat the walk, this time going on tiptoes for five steps, stop, turn and come back walking in a straight line (one foot in front of the other, the front foot placed such that its heel touches the toe of the standing foot).",
         question: "",
         answers: [
-            "Participant is UNABLE to walk on TIPTOES for 5 steps",
-            "Participant is UNABLE to walk on HEELS for 5 steps",
-            "Participant is UNABLE to TURN SMOOTHLY",
-            "Participant is UNABLE to WALK IN A STRAIGHT LINE for 5 steps ",
+            "Participant is UNABLE to walk on TIPTOES for 5 steps;https://drive.google.com/file/d/1_8NR8lhQ9MvNK83hVZqQv2nVgpCgViZu/view?usp=sharing;",
+            "Participant is UNABLE to walk on HEELS for 5 steps;https://drive.google.com/file/d/1TUi26xzjJqDcpVcaAzqsXTOqkNwYwRKj/view?usp=sharing;",
+            "Participant is UNABLE to TURN SMOOTHLY;https://drive.google.com/file/d/1-2vlF8Ey1DmOBCoxwU6yY_AZ9QcJ3OkK/view?usp=sharing;",
+            "Participant is UNABLE to WALK IN A STRAIGHT LINE for 5 steps;https://drive.google.com/file/d/1GBcYqtqTKtLkwgH8csy8ljaPF_vZDnvc/view?usp=sharing;",
         ],
         imageUrl: "",
         videoUrl:

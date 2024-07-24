@@ -170,7 +170,7 @@ function PatientForm() {
                         data will be deleted from the tool after downloading)
                     </Form.Label>
                     <Form.Control
-                        type="text"
+                        type="number"
                         required
                         placeholder="Enter participant code"
                         isInvalid={validated && !participantCode}

@@ -113,17 +113,18 @@ function Quiz() {
             <Container>
                 <Stack gap={3}>
                     <h1>{title}</h1>
-                    {(imageUrl || videoUrl || section != "3") && (
+                    {(imageUrl || videoUrl || section !== "3") && (
                         <Header
                             imageUrl={imageUrl}
                             videoUrl={videoUrl}
                             instructions={instructions}
-                            haveTimer={section != "3"}
+                            haveTimer={section === "3" && q_id === "1"}
                         />
                     )}
 
                     {mc && (
                         <Question
+                            q_id={q_id}
                             question={question}
                             options={options}
                             selectedOption={selectedOption}
@@ -139,6 +140,7 @@ function Quiz() {
 
                     {!mc && (
                         <MCQuestion
+                            q_id={q_id}
                             question={question}
                             options={options}
                             selectedOptions={selectedOptionsMC}

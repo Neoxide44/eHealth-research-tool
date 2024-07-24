@@ -17,9 +17,9 @@ sectionTwoRouter.get("/1/:language", (req: Request, res: Response) => {
         question: "Is the participant able to perform the task with EYES OPEN?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://drive.google.com/file/d/16MYIb6h7t1X41EJQldSEvcqe2PotxRGT/preview",
+            "https://drive.google.com/file/d/1jlzgcbMZn-LTAkkoe8np6tDxaFDW2BBk/view?usp=sharing",
         videoUrl:
-            "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
+            "https://drive.google.com/file/d/1kqntB-R5QNZWJSWo2rd0N6cD4lDQVn4n/view?usp=sharing",
         mc: true,
         title: "Nose - Index",
     };
@@ -84,8 +84,7 @@ sectionTwoRouter.get("/2/:language", (req: Request, res: Response) => {
             "Participant STRUGGLES to precisely REACH nose with one or both hands",
         ],
         imageUrl: "",
-        videoUrl:
-            "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
+        videoUrl: "",
         mc: true,
         title: "Nose - Index",
     };
@@ -154,9 +153,8 @@ sectionTwoRouter.get("/3/:language", (req: Request, res: Response) => {
             "Is the participant able to perform the task with EYES CLOSED?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://drive.google.com/file/d/16MYIb6h7t1X41EJQldSEvcqe2PotxRGT/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
+            "https://drive.google.com/file/d/1VFvw-b-V1XuafkIWyVmxCZi9dNOScpkD/view?usp=sharing",
+        videoUrl: "",
         mc: true,
         title: "Nose - Index",
     };
@@ -364,8 +362,7 @@ sectionTwoRouter.get("/6/:language", (req: Request, res: Response) => {
             "Participant STRUGGLES to REACH nose with one or both hands",
         ],
         imageUrl: "",
-        videoUrl:
-            "https://drive.google.com/file/d/1ltZUU1RVnvQR-aehuDR-2Yv6GAeNakTt/preview",
+        videoUrl: "",
         mc: true,
         title: "Nose - Index",
     };

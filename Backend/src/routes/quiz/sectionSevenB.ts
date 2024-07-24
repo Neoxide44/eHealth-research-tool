@@ -18,9 +18,9 @@ sectionSevenBRouter.get("/1/:language", (req: Request, res: Response) => {
             "Is the participant able to CORRECTLY IDENTIFY the TOE being moved and DIRECTION of movement?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+            "https://drive.google.com/file/d/1iM_dkfFdV0v506htxK8gjynQYUUjj4LP/view?usp=sharing",
         videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+            "https://drive.google.com/file/d/1lXedVuPkDnBLd8catzNv6fgSZQQkYoFR/view?usp=sharing",
         mc: true,
         title: "Deep Sensetivity - Lower Limb",
     };
@@ -86,8 +86,7 @@ sectionSevenBRouter.get("/2/:language", (req: Request, res: Response) => {
             "Participant is ABLE to IDENTIFY the DIRECTION but NOT the TOE",
             "Participant is UNABLE to IDENTIFY BOTH TOE and DIRECTION",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        imageUrl: "",
         videoUrl: "",
         mc: true,
         title: "Deep Sensetivity - Lower Limb",

@@ -8,6 +8,7 @@ interface Props {
     options: string[];
     selectedOptions: string[];
     onOptionChange: React.ChangeEventHandler<HTMLInputElement>;
+    q_id: string | undefined;
     onSubmit: () => void;
     onGoBack: () => void;
 }
@@ -38,6 +39,7 @@ function MCQuestion(props: Props) {
                     </Button>
                     <Button
                         className="btn btn-primary mt-2"
+                        disabled={props.q_id === "1"}
                         onClick={() => {
                             props.onGoBack();
                         }}

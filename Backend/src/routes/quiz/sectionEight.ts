@@ -18,9 +18,9 @@ sectionEightRouter.get("/1/:language", (req: Request, res: Response) => {
             "Is the participant showing ASYMMETRY comparing left and right in the EYES, MOUTH, or BOTH during the completion of the task?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+            "https://drive.google.com/file/d/1LDvk1Plhg94l5g5Qri-ISI_l4fknTTyi/view?usp=sharing",
         videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+            "https://drive.google.com/file/d/1kk17kKpWfrpalDtABvgGnUgHmcNkjVTV/view?usp=sharing",
         mc: true,
         title: "Smile/Strong Eye Closing",
     };
@@ -82,8 +82,8 @@ sectionEightRouter.get("/2/:language", (req: Request, res: Response) => {
             "Ask the participant to close their eyes with force for a few seconds.\nThen, ask them to smile showing their teeth.",
         question: "",
         answers: [
-            "Participant shows ASYMMETRY of the MOUTH",
-            "Participant shows ASYMMETRY of both the MOUTH and EYEBROWS",
+            "Participant shows ASYMMETRY of the MOUTH;https://drive.google.com/file/d/1GPmKwzzAT8NxOqw9eDOpVeb4SF24jIss/view?usp=sharing;",
+            "Participant shows ASYMMETRY of both the MOUTH and EYEBROWS;https://drive.google.com/file/d/1s_Fz4RXrfrjxddk9hE6tzi20llAbHTm3/view?usp=sharing;",
         ],
         imageUrl:
             "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",

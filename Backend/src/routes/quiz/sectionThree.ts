@@ -18,9 +18,9 @@ sectionThreeRouter.get("/1/:language", (req: Request, res: Response) => {
             "Is the participant able to perform the chair-stand test WITHOUT ANY DIFFICULTY?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://drive.google.com/file/d/11_EuUt5eb9gA2QZSvD3TRoqMJUmtPQ90/preview",
+            "https://drive.google.com/file/d/1jsL4UPsTbffelAb8uYD1Di85Z5-UXh8v/view?usp=sharing",
         videoUrl:
-            "https://drive.google.com/file/d/1naAwRwy_3WmfY2rrgx-mV3Dk1lZ13tbq/preview",
+            "https://drive.google.com/file/d/1l2cT1RgEJvn3puh-aovhmeECYKtQTa5f/view?usp=sharing",
         mc: true,
         title: "30-Second Chair Stand Test",
     };
@@ -82,10 +82,10 @@ sectionThreeRouter.get("/2/:language", (req: Request, res: Response) => {
             "Ask the participant to consecutively sit and stand up from a chair with their arms crossed on their chest and without holding on.\nIf possible, count how many times the participant can perform this properly in 30 seconds.",
         question: "",
         answers: [
-            "MISSING limb or UNABLE to move for non-neurological reasons",
-            "UNABLE, even with help",
-            "ABLE only with HELP",
-            "ABLE without HELP, but with DIFFICULTY",
+            "MISSING limb or UNABLE to move for non-neurological reasons;;The most common know non-neurological reasons are: arthritis, previous traumatic injury, pain",
+            "UNABLE, even with help;https://drive.google.com/file/d/1GiCuL_bUvaHN1-qRC7CjM5pfNn5TTVEt/view?usp=sharing;",
+            "ABLE only with HELP;https://drive.google.com/file/d/1ppyac5--01_zF5uHin19BOTmUv0jwbOd/view?usp=sharing;",
+            "ABLE without HELP, but with DIFFICULTY;https://drive.google.com/file/d/1TDRrWCRQoKuevrBpZmRtTggeykBhGa7j/view?usp=sharing;",
         ],
         imageUrl: "",
         videoUrl:

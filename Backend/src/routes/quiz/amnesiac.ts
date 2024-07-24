@@ -5,10 +5,10 @@ import pool from "../../../db";
 import { addData, deleteOneData } from "../../queries";
 import { addOutcome, deleteOutcome } from "../../queries";
 
-const amnesiacRouter = Router();
+const anamnesticRouter = Router();
 
 //Section 11 Question 1
-amnesiacRouter.get("/1/:language", (req: Request, res: Response) => {
+anamnesticRouter.get("/1/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "1",
         section: "11",
@@ -23,13 +23,13 @@ amnesiacRouter.get("/1/:language", (req: Request, res: Response) => {
         imageUrl: "",
         videoUrl: "",
         mc: false,
-        title: "Amnesiac",
+        title: "Anamnestic",
     };
 
     res.status(200).json(nextQuery);
 });
 
-amnesiacRouter.post("/1", (req: Request, res: Response) => {
+anamnesticRouter.post("/1", (req: Request, res: Response) => {
     let nextQuestionID = 2;
     let nextSectionID = "11";
 
@@ -68,7 +68,7 @@ amnesiacRouter.post("/1", (req: Request, res: Response) => {
 });
 
 //Section 11 Question 2
-amnesiacRouter.get("/2/:language", (req: Request, res: Response) => {
+anamnesticRouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "11",
@@ -83,13 +83,13 @@ amnesiacRouter.get("/2/:language", (req: Request, res: Response) => {
         imageUrl: "",
         videoUrl: "",
         mc: false,
-        title: "Amnesiac",
+        title: "Anamnestic",
     };
 
     res.status(200).json(nextQuery);
 });
 
-amnesiacRouter.post("/2", (req: Request, res: Response) => {
+anamnesticRouter.post("/2", (req: Request, res: Response) => {
     let nextQuestionID = 3;
     let nextSectionID = "11";
 
@@ -128,7 +128,7 @@ amnesiacRouter.post("/2", (req: Request, res: Response) => {
 });
 
 //Section 11 Question 3
-amnesiacRouter.get("/3/:language", (req: Request, res: Response) => {
+anamnesticRouter.get("/3/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
         section: "11",
@@ -142,13 +142,13 @@ amnesiacRouter.get("/3/:language", (req: Request, res: Response) => {
         imageUrl: "",
         videoUrl: "",
         mc: true,
-        title: "Amnesiac",
+        title: "Anamnestic",
     };
 
     res.status(200).json(nextQuery);
 });
 
-amnesiacRouter.post("/3", (req: Request, res: Response) => {
+anamnesticRouter.post("/3", (req: Request, res: Response) => {
     let nextQuestionID = 4;
     let nextSectionID = "11";
 
@@ -187,7 +187,7 @@ amnesiacRouter.post("/3", (req: Request, res: Response) => {
 });
 
 //Section 11 Question 4
-amnesiacRouter.get("/4/:language", (req: Request, res: Response) => {
+anamnesticRouter.get("/4/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "4",
         section: "11",
@@ -198,13 +198,13 @@ amnesiacRouter.get("/4/:language", (req: Request, res: Response) => {
         imageUrl: "",
         videoUrl: "",
         mc: true,
-        title: "Amnesiac",
+        title: "Anamnestic",
     };
 
     res.status(200).json(nextQuery);
 });
 
-amnesiacRouter.post("/4", (req: Request, res: Response) => {
+anamnesticRouter.post("/4", (req: Request, res: Response) => {
     let nextQuestionID = 5;
     let nextSectionID = "11";
 
@@ -243,7 +243,7 @@ amnesiacRouter.post("/4", (req: Request, res: Response) => {
 });
 
 //Section 11 Question 5
-amnesiacRouter.get("/5/:language", (req: Request, res: Response) => {
+anamnesticRouter.get("/5/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "5",
         section: "11",
@@ -259,13 +259,13 @@ amnesiacRouter.get("/5/:language", (req: Request, res: Response) => {
         imageUrl: "",
         videoUrl: "",
         mc: true,
-        title: "Amnesiac",
+        title: "Anamnestic",
     };
 
     res.status(200).json(nextQuery);
 });
 
-amnesiacRouter.post("/5", (req: Request, res: Response) => {
+anamnesticRouter.post("/5", (req: Request, res: Response) => {
     let nextQuestionID = 6;
     let nextSectionID = "11";
 
@@ -304,7 +304,7 @@ amnesiacRouter.post("/5", (req: Request, res: Response) => {
 });
 
 //Section 11 Question 6
-amnesiacRouter.get("/6/:language", (req: Request, res: Response) => {
+anamnesticRouter.get("/6/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "6",
         section: "11",
@@ -318,13 +318,13 @@ amnesiacRouter.get("/6/:language", (req: Request, res: Response) => {
         imageUrl: "",
         videoUrl: "",
         mc: true,
-        title: "Amnesiac",
+        title: "Anamnestic",
     };
 
     res.status(200).json(nextQuery);
 });
 
-amnesiacRouter.post("/6", (req: Request, res: Response) => {
+anamnesticRouter.post("/6", (req: Request, res: Response) => {
     let nextQuestionID = 7;
     let nextSectionID = "11";
 
@@ -363,7 +363,7 @@ amnesiacRouter.post("/6", (req: Request, res: Response) => {
 });
 
 //Section 11 Question 7
-amnesiacRouter.get("/7/:language", (req: Request, res: Response) => {
+anamnesticRouter.get("/7/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "7",
         section: "11",
@@ -379,13 +379,13 @@ amnesiacRouter.get("/7/:language", (req: Request, res: Response) => {
         imageUrl: "",
         videoUrl: "",
         mc: true,
-        title: "Amnesiac",
+        title: "Anamnestic",
     };
 
     res.status(200).json(nextQuery);
 });
 
-amnesiacRouter.post("/7", (req: Request, res: Response) => {
+anamnesticRouter.post("/7", (req: Request, res: Response) => {
     let nextQuestionID = 8;
     let nextSectionID = "11";
 
@@ -424,7 +424,7 @@ amnesiacRouter.post("/7", (req: Request, res: Response) => {
 });
 
 //Section 11 Question 8
-amnesiacRouter.get("/8/:language", (req: Request, res: Response) => {
+anamnesticRouter.get("/8/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "8",
         section: "11",
@@ -435,13 +435,13 @@ amnesiacRouter.get("/8/:language", (req: Request, res: Response) => {
         imageUrl: "",
         videoUrl: "",
         mc: true,
-        title: "Amnesiac",
+        title: "Anamnestic",
     };
 
     res.status(200).json(nextQuery);
 });
 
-amnesiacRouter.post("/8", (req: Request, res: Response) => {
+anamnesticRouter.post("/8", (req: Request, res: Response) => {
     let nextQuestionID = 1;
     let nextSectionID = "42";
 
@@ -479,4 +479,4 @@ amnesiacRouter.post("/8", (req: Request, res: Response) => {
     });
 });
 
-export default amnesiacRouter;
+export default anamnesticRouter;

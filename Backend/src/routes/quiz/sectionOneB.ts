@@ -17,11 +17,11 @@ sectionOneBRouter.get("/1/:language", (req: Request, res: Response) => {
             "Ask the participant to sit down on the edge of a chair and raise both of their legs at waist level, stretching them forward.\nThe participant can hold on to the chair with their hands and lean back.\nAsk the participant to stay in that position for five seconds.",
         question:
             "Is the participant able to REACH the position with both legs?",
-        answers: ["Yes", "No"],
+        answers: ["Yes", "No;;ONE OR BOTH LEGS CANNOT REACH POISITION"],
         imageUrl:
-            "https://drive.google.com/file/d/1F4U7v-Jy9PwjhLPOso1PFiEsp2LawY8-/preview",
+            "https://drive.google.com/file/d/1RuTzv2TVATH-PauDq2DwvK1U7VO1A6D_/view?usp=sharing",
         videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+            "https://drive.google.com/file/d/1koxh07eZpZtISjSZbpZQ5zVzkQJQoFza/view?usp=sharing",
         mc: true,
         title: "Mingazzini - Lower Limb",
     };
@@ -82,9 +82,9 @@ sectionOneBRouter.get("/2/:language", (req: Request, res: Response) => {
         question:
             "Is the  inability to reach position accompanied by LEG SHAKING or OSCILLATIONS?",
         answers: ["Yes", "No"],
-        imageUrl: "",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+        imageUrl:
+            "https://drive.google.com/file/d/10wBE04q19p1huOufvfJ58a2VdyIX94RV/view?usp=sharing",
+        videoUrl: "",
         mc: true,
         title: "Mingazzini - Lower Limb",
     };
@@ -144,11 +144,10 @@ sectionOneBRouter.get("/3/:language", (req: Request, res: Response) => {
             "Ask the participant to sit down on the edge of a chair and raise both of their legs at waist level, stretching them forward.\nThe participant can hold on to the chair with their hands and lean back.\nAsk the participant to stay in that position for five seconds.",
         question:
             "Is the participant able to HOLD STEADILY the position with both legs for at least 5 seconds?",
-        answers: ["Yes", "No"],
+        answers: ["Yes", "No;;ONE OR BOTH LEGS FALL DOWN"],
         imageUrl:
-            "https://drive.google.com/file/d/1F4U7v-Jy9PwjhLPOso1PFiEsp2LawY8-/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+            "https://drive.google.com/file/d/1LPuyXbiCbZusMOojmfvAN9BV6OMa6ZCS/view?usp=sharing",
+        videoUrl: "",
         mc: true,
         title: "Mingazzini - Lower Limb",
     };
@@ -380,9 +379,9 @@ sectionOneBRouter.get("/6/:language", (req: Request, res: Response) => {
             "Ask the participant to sit down on the edge of a chair and raise both of their legs at waist level, stretching them forward.\nThe participant can hold on to the chair with their hands and lean back.\nAsk the participant to stay in that position for five seconds.",
         question: "Is the falling accompanied by LEG SHAKING or OSCILLATIONS?",
         answers: ["Yes", "No"],
-        imageUrl: "",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+        imageUrl:
+            "https://drive.google.com/file/d/1mgFTOFyR2-gJIy0UMv_ZjZe_F6wUY0Sl/view?usp=sharing",
+        videoUrl: "",
         mc: true,
         title: "Mingazzini - Lower Limb",
     };

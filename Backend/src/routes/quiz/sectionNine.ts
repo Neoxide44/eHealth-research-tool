@@ -18,9 +18,9 @@ sectionNineRouter.get("/1/:language", (req: Request, res: Response) => {
             "Is the participant ABLE to DETECT HAND in ALL POSITIONS (QUADRANTS)",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+            "https://drive.google.com/file/d/1jTr7Mf__ntfAXY41cazHg3dZfzYRPGNY/view?usp=sharing",
         videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+            "https://drive.google.com/file/d/1kuvn4dul-WAfGCplVlraDii3aQ8ZsoC0/view?usp=sharing",
         mc: true,
         title: "Visual Field",
     };

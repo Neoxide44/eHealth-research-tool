@@ -26,4 +26,10 @@ testing 123
 24. ~~Add amnesiac questions~~
 25. ~~Header buttons are removed when they aren't~~
 26. Ask Vasco about outcome from amnesiac
-27. Look into adding the information box next to answers
+27. ~~Look into adding the information box next to answers~~
+28. ~~Participant Code only in numbers~~
+29. Try to add the counter
+30. ~~Change title section 5 to "Cognitive Assesment"~~
+31. Change instructions in section 5
+32. ~~Sensetivity in section 6 spelled differently~~
+33. ~~Change amnesiac to something else~~

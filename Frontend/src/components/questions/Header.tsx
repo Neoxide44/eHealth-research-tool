@@ -96,13 +96,12 @@ function Header(props: Props) {
                         <FaVideo />
                     </Button>
                 )}
-                {!props.haveTimer && (
+                {props.haveTimer && (
                     <Button
                         variant="primary"
                         size="sm"
                         onClick={handleShowStopwatch}
                         className="button-icon"
-                        disabled={props.haveTimer}
                     >
                         <FaStopwatch />
                     </Button>

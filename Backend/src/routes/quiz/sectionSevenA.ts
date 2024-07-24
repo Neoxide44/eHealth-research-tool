@@ -18,9 +18,9 @@ sectionSevenARouter.get("/1/:language", (req: Request, res: Response) => {
             "Is the participant able to CORRECTLY IDENTIFY the FINGER being touched and the DIRECTION of movement?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+            "https://drive.google.com/file/d/12lZJH3WJhH4PVCqlNn1SmVkBr0sdmEn3/view?usp=sharing",
         videoUrl:
-            "https://drive.google.com/file/d/1h4aZN0AQqdpTiT2r4LCKB8PX9-HFN5BP/preview",
+            "https://drive.google.com/file/d/1lKSBbD3Bk2OWvcYMfHVQv9idmcvvv9Bl/view?usp=sharing",
         mc: true,
         title: "Deep Sensetivity - Upper Limb",
     };
@@ -86,8 +86,7 @@ sectionSevenARouter.get("/2/:language", (req: Request, res: Response) => {
             "Participant is ABLE to IDENTIFY the DIRECTION but NOT the FINGER",
             "Participant is UNABLE to IDENTIFY BOTH FINGER and DIRECTION",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/168-4COk-Eh3WAQ5xE5jvK4g3AK1Dklm5/preview",
+        imageUrl: "",
         videoUrl: "",
         mc: true,
         title: "Deep Sensetivity - Upper Limb",

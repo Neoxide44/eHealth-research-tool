@@ -19,9 +19,9 @@ sectionOneARouter.get("/1/:language", (req: Request, res: Response) => {
         answers: ["Yes", "No"],
         title: "Mingazzini - Upper Limb",
         imageUrl:
-            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
+            "https://drive.google.com/file/d/1qleMiqwuxRjDUPk6V46PWqrJL3BvmCJB/view?usp=sharing",
         videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+            "https://drive.google.com/file/d/1lYYrH4Je306A6ej1EAOuvpzifyowkuqH/view?usp=sharing",
         mc: true,
     };
 
@@ -81,13 +81,11 @@ sectionOneARouter.get("/2/:language", (req: Request, res: Response) => {
             "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. If the participant reaches the position, ask them to maintain that position for five seconds.",
         question: "",
         answers: [
-            "One or both arms are MISSING or UNABLE to move for known non-neurological reasons.",
+            "One or both arms are MISSING or UNABLE to move for known non-neurological reasons.;;The most common know non-neurological reasons are: \narthritis, \nprevious traumatic injury, \npain",
             "One or both arms are UNABLE to REACH the position.",
         ],
-        imageUrl:
-            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+        imageUrl: "",
+        videoUrl: "",
         mc: true,
         title: "Mingazzini - Upper Limb",
     };
@@ -156,9 +154,8 @@ sectionOneARouter.get("/3/:language", (req: Request, res: Response) => {
             "Is the participant able to HOLD STEADILY the position for at least 5 seconds?",
         answers: ["Yes", "No"],
         imageUrl:
-            "https://drive.google.com/file/d/15myld367521qlr78LciIgYaYcGNhNtx7/preview",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+            "https://drive.google.com/file/d/1vF4TzKgVP4mwGm1YmezGBeRGQ0pLt7kv/view?usp=sharing",
+        videoUrl: "",
         mc: true,
         title: "Mingazzini - Upper Limb",
     };
@@ -300,9 +297,9 @@ sectionOneARouter.get("/5/:language", (req: Request, res: Response) => {
         question:
             "Is the inability to reach the position accompanied by ARM SHAKING or OSCILLATIONS?",
         answers: ["Yes", "No"],
-        imageUrl: "",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+        imageUrl:
+            "https://drive.google.com/file/d/1mxqXdotPlGUmtcF93tXcQ2T8PE33HtvE/view?usp=sharing",
+        videoUrl: "",
         mc: true,
         title: "Mingazzini - Upper Limb",
     };
@@ -362,12 +359,11 @@ sectionOneARouter.get("/6/:language", (req: Request, res: Response) => {
             "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. If the participant reaches the position, ask them to maintain that position for five seconds.",
         question: "",
         answers: [
-            "One or both arms FALL DOWN within 5 seconds",
-            "One or both arms ROTATE (pronate)",
+            "One or both arms FALL DOWN within 5 seconds;https://drive.google.com/file/d/1f1UKI1oOqKcZbIp9tsRqlyRnvda6vQx3/view?usp=sharing;",
+            "One or both arms ROTATE (pronate);https://drive.google.com/file/d/174oLsdObQ0LVyTtP_51hMNwI1JTUIfe1/view?usp=sharing;",
         ],
         imageUrl: "",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+        videoUrl: "",
         mc: true,
         title: "Mingazzini - Upper Limb",
     };
@@ -570,9 +566,9 @@ sectionOneARouter.get("/9/:language", (req: Request, res: Response) => {
             "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. If the participant reaches the position, ask them to maintain that position for five seconds.",
         question: "Is the falling accompanied by ARM SHAKING or OSCILLATIONS?",
         answers: ["Yes", "No"],
-        imageUrl: "",
-        videoUrl:
-            "https://drive.google.com/file/d/1YuVAWmMXpJ3jtiYlCQqwW4Zv_65By_Zn/preview",
+        imageUrl:
+            "https://drive.google.com/file/d/1RTt99UMFcD_1Szs2YO4Y_Y6BpXnhxeL5/view?usp=sharing",
+        videoUrl: "",
         mc: true,
         title: "Mingazzini - Upper Limb",
     };
