@@ -54,10 +54,14 @@ function db_setup() {
                                                                     error,
                                                                     results
                                                                 ) => {
-                                                                    if (error)
-                                                                        console.log(
-                                                                            error
-                                                                        );
+                                                                    pool.query(
+                                                                        "CREATE TABLE IF NOT EXISTS anamnestic_outcomes (id SERIAL NOT NULL PRIMARY KEY, uuid VARCHAR(255), outcome VARCHAR(2550), q_id INTEGER)",
+                                                                        [],
+                                                                        (
+                                                                            error,
+                                                                            results
+                                                                        ) => {}
+                                                                    );
                                                                 }
                                                             );
                                                         }

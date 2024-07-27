@@ -19,7 +19,7 @@ function ProgressBarWithLabel(props: Props) {
         ) {
             now = 40;
         } else {
-            now = parseInt(props.section) * 10;
+            now = parseInt(props.section) * 9.09090909091;
         }
 
         return now;

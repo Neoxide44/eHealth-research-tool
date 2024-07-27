@@ -22,7 +22,6 @@ function Stopwatch() {
                 <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:
                 <span>{seconds}</span>
             </div>
-            <p>{isRunning ? "Running" : "Not running"}</p>
             <ButtonGroup aria-label="Basic example">
                 <Button variant="primary" onClick={() => start()}>
                     Start

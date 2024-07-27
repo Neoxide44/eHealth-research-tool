@@ -51,3 +51,15 @@ export const regiserLoginInfo =
     "INSERT INTO login_info (email, password_hash) VALUES ($1, crypt($2, gen_salt('md5')))";
 
 export const checkCode = "SELECT * FROM code WHERE code = $1";
+
+export const addAnamnesticOutcome =
+    "INSERT INTO anamnestic_outcomes (uuid, outcome, q_id) VALUES ($1, $2, $3)";
+
+export const deleteOneAnamnesticOutcome =
+    "DELETE FROM anamnestic_outcomes WHERE uuid = $1 AND q_id = $2;";
+
+export const deleteAnamnesticOutcome =
+    "DELETE FROM anamnestic_outcomes WHERE uuid = $1";
+
+export const getAnamnesticOutcomes =
+    "SELECT * FROM anamnestic_outcomes WHERE uuid = $1";

@@ -16,14 +16,16 @@ function Quiz() {
     const { language, section, q_id, id } = useParams();
     const navigate = useNavigate();
 
-    const [question, setQuestion] = useState("IDk");
-    const [options, setOptions] = useState(["idk1", "idk2", "idk3"]);
+    const [question, setQuestion] = useState("");
+    const [options, setOptions] = useState(["", "", ""]);
     const [selectedOptionsMC, setSelectedOptionsMC] = useState<string[]>([]);
     const [selectedOption, setSelectedOption] = useState("");
     const [instructions, setInstructions] = useState("");
     const [imageUrl, setImageUrl] = useState("");
     const [videoUrl, setVideoUrl] = useState("");
-    const [title, setTitle] = useState("Example Title - 1a");
+    const [title, setTitle] = useState(
+        "If you see this, please refresh the page"
+    );
     const [mc, setMc] = useState(false);
 
     useEffect(() => {
@@ -108,6 +110,13 @@ function Quiz() {
         });
     };
 
+    function containsNumbers(str: string | undefined): boolean {
+        if (str === undefined) {
+            return false; // or handle it as needed
+        }
+        const regex = /\d/;
+        return regex.test(str);
+    }
     return (
         <div>
             <Container>
@@ -119,6 +128,7 @@ function Quiz() {
                             videoUrl={videoUrl}
                             instructions={instructions}
                             haveTimer={section === "3" && q_id === "1"}
+                            autoShowInstructions={section === "5"}
                         />
                     )}
 
@@ -149,10 +159,13 @@ function Quiz() {
                                 handleMCFormSubmit();
                             }}
                             onGoBack={handleGoBack}
+                            allow_no_selected={section === "5"}
                         />
                     )}
 
-                    <ProgressBarWithLabel section={section as string} />
+                    {containsNumbers(section) && (
+                        <ProgressBarWithLabel section={section as string} />
+                    )}
                 </Stack>
             </Container>
         </div>

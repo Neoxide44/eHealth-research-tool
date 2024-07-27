@@ -78,7 +78,7 @@ function MCOptions(props: Props) {
             })}
             <Modal show={showInfoModal} onHide={handleCloseInfoModal}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Option Information</Modal.Title>
+                    <Modal.Title>Additional Information</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <p>{modalInfoContent}</p>

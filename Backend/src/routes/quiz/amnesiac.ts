@@ -2,7 +2,12 @@ import { Router, Request, Response } from "express";
 import { saveQuery } from "../../models/saveQuery";
 import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
-import { addData, deleteOneData } from "../../queries";
+import {
+    addAnamnesticOutcome,
+    addData,
+    deleteOneAnamnesticOutcome,
+    deleteOneData,
+} from "../../queries";
 import { addOutcome, deleteOutcome } from "../../queries";
 
 const anamnesticRouter = Router();
@@ -58,6 +63,23 @@ anamnesticRouter.post("/1", (req: Request, res: Response) => {
                     if (error) throw error;
                 }
             );
+        }
+    );
+
+    pool.query(
+        deleteOneAnamnesticOutcome,
+        [data.uuid, data.q_id],
+        (error, results) => {
+            if (error) throw error;
+            if (data.answer[0].includes("Yes")) {
+                pool.query(
+                    addAnamnesticOutcome,
+                    [data.uuid, "TREMOR", data.q_id],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
+            }
         }
     );
 
@@ -121,6 +143,23 @@ anamnesticRouter.post("/2", (req: Request, res: Response) => {
         }
     );
 
+    pool.query(
+        deleteOneAnamnesticOutcome,
+        [data.uuid, data.q_id],
+        (error, results) => {
+            if (error) throw error;
+            if (data.answer[0].includes("Yes")) {
+                pool.query(
+                    addAnamnesticOutcome,
+                    [data.uuid, "DIFFICULTY IN SPEAKING", data.q_id],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
+            }
+        }
+    );
+
     res.status(200).json({
         nextQuestion: nextQuestionID,
         nextSection: nextSectionID,
@@ -180,6 +219,23 @@ anamnesticRouter.post("/3", (req: Request, res: Response) => {
         }
     );
 
+    pool.query(
+        deleteOneAnamnesticOutcome,
+        [data.uuid, data.q_id],
+        (error, results) => {
+            if (error) throw error;
+            if (data.answer.includes("Yes")) {
+                pool.query(
+                    addAnamnesticOutcome,
+                    [data.uuid, "CHOKING", data.q_id],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
+            }
+        }
+    );
+
     res.status(200).json({
         nextQuestion: nextQuestionID,
         nextSection: nextSectionID,
@@ -233,6 +289,23 @@ anamnesticRouter.post("/4", (req: Request, res: Response) => {
                     if (error) throw error;
                 }
             );
+        }
+    );
+
+    pool.query(
+        deleteOneAnamnesticOutcome,
+        [data.uuid, data.q_id],
+        (error, results) => {
+            if (error) throw error;
+            if (data.answer.includes("Yes")) {
+                pool.query(
+                    addAnamnesticOutcome,
+                    [data.uuid, "PAIN", data.q_id],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
+            }
         }
     );
 
@@ -297,6 +370,23 @@ anamnesticRouter.post("/5", (req: Request, res: Response) => {
         }
     );
 
+    pool.query(
+        deleteOneAnamnesticOutcome,
+        [data.uuid, data.q_id],
+        (error, results) => {
+            if (error) throw error;
+            if (data.answer.includes("Yes")) {
+                pool.query(
+                    addAnamnesticOutcome,
+                    [data.uuid, "HEADACHE", data.q_id],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
+            }
+        }
+    );
+
     res.status(200).json({
         nextQuestion: nextQuestionID,
         nextSection: nextSectionID,
@@ -353,6 +443,23 @@ anamnesticRouter.post("/6", (req: Request, res: Response) => {
                     if (error) throw error;
                 }
             );
+        }
+    );
+
+    pool.query(
+        deleteOneAnamnesticOutcome,
+        [data.uuid, data.q_id],
+        (error, results) => {
+            if (error) throw error;
+            if (data.answer.includes("Yes")) {
+                pool.query(
+                    addAnamnesticOutcome,
+                    [data.uuid, "DIZZINESS/UNSTEADINESS", data.q_id],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
+            }
         }
     );
 
@@ -416,6 +523,22 @@ anamnesticRouter.post("/7", (req: Request, res: Response) => {
             );
         }
     );
+    pool.query(
+        deleteOneAnamnesticOutcome,
+        [data.uuid, data.q_id],
+        (error, results) => {
+            if (error) throw error;
+            if (data.answer.includes("Yes")) {
+                pool.query(
+                    addAnamnesticOutcome,
+                    [data.uuid, "TINGLING/UNUSUAL SENSATIONS", data.q_id],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
+            }
+        }
+    );
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -470,6 +593,23 @@ anamnesticRouter.post("/8", (req: Request, res: Response) => {
                     if (error) throw error;
                 }
             );
+        }
+    );
+
+    pool.query(
+        deleteOneAnamnesticOutcome,
+        [data.uuid, data.q_id],
+        (error, results) => {
+            if (error) throw error;
+            if (data.answer.includes("Yes")) {
+                pool.query(
+                    addAnamnesticOutcome,
+                    [data.uuid, "SLOWNESS", data.q_id],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
+            }
         }
     );
 

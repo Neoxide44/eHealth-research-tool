@@ -13,16 +13,20 @@ import "./InstructionAlert.css";
 import "./HeaderButtons.css";
 import { Modal } from "react-bootstrap";
 import Stopwatch from "./Stopwatch";
+import Counter from "./Counter";
 
 interface Props {
     imageUrl: string;
     instructions: string;
     videoUrl: string;
     haveTimer: boolean;
+    autoShowInstructions: boolean;
 }
 
 function Header(props: Props) {
-    const [showInstructions, setShowInstructions] = useState(false);
+    const [showInstructions, setShowInstructions] = useState(
+        props.autoShowInstructions
+    );
     const [showStopwatch, setShowStopwatch] = useState(false);
 
     const handleCloseInstructions = () => setShowInstructions(false);
@@ -55,6 +59,7 @@ function Header(props: Props) {
                 </Modal.Header>
                 <Modal.Body>
                     <Stopwatch />
+                    <Counter />
                 </Modal.Body>
             </Modal>
 

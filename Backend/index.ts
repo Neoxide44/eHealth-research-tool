@@ -22,6 +22,8 @@ import db_setup from "./src/dbsetup";
 import codeRouter from "./src/routes/research_code";
 import participantInfoRouter from "./src/routes/participant_info";
 import anamnesticRouter from "./src/routes/quiz/amnesiac";
+import anamnesticOutcomeRouter from "./src/routes/anamnestic_outcomes";
+import screeningQuestionsRouter from "./src/routes/quiz/screening";
 
 //For env File
 dotenv.config();
@@ -48,9 +50,11 @@ app.use("/queries/8", sectionEightRouter);
 app.use("/queries/9", sectionNineRouter);
 app.use("/queries/10", sectionTenRouter);
 app.use("/queries/11", anamnesticRouter);
+app.use("/queries/screening_questions", screeningQuestionsRouter);
 app.use("/login", loginRouter);
 app.use("/register", registerRouter);
 app.use("/outcome", outcomeRouter);
+app.use("/anamnestic_outcomes", anamnesticOutcomeRouter);
 app.use("/answers", dataRouter);
 app.use("/code", codeRouter);
 app.use("/info", participantInfoRouter);

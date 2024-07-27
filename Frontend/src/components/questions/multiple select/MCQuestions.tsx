@@ -9,6 +9,7 @@ interface Props {
     selectedOptions: string[];
     onOptionChange: React.ChangeEventHandler<HTMLInputElement>;
     q_id: string | undefined;
+    allow_no_selected: boolean;
     onSubmit: () => void;
     onGoBack: () => void;
 }
@@ -33,7 +34,10 @@ function MCQuestion(props: Props) {
                     <Button
                         type="submit"
                         className="btn btn-primary mt-2"
-                        disabled={!props.selectedOptions}
+                        disabled={
+                            !props.allow_no_selected &&
+                            props.selectedOptions.length === 0
+                        }
                     >
                         Submit Answer
                     </Button>

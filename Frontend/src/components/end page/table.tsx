@@ -5,12 +5,18 @@ import { useState, useEffect } from "react";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { getAnswers } from "../../api calls/getAnswers";
 import { getInfo } from "../../api calls/getInfo";
+import { getAnamnesticOutcomes } from "../../api calls/getAnamnesticOutcomes";
 
 interface OutcomeData {
     section: string;
     outcome: string;
     id: string;
     uuid: string;
+}
+interface AnamnesticOutcomes {
+    id: number | null;
+    outcome: string;
+    q_id: number | null;
 }
 interface Answers {
     section: string;
@@ -32,12 +38,16 @@ function OutcomesTable() {
     const [outcomeData, setOutcomeData] = useState<OutcomeData[]>([]);
     const [answers, setAnswers] = useState<Answers[]>([]);
     const [info, setInfo] = useState<Info[]>([]);
+    const [anamnesticOutcomes, setAnamnesticOutcomes] = useState<
+        AnamnesticOutcomes[]
+    >([]);
     const [showOutcomes, setShowOutcomes] = useState(true);
 
     useEffect(() => {
         // Fetch data when component mounts
         getOutcomes(id, setOutcomeData);
         getAnswers(id, setAnswers);
+        getAnamnesticOutcomes(id, setAnamnesticOutcomes);
         getInfo(id, setInfo);
     }, []);
 
@@ -52,6 +62,8 @@ function OutcomesTable() {
             "Section",
             "Outcome",
         ];
+
+        const anamnesticHeaders = ["Anamnestic Outcomes"];
 
         let isFirstRow = true;
 
@@ -69,7 +81,18 @@ function OutcomesTable() {
                     }
                 })
                 .join("\n");
-        const outcomeEncodedUri = encodeURI(outcomeCsvContent);
+
+        const anamnesticCsvContent =
+            anamnesticHeaders.join(",") +
+            "\n" +
+            anamnesticOutcomes.map((row) => `${row.outcome}`).join("\n");
+
+        const finalCsvContent =
+            outcomeCsvContent +
+            "\n\n" + // Adding a couple of new lines to separate the sections
+            anamnesticCsvContent;
+
+        const outcomeEncodedUri = encodeURI(finalCsvContent);
         const outcomeLink = document.createElement("a");
         outcomeLink.setAttribute("href", outcomeEncodedUri);
         outcomeLink.setAttribute("download", "outcomes.csv");
@@ -142,24 +165,42 @@ function OutcomesTable() {
                 </tbody>
             </Table>
             {showOutcomes && (
-                <Table striped bordered hover>
-                    <thead>
-                        <tr>
-                            <th>Section</th>
-                            <th>Outcome</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {outcomeData.map((value, key) => {
-                            return (
-                                <tr key={key}>
-                                    <td>{value.section}</td>
-                                    <td>{value.outcome}</td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </Table>
+                <div>
+                    <Table striped bordered hover>
+                        <thead>
+                            <tr>
+                                <th>Section</th>
+                                <th>Outcome</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {outcomeData.map((value, key) => {
+                                return (
+                                    <tr key={key}>
+                                        <td>{value.section}</td>
+                                        <td>{value.outcome}</td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </Table>
+                    <Table striped bordered hover>
+                        <thead>
+                            <tr>
+                                <th>Anamnestic Outcome</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {anamnesticOutcomes.map((value, key) => {
+                                return (
+                                    <tr key={key}>
+                                        <td>{value.outcome}</td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </Table>
+                </div>
             )}
             {!showOutcomes && (
                 <Table striped bordered hover>
