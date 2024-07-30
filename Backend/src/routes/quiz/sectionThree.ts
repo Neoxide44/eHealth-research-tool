@@ -60,7 +60,8 @@ sectionThreeRouter.post("/1", (req: Request, res: Response) => {
         }
     );
 
-    if (req.body.answer === "Yes") {
+    if (req.body.answer.includes("Yes")) {
+        console.log(req.body.answer);
         nextQuestionID = 1;
         nextSectionID = "4";
     } else if (req.body.answer === "No") {
@@ -88,8 +89,7 @@ sectionThreeRouter.get("/2/:language", (req: Request, res: Response) => {
             "ABLE without HELP, but with DIFFICULTY;https://drive.google.com/file/d/1TDRrWCRQoKuevrBpZmRtTggeykBhGa7j/view?usp=sharing;",
         ],
         imageUrl: "",
-        videoUrl:
-            "https://drive.google.com/file/d/1naAwRwy_3WmfY2rrgx-mV3Dk1lZ13tbq/preview",
+        videoUrl: "",
         mc: true,
         title: "30-Second Chair Stand Test",
     };

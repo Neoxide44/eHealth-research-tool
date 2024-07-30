@@ -37,89 +37,103 @@ const CircleComponent: React.FC<Props> = ({
     return (
         <div className="circle-component">
             <div className="circle-container">
-                <div className="circle">
-                    <div
-                        className={`quadrant top-left ${
-                            selectedOptions.includes(
-                                "Right Eye - Top Left Quadrant"
-                            )
-                                ? "clicked"
-                                : ""
-                        }`}
-                        onClick={() => handleClick("Right", "Top Left")}
-                    ></div>
-                    <div
-                        className={`quadrant top-right ${
-                            selectedOptions.includes(
-                                "Right Eye - Top Right Quadrant"
-                            )
-                                ? "clicked"
-                                : ""
-                        }`}
-                        onClick={() => handleClick("Right", "Top Right")}
-                    ></div>
-                    <div
-                        className={`quadrant bottom-left ${
-                            selectedOptions.includes(
-                                "Right Eye - Bottom Left Quadrant"
-                            )
-                                ? "clicked"
-                                : ""
-                        }`}
-                        onClick={() => handleClick("Right", "Bottom Left")}
-                    ></div>
-                    <div
-                        className={`quadrant bottom-right ${
-                            selectedOptions.includes(
-                                "Right Eye - Bottom Right Quadrant"
-                            )
-                                ? "clicked"
-                                : ""
-                        }`}
-                        onClick={() => handleClick("Right", "Bottom Right")}
-                    ></div>
+                <div className="circle-wrapper">
+                    <div className="circle">
+                        <div
+                            className={`quadrant top-left ${
+                                selectedOptions.includes(
+                                    "Right Eye - Top External Quadrant"
+                                )
+                                    ? "clicked"
+                                    : ""
+                            }`}
+                            onClick={() => handleClick("Right", "Top External")}
+                        ></div>
+                        <div
+                            className={`quadrant top-right ${
+                                selectedOptions.includes(
+                                    "Right Eye - Top Internal Quadrant"
+                                )
+                                    ? "clicked"
+                                    : ""
+                            }`}
+                            onClick={() => handleClick("Right", "Top Internal")}
+                        ></div>
+                        <div
+                            className={`quadrant bottom-left ${
+                                selectedOptions.includes(
+                                    "Right Eye - Bottom External Quadrant"
+                                )
+                                    ? "clicked"
+                                    : ""
+                            }`}
+                            onClick={() =>
+                                handleClick("Right", "Bottom External")
+                            }
+                        ></div>
+                        <div
+                            className={`quadrant bottom-right ${
+                                selectedOptions.includes(
+                                    "Right Eye - Bottom Internal Quadrant"
+                                )
+                                    ? "clicked"
+                                    : ""
+                            }`}
+                            onClick={() =>
+                                handleClick("Right", "Bottom Internal")
+                            }
+                        ></div>
+                    </div>
+                    <div className="label">Right Eye</div>
                 </div>
-                <div className="circle">
-                    <div
-                        className={`quadrant top-left ${
-                            selectedOptions.includes(
-                                "Left Eye - Top Left Quadrant"
-                            )
-                                ? "clicked"
-                                : ""
-                        }`}
-                        onClick={() => handleClick("Left", "Top Left")}
-                    ></div>
-                    <div
-                        className={`quadrant top-right ${
-                            selectedOptions.includes(
-                                "Left Eye - Top Right Quadrant"
-                            )
-                                ? "clicked"
-                                : ""
-                        }`}
-                        onClick={() => handleClick("Left", "Top Right")}
-                    ></div>
-                    <div
-                        className={`quadrant bottom-left ${
-                            selectedOptions.includes(
-                                "Left Eye - Bottom Left Quadrant"
-                            )
-                                ? "clicked"
-                                : ""
-                        }`}
-                        onClick={() => handleClick("Left", "Bottom Left")}
-                    ></div>
-                    <div
-                        className={`quadrant bottom-right ${
-                            selectedOptions.includes(
-                                "Left Eye - Bottom Right Quadrant"
-                            )
-                                ? "clicked"
-                                : ""
-                        }`}
-                        onClick={() => handleClick("Left", "Bottom Right")}
-                    ></div>
+                <div className="circle-wrapper">
+                    <div className="circle">
+                        <div
+                            className={`quadrant top-left ${
+                                selectedOptions.includes(
+                                    "Left Eye - Top Internal Quadrant"
+                                )
+                                    ? "clicked"
+                                    : ""
+                            }`}
+                            onClick={() => handleClick("Left", "Top Internal")}
+                        ></div>
+                        <div
+                            className={`quadrant top-right ${
+                                selectedOptions.includes(
+                                    "Left Eye - Top External Quadrant"
+                                )
+                                    ? "clicked"
+                                    : ""
+                            }`}
+                            onClick={() => handleClick("Left", "Top External")}
+                        ></div>
+                        <div
+                            className={`quadrant bottom-left ${
+                                selectedOptions.includes(
+                                    "Left Eye - Bottom Internal Quadrant"
+                                )
+                                    ? "clicked"
+                                    : ""
+                            }`}
+                            onClick={() =>
+                                handleClick("Left", "Bottom Internal")
+                            }
+                        ></div>
+                        <div
+                            className={`quadrant bottom-right ${
+                                selectedOptions.includes(
+                                    "Left Eye - Bottom External Quadrant"
+                                )
+                                    ? "clicked"
+                                    : ""
+                            }`}
+                            onClick={() =>
+                                handleClick("Left", "Bottom External")
+                            }
+                        ></div>
+                    </div>
+                    <div className="label">Left Eye</div>
                 </div>
             </div>
             <ButtonGroup>

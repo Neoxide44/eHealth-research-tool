@@ -14,6 +14,7 @@ import "./HeaderButtons.css";
 import { Modal } from "react-bootstrap";
 import Stopwatch from "./Stopwatch";
 import Counter from "./Counter";
+import { counter } from "@fortawesome/fontawesome-svg-core";
 
 interface Props {
     imageUrl: string;
@@ -21,6 +22,9 @@ interface Props {
     videoUrl: string;
     haveTimer: boolean;
     autoShowInstructions: boolean;
+
+    counter: number;
+    setCounter: React.Dispatch<React.SetStateAction<number>>;
 }
 
 function Header(props: Props) {
@@ -59,7 +63,10 @@ function Header(props: Props) {
                 </Modal.Header>
                 <Modal.Body>
                     <Stopwatch />
-                    <Counter />
+                    <Counter
+                        counter={props.counter}
+                        setCounter={props.setCounter}
+                    />
                 </Modal.Body>
             </Modal>
 

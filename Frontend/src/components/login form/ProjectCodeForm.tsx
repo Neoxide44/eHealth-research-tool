@@ -2,15 +2,12 @@ import { FormEvent, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Alert, Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { postResearchCode } from "../../api calls/postResearchCode";
 import { useNavigate } from "react-router-dom";
+import { postResearchCode } from "../../api calls/postResearchCode";
 
 function ProjectCodeForm() {
     const [validated, setValidated] = useState(false);
-
     const [code, setCode] = useState("");
-
     const [showAlert, setShowAlert] = useState(false);
     const [alertHeading, setAlertHeading] = useState("");
     const [alertText, setAlertText] = useState("");
@@ -21,11 +18,13 @@ function ProjectCodeForm() {
         const form = e.currentTarget as HTMLFormElement;
         let data = "-1";
         if (form.checkValidity() === false) {
+            e.preventDefault();
+            e.stopPropagation();
         }
 
         data = await postResearchCode(code);
 
-        if (data == "Incorrect researcher code") {
+        if (data === "Incorrect researcher code") {
             setAlertHeading("Incorrect researcher code");
             setAlertText("Please try entering a different researcher code");
             setShowAlert(true);
@@ -63,7 +62,7 @@ function ProjectCodeForm() {
                 </Alert>
             )}
             <Row className="mt-auto text-center mb-5">
-                <Col className="d-flex justify-content-center align-items-center">
+                <Col className="d-flex flex-column align-items-center">
                     <Form
                         noValidate
                         validated={validated}
@@ -93,6 +92,13 @@ function ProjectCodeForm() {
                             Submit
                         </Button>
                     </Form>
+
+                    <div style={{ marginTop: "20px" }}>
+                        <h5>
+                            Don't have a project code? Contact our creators to
+                            get one and gain access - it's FREE!
+                        </h5>
+                    </div>
                 </Col>
             </Row>
             <Row className="mt-auto text-center">

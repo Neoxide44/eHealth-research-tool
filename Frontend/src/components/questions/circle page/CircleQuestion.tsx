@@ -21,6 +21,8 @@ const EyeQuestion: React.FC = () => {
     const [mc, setMc] = useState(false);
     const [title, setTitle] = useState("");
 
+    const [counter, setCounter] = useState(0);
+
     useEffect(() => {
         const fetchData = async () => {
             await getQuery(
@@ -72,13 +74,17 @@ const EyeQuestion: React.FC = () => {
             <Container>
                 <Stack gap={3}>
                     <h1>{title}</h1>
-                    <Header
-                        imageUrl={imageUrl}
-                        videoUrl={videoUrl}
-                        instructions={instructions}
-                        haveTimer={section != "3"}
-                    />
-
+                    {(imageUrl || videoUrl || section !== "3") && (
+                        <Header
+                            imageUrl={imageUrl}
+                            videoUrl={videoUrl}
+                            instructions={instructions}
+                            haveTimer={section === "3" && q_id === "1"}
+                            autoShowInstructions={section === "5"}
+                            counter={counter}
+                            setCounter={setCounter}
+                        />
+                    )}
                     <CircleComponent
                         selectedOptions={selectedOptions}
                         onOptionChange={handleOptionChange}

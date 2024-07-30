@@ -33,3 +33,12 @@ testing 123
 31. ~~Change instructions in section 5~~
 32. ~~Sensetivity in section 6 spelled differently~~
 33. ~~Change amnesiac to something else~~
+34. ~~Section 3 q 2 remove video~~
+35. ~~Add instructions for visual field~~
+36. ~~Change quadrant from left and right to internal and external~~
+37. ~~Add labels under each eye in section 9~~
+38. ~~Add "Contact us for a researcher code" to first page"~~
+39. ~~Make Counter appear in answers~~
+40. Change section 11 to anamnestic in progress bar
+41. Change Excel
+42. ~~Remove the 1's~~

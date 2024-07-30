@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
-const Counter = () => {
-    const [counter, setCounter] = useState(0);
+interface Props {
+    counter: number;
+    setCounter: React.Dispatch<React.SetStateAction<number>>;
+}
 
+const Counter = (props: Props) => {
     const handleIncrement = () => {
-        setCounter((prevCounter) => prevCounter + 1);
+        props.setCounter((prevCounter) => prevCounter + 1);
     };
 
     const handleDecrement = () => {
-        setCounter((prevCounter) => prevCounter - 1);
+        props.setCounter((prevCounter) => prevCounter - 1);
     };
 
     return (
@@ -27,7 +30,7 @@ const Counter = () => {
                     -
                 </Button>
                 <span style={{ margin: "0 10px", fontSize: "1.2em" }}>
-                    {counter}
+                    {props.counter}
                 </span>
                 <Button variant="primary" onClick={handleIncrement}>
                     +

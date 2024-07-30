@@ -78,7 +78,8 @@ sectionNineRouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
         section: "9",
-        instructions: "",
+        instructions:
+            "HERE THE INSTRUCTOR SELECTS THE QUADRANTS IN WHICH THE PARTICIPANT CANNOT DETECT THE HAND",
         question: "",
         answers: ["", ""],
         imageUrl: "",

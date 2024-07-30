@@ -1082,8 +1082,8 @@ sectionFiveRouter.get("/8/Chinese", (req: Request, res: Response) => {
             "Ask the participant to follow verbal instructions while handing them a sheet of paper.",
         question: "Does the participant follow correctly...",
         answers: [
-            "The FIRST INSTRUCTION? ('患者右手拿起纸1') - Take the sheet of paper with your right hand",
-            "The SECOND INSTRUCTION? ('患者将纸对折1') - Fold the paper in half",
+            "The FIRST INSTRUCTION? ('患者右手拿起纸') - Take the sheet of paper with your right hand",
+            "The SECOND INSTRUCTION? ('患者将纸对折') - Fold the paper in half",
             "The THIRD INSTRUCTION? ('患者将纸放在左腿上') - Put it on the table",
         ],
         imageUrl: "",
@@ -1287,7 +1287,7 @@ sectionFiveRouter.get("/9/Chinese", (req: Request, res: Response) => {
         q_id: "9",
         section: "5",
         instructions:
-            "Ask the participant to follow the instruction that will appear on the screen. '请闭上您的眼睛1.' (close your eyes)",
+            "Ask the participant to follow the instruction that will appear on the screen. '请闭上您的眼睛.' (close your eyes)",
         question: "Does the participant follow correctly...",
         answers: ["The INSTRUCTION? (By closing their eyes)"],
         imageUrl: "",

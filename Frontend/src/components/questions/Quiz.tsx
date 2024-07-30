@@ -28,6 +28,8 @@ function Quiz() {
     );
     const [mc, setMc] = useState(false);
 
+    const [counter, setCounter] = useState(0);
+
     useEffect(() => {
         const fetchData = async () => {
             await getQuery(
@@ -48,13 +50,21 @@ function Quiz() {
     }, [section, q_id, language]); // Dependency array is empty so it runs only once on mount
 
     async function handleFormSubmit() {
+        let finalSelectedOption = selectedOption;
+
+        if (section === "3" && q_id === "1" && selectedOption === "Yes") {
+            finalSelectedOption =
+                selectedOption + " - " + String(counter) + " times";
+            setSelectedOption(finalSelectedOption); // Optionally update the state
+        }
+
         await postQuery(
             q_id,
             id,
             section,
             language,
             question,
-            selectedOption,
+            finalSelectedOption,
             navigate,
             setQuestion,
             setInstructions,
@@ -129,6 +139,8 @@ function Quiz() {
                             instructions={instructions}
                             haveTimer={section === "3" && q_id === "1"}
                             autoShowInstructions={section === "5"}
+                            counter={counter}
+                            setCounter={setCounter}
                         />
                     )}
 
