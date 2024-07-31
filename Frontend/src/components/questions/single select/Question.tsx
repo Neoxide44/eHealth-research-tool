@@ -11,6 +11,9 @@ interface Props {
     q_id: string | undefined;
     onGoBack: () => void;
     onSubmit: () => void;
+
+    extraInfo: string;
+    setExtraInfo: (info: string) => void;
 }
 
 function Question(props: Props) {
@@ -28,6 +31,8 @@ function Question(props: Props) {
                     options={props.options}
                     selectedOption={props.selectedOption}
                     onOptionChange={props.onOptionChange}
+                    extraInfo={props.extraInfo}
+                    setExtraInfo={props.setExtraInfo}
                 />
                 <ButtonGroup>
                     <Button

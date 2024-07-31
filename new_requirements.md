@@ -40,5 +40,6 @@ testing 123
 38. ~~Add "Contact us for a researcher code" to first page"~~
 39. ~~Make Counter appear in answers~~
 40. Change section 11 to anamnestic in progress bar
-41. Change Excel
-42. ~~Remove the 1's~~
+41. Add optional text field in section 11
+42. Change Excel
+43. ~~Remove the 1's~~

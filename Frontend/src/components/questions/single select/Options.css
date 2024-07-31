@@ -1,12 +1,3 @@
-.option-container {
-    display: flex;
-    align-items: center;
-}
-
-.option-label {
-    margin-right: 10px;
-}
-
-.option-button {
-    margin-left: 10px;
+.small-text-button {
+    font-size: 12px; /* Adjust the font size as needed */
 }

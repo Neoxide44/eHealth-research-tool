@@ -1,17 +1,21 @@
 import React, { useState } from "react";
-import { Button, Modal, ButtonGroup } from "react-bootstrap";
+import { Button, Modal, ButtonGroup, Form } from "react-bootstrap";
 import { FaXmark, FaCamera, FaInfo } from "react-icons/fa6";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera, faInfo } from "@fortawesome/free-solid-svg-icons";
+import "./Options.css";
 interface Props {
     options: string[];
     selectedOption: string;
     onOptionChange: React.ChangeEventHandler<HTMLInputElement>;
+    extraInfo: string;
+    setExtraInfo: (info: string) => void;
 }
 
 function Options(props: Props) {
     const [showInfoModal, setShowInfoModal] = useState(false);
     const [modalInfoContent, setModalInfoContent] = useState("");
+    const [showExtraInfoModal, setShowExtraInfoModal] = useState(false);
 
     const handleShowInfoModal = (info: string) => {
         setModalInfoContent(info);
@@ -19,10 +23,20 @@ function Options(props: Props) {
     };
     const handleCloseInfoModal = () => setShowInfoModal(false);
 
+    const handleShowExtraInfoModal = () => {
+        setShowExtraInfoModal(true);
+    };
+    const handleCloseExtraInfoModal = () => setShowExtraInfoModal(false);
+
+    const handleExtraInfoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        props.setExtraInfo(e.target.value);
+    };
+
     return (
         <div className="options">
             {props.options.map((option, index) => {
-                const [opt, linkToImage, additionalInfo] = option.split(";");
+                const [opt, linkToImage, additionalInfo, enterInfo] =
+                    option.split(";");
                 return (
                     <div key={index} className="form-check">
                         <input
@@ -70,6 +84,16 @@ function Options(props: Props) {
                                     />
                                 </Button>
                             )}
+                            {enterInfo && (
+                                <Button
+                                    variant="info"
+                                    size="sm"
+                                    onClick={() => handleShowExtraInfoModal()}
+                                    className="d-flex align-items-center small-text-button"
+                                >
+                                    Specify Where
+                                </Button>
+                            )}
                         </ButtonGroup>
                     </div>
                 );
@@ -84,6 +108,34 @@ function Options(props: Props) {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleCloseInfoModal}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+            <Modal show={showExtraInfoModal} onHide={handleCloseExtraInfoModal}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Extra Information</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form>
+                        <Form.Group controlId="formExtraInfo">
+                            <Form.Label>
+                                Enter additional information:
+                            </Form.Label>
+                            <Form.Control
+                                type="text"
+                                value={props.extraInfo}
+                                onChange={handleExtraInfoChange}
+                            />
+                        </Form.Group>
+                    </Form>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button
+                        variant="secondary"
+                        onClick={handleCloseExtraInfoModal}
+                    >
                         Close
                     </Button>
                 </Modal.Footer>

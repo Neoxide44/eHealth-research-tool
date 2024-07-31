@@ -28,6 +28,7 @@ function Quiz() {
     );
     const [mc, setMc] = useState(false);
 
+    const [extraInfo, setExtraInfo] = useState("");
     const [counter, setCounter] = useState(0);
 
     useEffect(() => {
@@ -58,6 +59,15 @@ function Quiz() {
             setSelectedOption(finalSelectedOption); // Optionally update the state
         }
 
+        if (
+            section === "11" &&
+            (q_id === "4" || q_id === "7") &&
+            selectedOption.includes("Yes") &&
+            extraInfo
+        ) {
+            finalSelectedOption = selectedOption + " - " + extraInfo;
+            setSelectedOption(finalSelectedOption); // Optionally update the state
+        }
         await postQuery(
             q_id,
             id,
@@ -157,6 +167,8 @@ function Quiz() {
                                 }
                             }}
                             onGoBack={handleGoBack}
+                            extraInfo={extraInfo}
+                            setExtraInfo={setExtraInfo}
                         />
                     )}
 

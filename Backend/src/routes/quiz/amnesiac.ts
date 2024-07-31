@@ -250,7 +250,7 @@ anamnesticRouter.get("/4/:language", (req: Request, res: Response) => {
         instructions: "",
         question:
             "In the past year, have you experienced any PAIN that interfered with your daily activities or that woke you up from sleep?",
-        answers: ["No pain experienced.", "Yes, pain experienced."],
+        answers: ["No pain experienced.", "Yes, pain experienced.;;;EnterInfo"],
         imageUrl: "",
         videoUrl: "",
         mc: true,
@@ -479,9 +479,9 @@ anamnesticRouter.get("/7/:language", (req: Request, res: Response) => {
             "In the past year, have you experienced a TINGLING or UNUSUAL SENSATIONS (e.g., pins and needles) in any parts of your body?",
         answers: [
             "No unusual sensations experienced.",
-            "Yes, tingling or another unusual sensation experienced for a few hours once.",
-            "Yes, tingling or another unusual sensation experienced for a full day.",
-            "Yes, tingling or another unusual sensation experienced permanently.",
+            "Yes, tingling or another unusual sensation experienced for a few hours once;;;EnterInfo",
+            "Yes, tingling or another unusual sensation experienced for a full day;;;EnterInfo",
+            "Yes, tingling or another unusual sensation experienced permanently;;;EnterInfo",
         ],
         imageUrl: "",
         videoUrl: "",
