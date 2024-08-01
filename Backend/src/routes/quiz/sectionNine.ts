@@ -4,6 +4,7 @@ import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
 import { addData, deleteOneData } from "../../queries";
 import { addOutcome, deleteOutcome } from "../../queries";
+import { addMissingQuestions } from "../../utils/addEmptyQuestion";
 
 const sectionNineRouter = Router();
 
@@ -63,6 +64,8 @@ sectionNineRouter.post("/1", (req: Request, res: Response) => {
     if (req.body.answer === "Yes") {
         nextQuestionID = 1;
         nextSectionID = "10";
+        //1
+        addMissingQuestions(data.uuid, data.section, [2], [""]);
     } else if (req.body.answer === "No") {
         nextQuestionID = 2;
     }

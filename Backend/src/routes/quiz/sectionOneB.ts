@@ -5,6 +5,7 @@ import pool from "../../../db";
 import { addData, deleteOneData } from "../../queries";
 import { getAnswer } from "../../queries";
 import { addOutcome, deleteOutcome } from "../../queries";
+import { addMissingQuestions } from "../../utils/addEmptyQuestion";
 
 const sectionOneBRouter = Router();
 
@@ -189,6 +190,23 @@ sectionOneBRouter.post("/3", (req: Request, res: Response) => {
     if (req.body.answer === "Yes") {
         nextQuestionID = 1;
         nextSectionID = "5";
+
+        //1, 3
+        addMissingQuestions(
+            data.uuid,
+            data.section,
+            [1, 2, 3, 4, 5, 6, 7, 8],
+            [
+                "",
+                "",
+                "Is the inability to reach the position accompanied by ARM SHAKING or OSCILLATIONS?",
+                "",
+                "",
+                "Is the falling accompanied by ARM SHAKING or OSCILLATIONS?",
+                "",
+                "",
+            ]
+        );
     } else if (req.body.answer === "No") {
         nextQuestionID = 6;
     }
@@ -282,6 +300,20 @@ sectionOneBRouter.post("/4", (req: Request, res: Response) => {
             if (error) throw error;
         }
     );
+
+    //1, 2, 4
+    addMissingQuestions(
+        data.uuid,
+        data.section,
+        [3, 5, 6, 7, 8],
+        [
+            "Is the participant able to HOLD STEADILY the position with both legs for at least 5 seconds?",
+            "",
+            "Is the falling accompanied by LEG SHAKING or OSCILLATIONS?",
+            "",
+            "",
+        ]
+    );
 });
 
 //Section 1b Question 5
@@ -368,6 +400,20 @@ sectionOneBRouter.post("/5", (req: Request, res: Response) => {
             }
         );
     });
+
+    //1, 2, 5
+    addMissingQuestions(
+        data.uuid,
+        data.section,
+        [3, 4, 6, 7, 8],
+        [
+            "Is the participant able to HOLD STEADILY the position with both legs for at least 5 seconds?",
+            "",
+            "Is the falling accompanied by LEG SHAKING or OSCILLATIONS?",
+            "",
+            "",
+        ]
+    );
 });
 
 //Section 1b Question 6
@@ -517,6 +563,19 @@ sectionOneBRouter.post("/7", (req: Request, res: Response) => {
             }
         );
     });
+
+    //1, 3, 6, 7
+    addMissingQuestions(
+        data.uuid,
+        data.section,
+        [2, 4, 5, 8],
+        [
+            "Is the  inability to reach position accompanied by LEG SHAKING or OSCILLATIONS?",
+            "",
+            "",
+            "",
+        ]
+    );
 });
 
 //Section 1b Question 8
@@ -602,6 +661,19 @@ sectionOneBRouter.post("/8", (req: Request, res: Response) => {
             }
         );
     });
+
+    //1, 3, 6, 8
+    addMissingQuestions(
+        data.uuid,
+        data.section,
+        [2, 4, 5, 7],
+        [
+            "Is the  inability to reach position accompanied by LEG SHAKING or OSCILLATIONS?",
+            "",
+            "",
+            "",
+        ]
+    );
 });
 
 export default sectionOneBRouter;

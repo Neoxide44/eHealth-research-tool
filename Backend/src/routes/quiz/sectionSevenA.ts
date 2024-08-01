@@ -4,6 +4,7 @@ import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
 import { addData, deleteOneData } from "../../queries";
 import { addOutcome, deleteOutcome } from "../../queries";
+import { addMissingQuestions } from "../../utils/addEmptyQuestion";
 
 const sectionSevenARouter = Router();
 
@@ -63,6 +64,13 @@ sectionSevenARouter.post("/1", (req: Request, res: Response) => {
     if (req.body.answer === "Yes") {
         nextQuestionID = 1;
         nextSectionID = "3";
+        //1
+        addMissingQuestions(
+            data.uuid,
+            data.section,
+            [2, 3, 4, 5],
+            ["", "", "", ""]
+        );
     } else if (req.body.answer === "No") {
         nextQuestionID = 2;
     }
@@ -215,6 +223,9 @@ sectionSevenARouter.post("/3", (req: Request, res: Response) => {
         );
     });
 
+    //1, 2, 3
+    addMissingQuestions(data.uuid, data.section, [4, 5], ["", ""]);
+
     res.status(200).json({
         nextQuestion: nextQuestionID,
         nextSection: nextSectionID,
@@ -285,6 +296,9 @@ sectionSevenARouter.post("/4", (req: Request, res: Response) => {
             }
         );
     });
+
+    //1, 2, 4
+    addMissingQuestions(data.uuid, data.section, [3, 5], ["", ""]);
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -358,6 +372,9 @@ sectionSevenARouter.post("/5", (req: Request, res: Response) => {
             }
         );
     });
+
+    //1, 2, 5
+    addMissingQuestions(data.uuid, data.section, [3, 4], ["", ""]);
 
     res.status(200).json({
         nextQuestion: nextQuestionID,

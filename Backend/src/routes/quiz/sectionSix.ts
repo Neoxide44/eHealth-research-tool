@@ -10,6 +10,7 @@ import {
     deleteOneData,
     addOutcome2,
 } from "../../queries";
+import { addMissingQuestions } from "../../utils/addEmptyQuestion";
 
 const sectionSixRouter = Router();
 
@@ -71,6 +72,8 @@ sectionSixRouter.post("/1", (req: Request, res: Response) => {
 
     if (req.body.answer === "Yes") {
         nextQuestionID = 3;
+        //1
+        addMissingQuestions(data.uuid, data.section, [2], [""]);
     } else if (req.body.answer === "No") {
         nextQuestionID = 2;
     }
@@ -200,6 +203,8 @@ sectionSixRouter.post("/3", (req: Request, res: Response) => {
 
     if (req.body.answer === "Yes") {
         nextQuestionID = 5;
+        //3
+        addMissingQuestions(data.uuid, data.section, [4], [""]);
     } else if (req.body.answer === "No") {
         nextQuestionID = 4;
     }
@@ -327,6 +332,8 @@ sectionSixRouter.post("/5", (req: Request, res: Response) => {
                         nextQuestionID = 1;
                         nextSectionID = "8";
                         addOutcomeForSixTwo(data.uuid, data.section, false);
+                        //5
+                        addMissingQuestions(data.uuid, data.section, [6], [""]);
                     } else if (req.body.answer === "No") {
                         nextQuestionID = 6;
                     }

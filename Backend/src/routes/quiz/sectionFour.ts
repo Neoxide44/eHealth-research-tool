@@ -8,6 +8,7 @@ import {
     deleteOneData,
     deleteOutcome,
 } from "../../queries";
+import { addMissingQuestions } from "../../utils/addEmptyQuestion";
 
 const sectionFourRouter = Router();
 
@@ -67,6 +68,8 @@ sectionFourRouter.post("/1", (req: Request, res: Response) => {
     if (req.body.answer === "Yes") {
         nextQuestionID = 1;
         nextSectionID = "5";
+        //1
+        addMissingQuestions(data.uuid, data.section, [2], [""]);
     } else if (req.body.answer === "No") {
         nextQuestionID = 2;
     }

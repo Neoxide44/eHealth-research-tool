@@ -4,6 +4,7 @@ import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
 import { addData, deleteOneData } from "../../queries";
 import { addOutcome, deleteOutcome } from "../../queries";
+import { addMissingQuestions } from "../../utils/addEmptyQuestion";
 
 const sectionThreeRouter = Router();
 
@@ -61,9 +62,10 @@ sectionThreeRouter.post("/1", (req: Request, res: Response) => {
     );
 
     if (req.body.answer.includes("Yes")) {
-        console.log(req.body.answer);
         nextQuestionID = 1;
         nextSectionID = "4";
+        //1
+        addMissingQuestions(data.uuid, data.section, [2, 3], ["", ""]);
     } else if (req.body.answer === "No") {
         nextQuestionID = 2;
     }
@@ -155,6 +157,8 @@ sectionThreeRouter.post("/2", (req: Request, res: Response) => {
                 );
             }
         );
+        //1, 2
+        addMissingQuestions(data.uuid, data.section, [3], [""]);
     } else if (req.body.answer === "ABLE only with HELP") {
         nextQuestionID = 1;
         nextSectionID = "4";
@@ -176,6 +180,8 @@ sectionThreeRouter.post("/2", (req: Request, res: Response) => {
                 );
             }
         );
+        //1, 2
+        addMissingQuestions(data.uuid, data.section, [3], [""]);
     } else if (req.body.answer === "ABLE without HELP, but with DIFFICULTY") {
         nextQuestionID = 1;
         nextSectionID = "4";
@@ -197,6 +203,8 @@ sectionThreeRouter.post("/2", (req: Request, res: Response) => {
                 );
             }
         );
+        //1, 2
+        addMissingQuestions(data.uuid, data.section, [3], [""]);
     }
 
     res.status(200).json({

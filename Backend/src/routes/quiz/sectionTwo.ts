@@ -4,6 +4,7 @@ import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
 import { addData, deleteOneData } from "../../queries";
 import { addOutcome, deleteOutcome } from "../../queries";
+import { addMissingQuestions } from "../../utils/addEmptyQuestion";
 
 const sectionTwoRouter = Router();
 
@@ -197,6 +198,13 @@ sectionTwoRouter.post("/3", (req: Request, res: Response) => {
     if (req.body.answer === "Yes") {
         nextQuestionID = 1;
         nextSectionID = "3";
+        //1, 3
+        addMissingQuestions(
+            data.uuid,
+            data.section,
+            [2, 4, 5, 6, 7, 8],
+            ["", "", "", "", "", ""]
+        );
     } else if (req.body.answer === "No") {
         nextQuestionID = 6;
     }
@@ -272,6 +280,20 @@ sectionTwoRouter.post("/4", (req: Request, res: Response) => {
         );
     });
 
+    //1, 2, 4
+    addMissingQuestions(
+        data.uuid,
+        data.section,
+        [3, 5, 6, 7, 8],
+        [
+            "Is the participant able to perform the task with EYES CLOSED?",
+            "",
+            "",
+            "",
+            "",
+        ]
+    );
+
     res.status(200).json({
         nextQuestion: nextQuestionID,
         nextSection: nextSectionID,
@@ -342,6 +364,20 @@ sectionTwoRouter.post("/5", (req: Request, res: Response) => {
             }
         );
     });
+
+    //1, 2, 5
+    addMissingQuestions(
+        data.uuid,
+        data.section,
+        [3, 4, 6, 7, 8],
+        [
+            "Is the participant able to perform the task with EYES CLOSED?",
+            "",
+            "",
+            "",
+            "",
+        ]
+    );
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -487,6 +523,14 @@ sectionTwoRouter.post("/7", (req: Request, res: Response) => {
         );
     });
 
+    //1, 3, 6, 7
+    addMissingQuestions(
+        data.uuid,
+        data.section,
+        [2, 4, 5, 8],
+        ["", "", "", ""]
+    );
+
     res.status(200).json({
         nextQuestion: nextQuestionID,
         nextSection: nextSectionID,
@@ -559,6 +603,14 @@ sectionTwoRouter.post("/8", (req: Request, res: Response) => {
             }
         );
     });
+
+    //1, 3, 6, 8
+    addMissingQuestions(
+        data.uuid,
+        data.section,
+        [2, 4, 5, 7],
+        ["", "", "", ""]
+    );
 
     res.status(200).json({
         nextQuestion: nextQuestionID,

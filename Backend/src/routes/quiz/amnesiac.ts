@@ -12,11 +12,11 @@ import { addOutcome, deleteOutcome } from "../../queries";
 
 const anamnesticRouter = Router();
 
-//Section 11 Question 1
+//Section anamnestic Question 1
 anamnesticRouter.get("/1/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "1",
-        section: "11",
+        section: "anamnestic",
         instructions: "",
         question:
             "In the past year, have you experienced, or has someone in your family or friends told you that they have noticed in you some kind of TREMOR?",
@@ -36,7 +36,7 @@ anamnesticRouter.get("/1/:language", (req: Request, res: Response) => {
 
 anamnesticRouter.post("/1", (req: Request, res: Response) => {
     let nextQuestionID = 2;
-    let nextSectionID = "11";
+    let nextSectionID = "anamnestic";
 
     const data: saveQuery = {
         uuid: req.body.id,
@@ -89,11 +89,11 @@ anamnesticRouter.post("/1", (req: Request, res: Response) => {
     });
 });
 
-//Section 11 Question 2
+//Section anamnestic Question 2
 anamnesticRouter.get("/2/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "2",
-        section: "11",
+        section: "anamnestic",
         instructions: "",
         question:
             "In the past year, have you experienced, or has someone in your family or friends told you that they have noticed in you some kind of difficulty in SPEAKING?",
@@ -113,7 +113,7 @@ anamnesticRouter.get("/2/:language", (req: Request, res: Response) => {
 
 anamnesticRouter.post("/2", (req: Request, res: Response) => {
     let nextQuestionID = 3;
-    let nextSectionID = "11";
+    let nextSectionID = "anamnestic";
 
     const data: saveQuery = {
         uuid: req.body.id,
@@ -166,11 +166,11 @@ anamnesticRouter.post("/2", (req: Request, res: Response) => {
     });
 });
 
-//Section 11 Question 3
+//Section anamnestic Question 3
 anamnesticRouter.get("/3/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "3",
-        section: "11",
+        section: "anamnestic",
         instructions: "",
         question:
             "In the past year, have you experienced CHOKING more than usual when eating or drinking?",
@@ -189,7 +189,7 @@ anamnesticRouter.get("/3/:language", (req: Request, res: Response) => {
 
 anamnesticRouter.post("/3", (req: Request, res: Response) => {
     let nextQuestionID = 4;
-    let nextSectionID = "11";
+    let nextSectionID = "anamnestic";
 
     const data: saveQuery = {
         uuid: req.body.id,
@@ -242,11 +242,11 @@ anamnesticRouter.post("/3", (req: Request, res: Response) => {
     });
 });
 
-//Section 11 Question 4
+//Section anamnestic Question 4
 anamnesticRouter.get("/4/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "4",
-        section: "11",
+        section: "anamnestic",
         instructions: "",
         question:
             "In the past year, have you experienced any PAIN that interfered with your daily activities or that woke you up from sleep?",
@@ -262,7 +262,7 @@ anamnesticRouter.get("/4/:language", (req: Request, res: Response) => {
 
 anamnesticRouter.post("/4", (req: Request, res: Response) => {
     let nextQuestionID = 5;
-    let nextSectionID = "11";
+    let nextSectionID = "anamnestic";
 
     const data: saveQuery = {
         uuid: req.body.id,
@@ -315,11 +315,11 @@ anamnesticRouter.post("/4", (req: Request, res: Response) => {
     });
 });
 
-//Section 11 Question 5
+//Section anamnestic Question 5
 anamnesticRouter.get("/5/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "5",
-        section: "11",
+        section: "anamnestic",
         instructions: "",
         question:
             "In the past year, have you experienced any HEADACHE that interfered with your daily activities or that woke you up from sleep?",
@@ -340,7 +340,7 @@ anamnesticRouter.get("/5/:language", (req: Request, res: Response) => {
 
 anamnesticRouter.post("/5", (req: Request, res: Response) => {
     let nextQuestionID = 6;
-    let nextSectionID = "11";
+    let nextSectionID = "anamnestic";
 
     const data: saveQuery = {
         uuid: req.body.id,
@@ -393,11 +393,11 @@ anamnesticRouter.post("/5", (req: Request, res: Response) => {
     });
 });
 
-//Section 11 Question 6
+//Section anamnestic Question 6
 anamnesticRouter.get("/6/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "6",
-        section: "11",
+        section: "anamnestic",
         instructions: "",
         question:
             "In the past year, have you experienced DIZZINESS or UNSTEADINESS when standing?",
@@ -416,7 +416,7 @@ anamnesticRouter.get("/6/:language", (req: Request, res: Response) => {
 
 anamnesticRouter.post("/6", (req: Request, res: Response) => {
     let nextQuestionID = 7;
-    let nextSectionID = "11";
+    let nextSectionID = "anamnestic";
 
     const data: saveQuery = {
         uuid: req.body.id,
@@ -469,11 +469,11 @@ anamnesticRouter.post("/6", (req: Request, res: Response) => {
     });
 });
 
-//Section 11 Question 7
+//Section anamnestic Question 7
 anamnesticRouter.get("/7/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "7",
-        section: "11",
+        section: "anamnestic",
         instructions: "",
         question:
             "In the past year, have you experienced a TINGLING or UNUSUAL SENSATIONS (e.g., pins and needles) in any parts of your body?",
@@ -494,7 +494,7 @@ anamnesticRouter.get("/7/:language", (req: Request, res: Response) => {
 
 anamnesticRouter.post("/7", (req: Request, res: Response) => {
     let nextQuestionID = 8;
-    let nextSectionID = "11";
+    let nextSectionID = "anamnestic";
 
     const data: saveQuery = {
         uuid: req.body.id,
@@ -546,11 +546,11 @@ anamnesticRouter.post("/7", (req: Request, res: Response) => {
     });
 });
 
-//Section 11 Question 8
+//Section anamnestic Question 8
 anamnesticRouter.get("/8/:language", (req: Request, res: Response) => {
     const nextQuery: sendQuery = {
         q_id: "8",
-        section: "11",
+        section: "anamnestic",
         instructions: "",
         question:
             "In the past year, have you noticed that you are SLOWER in performing daily activities (e.g., combing your hair)?",

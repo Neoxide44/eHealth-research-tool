@@ -49,7 +49,7 @@ app.use("/queries/7b", sectionSevenBRouter);
 app.use("/queries/8", sectionEightRouter);
 app.use("/queries/9", sectionNineRouter);
 app.use("/queries/10", sectionTenRouter);
-app.use("/queries/11", anamnesticRouter);
+app.use("/queries/anamnestic", anamnesticRouter);
 app.use("/queries/screening_questions", screeningQuestionsRouter);
 app.use("/login", loginRouter);
 app.use("/register", registerRouter);

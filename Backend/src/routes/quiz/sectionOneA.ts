@@ -4,6 +4,7 @@ import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
 import { addData, deleteOneData } from "../../queries";
 import { addOutcome, deleteOutcome } from "../../queries";
+import { addMissingQuestions } from "../../utils/addEmptyQuestion";
 
 const sectionOneARouter = Router();
 let queries: saveQuery[] = [];
@@ -198,6 +199,23 @@ sectionOneARouter.post("/3", (req: Request, res: Response) => {
     if (req.body.answer === "Yes") {
         nextQuestionID = 1;
         nextSectionID = "2";
+        addMissingQuestions(
+            data.uuid,
+            data.section,
+            [2, 4, 5, 7, 8, 6, 9, 10, 11, 12],
+            [
+                "",
+                "",
+                "Is the inability to reach the position accompanied by ARM SHAKING or OSCILLATIONS?",
+                "",
+                "",
+                "",
+                "Is the falling accompanied by ARM SHAKING or OSCILLATIONS?",
+                "",
+                "",
+                "",
+            ]
+        );
     } else if (req.body.answer === "No") {
         nextQuestionID = 6;
     }
@@ -280,6 +298,23 @@ sectionOneARouter.post("/4", (req: Request, res: Response) => {
             }
         );
     });
+
+    addMissingQuestions(
+        data.uuid,
+        data.section,
+        [5, 7, 8, 6, 9, 10, 11, 12, 3],
+        [
+            "Is the inability to reach the position accompanied by ARM SHAKING or OSCILLATIONS?",
+            "",
+            "",
+            "",
+            "Is the falling accompanied by ARM SHAKING or OSCILLATIONS?",
+            "",
+            "",
+            "",
+            "Is the participant able to HOLD STEADILY the position for at least 5 seconds?",
+        ]
+    );
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -372,8 +407,8 @@ sectionOneARouter.get("/6/:language", (req: Request, res: Response) => {
 });
 
 sectionOneARouter.post("/6", (req: Request, res: Response) => {
-    let nextQuestionID = 1;
-    let nextSectionID = "3";
+    let nextQuestionID = 0;
+    let nextSectionID = "1a";
 
     const data: saveQuery = {
         uuid: req.body.id,
@@ -480,6 +515,22 @@ sectionOneARouter.post("/7", (req: Request, res: Response) => {
             }
         );
     });
+    //1, 2, 5, 7
+    addMissingQuestions(
+        data.uuid,
+        data.section,
+        [3, 4, 6, 8, 9, 10, 11, 12],
+        [
+            "Is the participant able to HOLD STEADILY the position for at least 5 seconds?",
+            "",
+            "",
+            "",
+            "Is the falling accompanied by ARM SHAKING or OSCILLATIONS?",
+            "",
+            "",
+            "",
+        ]
+    );
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -551,6 +602,23 @@ sectionOneARouter.post("/8", (req: Request, res: Response) => {
             }
         );
     });
+
+    //1, 2, 5, 8
+    addMissingQuestions(
+        data.uuid,
+        data.section,
+        [3, 4, 6, 7, 9, 10, 11, 12],
+        [
+            "Is the participant able to HOLD STEADILY the position for at least 5 seconds?",
+            "",
+            "",
+            "",
+            "Is the falling accompanied by ARM SHAKING or OSCILLATIONS?",
+            "",
+            "",
+            "",
+        ]
+    );
 
     res.status(200).json({
         nextQuestion: nextQuestionID,
@@ -685,6 +753,22 @@ sectionOneARouter.post("/10", (req: Request, res: Response) => {
         );
     });
 
+    //1, 3, 6, 9, 10
+    addMissingQuestions(
+        data.uuid,
+        data.section,
+        [2, 4, 5, 7, 8, 11, 12],
+        [
+            "",
+            "",
+            "Is the inability to reach the position accompanied by ARM SHAKING or OSCILLATIONS?",
+            "",
+            "",
+            "",
+            "",
+        ]
+    );
+
     res.status(200).json({
         nextQuestion: nextQuestionID,
         nextSection: nextSectionID,
@@ -755,6 +839,22 @@ sectionOneARouter.post("/11", (req: Request, res: Response) => {
         );
     });
 
+    //1, 3, 6, 9, 11
+    addMissingQuestions(
+        data.uuid,
+        data.section,
+        [2, 4, 5, 7, 8, 10, 12],
+        [
+            "",
+            "",
+            "Is the inability to reach the position accompanied by ARM SHAKING or OSCILLATIONS?",
+            "",
+            "",
+            "",
+            "",
+        ]
+    );
+
     res.status(200).json({
         nextQuestion: nextQuestionID,
         nextSection: nextSectionID,
@@ -824,6 +924,23 @@ sectionOneARouter.post("/12", (req: Request, res: Response) => {
             }
         );
     });
+
+    //1, 3, 6, 12
+    addMissingQuestions(
+        data.uuid,
+        data.section,
+        [2, 4, 5, 7, 8, 9, 10, 11],
+        [
+            "",
+            "",
+            "Is the inability to reach the position accompanied by ARM SHAKING or OSCILLATIONS?",
+            "",
+            "",
+            "Is the falling accompanied by ARM SHAKING or OSCILLATIONS?",
+            "",
+            "",
+        ]
+    );
 
     res.status(200).json({
         nextQuestion: nextQuestionID,

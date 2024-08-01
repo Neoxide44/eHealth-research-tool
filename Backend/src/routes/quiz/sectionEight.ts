@@ -4,6 +4,7 @@ import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
 import { addData, deleteOneData } from "../../queries";
 import { addOutcome, deleteOutcome } from "../../queries";
+import { addMissingQuestions } from "../../utils/addEmptyQuestion";
 
 const sectionEightRouter = Router();
 
@@ -65,6 +66,8 @@ sectionEightRouter.post("/1", (req: Request, res: Response) => {
     } else if (req.body.answer === "No") {
         nextQuestionID = 1;
         nextSectionID = "9";
+        //1
+        addMissingQuestions(data.uuid, data.section, [2, 3], ["", ""]);
     }
 
     res.status(200).json({
@@ -148,6 +151,8 @@ sectionEightRouter.post("/2", (req: Request, res: Response) => {
                 );
             }
         );
+        //1, 2
+        addMissingQuestions(data.uuid, data.section, [3], [""]);
     } else if (
         req.body.answer ===
         "Participant shows ASYMMETRY of both the MOUTH and EYEBROWS"
