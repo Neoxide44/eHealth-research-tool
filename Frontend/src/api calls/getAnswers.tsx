@@ -1,5 +1,6 @@
 interface Answers {
     section: string;
+    q_id: number;
     question: string;
     answer: string;
 }

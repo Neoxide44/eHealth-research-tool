@@ -40,7 +40,7 @@ export const deleteParticipantInfo =
     "DELETE FROM participant_info WHERE uuid = $1";
 
 export const getData =
-    "SELECT section, question, answer FROM data WHERE uuid = $1;";
+    "SELECT section, q_id, question, answer FROM data WHERE uuid = $1;";
 
 export const deleteData = "DELETE FROM data WHERE uuid = $1;";
 

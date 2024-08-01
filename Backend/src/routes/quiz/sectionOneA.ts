@@ -4,6 +4,7 @@ import { sendQuery } from "../../models/sendQuery";
 import pool from "../../../db";
 import { addData, deleteOneData } from "../../queries";
 import { addOutcome, deleteOutcome } from "../../queries";
+import { addMissingQuestions } from "../../utils/addEmptyQuestion";
 
 const sectionOneARouter = Router();
 let queries: saveQuery[] = [];
@@ -198,6 +199,23 @@ sectionOneARouter.post("/3", (req: Request, res: Response) => {
     if (req.body.answer === "Yes") {
         nextQuestionID = 1;
         nextSectionID = "2";
+        // addMissingQuestions(
+        //     data.uuid,
+        //     data.section,
+        //     [2, 4, 5, 7, 8, 6, 9, 10, 11, 12],
+        //     [
+        //         "",
+        //         "",
+        //         "Is the inability to reach the position accompanied by ARM SHAKING or OSCILLATIONS?",
+        //         "",
+        //         "",
+        //         "",
+        //         "Is the falling accompanied by ARM SHAKING or OSCILLATIONS?",
+        //         "",
+        //         "",
+        //         "",
+        //     ]
+        // );
     } else if (req.body.answer === "No") {
         nextQuestionID = 6;
     }
@@ -280,6 +298,23 @@ sectionOneARouter.post("/4", (req: Request, res: Response) => {
             }
         );
     });
+
+    // addMissingQuestions(
+    //     data.uuid,
+    //     data.section,
+    //     [5, 7, 8, 6, 9, 10, 11, 12, 3],
+    //     [
+    //         "Is the inability to reach the position accompanied by ARM SHAKING or OSCILLATIONS?",
+    //         "",
+    //         "",
+    //         "",
+    //         "Is the falling accompanied by ARM SHAKING or OSCILLATIONS?",
+    //         "",
+    //         "",
+    //         "",
+    //         "Is the participant able to HOLD STEADILY the position for at least 5 seconds?",
+    //     ]
+    // );
 
     res.status(200).json({
         nextQuestion: nextQuestionID,

@@ -20,6 +20,7 @@ interface AnamnesticOutcomes {
 }
 interface Answers {
     section: string;
+    q_id: number;
     question: string;
     answer: string;
 }
@@ -53,87 +54,79 @@ function OutcomesTable() {
 
     const exportToCsv = () => {
         // Export outcomes to CSV
-        const outcomeHeaders = [
+        let outcomeHeaders = [
             "Gender",
             "Year of Birth",
             "Years Of Education",
             "Language",
             "Participant Code",
-            "Section",
-            "Outcome",
         ];
+        let outcomeValues = [
+            info[0].gender,
+            info[0].year_of_birth,
+            info[0].num_edu,
+            info[0].language,
+            info[0].participant_code,
+        ];
+        outcomeData.map((outcome) => {
+            let header = "Section " + outcome.section;
+            outcomeHeaders.push(header);
+            outcomeValues.push(outcome.outcome);
+        });
 
-        const anamnesticHeaders = ["Anamnestic Outcomes"];
-
-        let isFirstRow = true;
-
-        const outcomeCsvContent =
-            "data:text/csv;charset=utf-8," +
-            outcomeHeaders.join(",") +
+        anamnesticOutcomes.map((outcome) => {
+            let header = "Section 11 Q_ID " + outcome.q_id;
+            outcomeHeaders.push(header);
+            outcomeValues.push(outcome.outcome);
+        });
+        const outcomesCsvContent =
+            "data:text/csv;charset=utf-8,sep=;\n" +
+            outcomeHeaders.join(";") +
             "\n" +
-            outcomeData
-                .map((row) => {
-                    if (isFirstRow) {
-                        isFirstRow = false;
-                        return `${info[0].gender},${info[0].year_of_birth},${info[0].num_edu},${info[0].language},${info[0].participant_code},${row.section},${row.outcome}`;
-                    } else {
-                        return `,,,,,${row.section},${row.outcome}`;
-                    }
-                })
-                .join("\n");
-
-        const anamnesticCsvContent =
-            anamnesticHeaders.join(",") +
-            "\n" +
-            anamnesticOutcomes.map((row) => `${row.outcome}`).join("\n");
-
-        const finalCsvContent =
-            outcomeCsvContent +
-            "\n\n" + // Adding a couple of new lines to separate the sections
-            anamnesticCsvContent;
-
-        const outcomeEncodedUri = encodeURI(finalCsvContent);
+            outcomeValues.join(";");
+        const outcomeEncodedUri = encodeURI(outcomesCsvContent);
         const outcomeLink = document.createElement("a");
         outcomeLink.setAttribute("href", outcomeEncodedUri);
-        outcomeLink.setAttribute("download", "outcomes.csv");
+        outcomeLink.setAttribute(
+            "download",
+            `outcomes${info[0].participant_code}.csv`
+        );
         document.body.appendChild(outcomeLink);
         outcomeLink.click();
 
-        isFirstRow = true;
-
-        // Export answers to CSV
-        const answerHeaders = [
+        //Export answers to CSV
+        let answerHeaders = [
             "Gender",
             "Year of Birth",
             "Years Of Education",
             "Language",
             "Participant Code",
-            "Section",
-            "Question",
-            "Answer",
         ];
+        let answerValues = [
+            info[0].gender,
+            info[0].year_of_birth,
+            info[0].num_edu,
+            info[0].language,
+            info[0].participant_code,
+        ];
+        answers.map((answer) => {
+            let header = "Section " + answer.section + " Q_ID " + answer.q_id;
+            answerHeaders.push(header);
+            answerValues.push(answer.answer);
+        });
+
         const answerCsvContent =
-            "data:text/csv;charset=utf-8," +
-            answerHeaders.join(",") +
+            "data:text/csv;charset=utf-8,sep=;\n" +
+            answerHeaders.join(";") +
             "\n" +
-            answers
-                .map((row) => {
-                    // Enclose each value within double quotes and properly escape any double quotes within the values
-                    const section = `"${row.section.replace(/"/g, '""')}"`;
-                    const question = `"${row.question.replace(/"/g, '""')}"`;
-                    const answer = `"${row.answer.replace(/"/g, '""')}"`;
-                    if (isFirstRow) {
-                        isFirstRow = false;
-                        return `${info[0].gender},${info[0].year_of_birth}, ${info[0].num_edu},${info[0].language},${info[0].participant_code},${section},${question},${answer} `;
-                    } else {
-                        return `,,,,,${section},${question},${answer}`;
-                    }
-                })
-                .join("\n");
+            answerValues.join(";");
         const answerEncodedUri = encodeURI(answerCsvContent);
         const answerLink = document.createElement("a");
         answerLink.setAttribute("href", answerEncodedUri);
-        answerLink.setAttribute("download", "answers.csv");
+        answerLink.setAttribute(
+            "download",
+            `answers${info[0].participant_code}.csv`
+        );
         document.body.appendChild(answerLink);
         answerLink.click();
     };
@@ -213,13 +206,17 @@ function OutcomesTable() {
                     </thead>
                     <tbody>
                         {answers.map((value, key) => {
-                            return (
-                                <tr key={key}>
-                                    <td>{value.section}</td>
-                                    <td>{value.question}</td>
-                                    <td>{value.answer}</td>
-                                </tr>
-                            );
+                            if (value.answer === "") {
+                                return;
+                            } else {
+                                return (
+                                    <tr key={key}>
+                                        <td>{value.section}</td>
+                                        <td>{value.question}</td>
+                                        <td>{value.answer}</td>
+                                    </tr>
+                                );
+                            }
                         })}
                     </tbody>
                 </Table>
