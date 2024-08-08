@@ -5,7 +5,6 @@ import pool from "../../../db";
 import { addData, deleteOneData } from "../../queries";
 import { addOutcome, deleteOutcome } from "../../queries";
 import { addMissingQuestions } from "../../utils/addEmptyQuestion";
-import { addMissingQuestions } from "../../utils/addEmptyQuestion";
 
 const sectionOneARouter = Router();
 let queries: saveQuery[] = [];
