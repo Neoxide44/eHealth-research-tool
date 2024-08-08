@@ -21,6 +21,7 @@ interface AnamnesticOutcomes {
 interface Answers {
     section: string;
     q_id: number;
+    q_id: number;
     question: string;
     answer: string;
 }
@@ -55,11 +56,19 @@ function OutcomesTable() {
     const exportToCsv = () => {
         // Export outcomes to CSV
         let outcomeHeaders = [
+        let outcomeHeaders = [
             "Gender",
             "Year of Birth",
             "Years Of Education",
             "Language",
             "Participant Code",
+        ];
+        let outcomeValues = [
+            info[0].gender,
+            info[0].year_of_birth,
+            info[0].num_edu,
+            info[0].language,
+            info[0].participant_code,
         ];
         let outcomeValues = [
             info[0].gender,
@@ -82,7 +91,23 @@ function OutcomesTable() {
         const outcomesCsvContent =
             "data:text/csv;charset=utf-8,sep=;\n" +
             outcomeHeaders.join(";") +
+        outcomeData.map((outcome) => {
+            let header = "Section " + outcome.section;
+            outcomeHeaders.push(header);
+            outcomeValues.push(outcome.outcome);
+        });
+
+        anamnesticOutcomes.map((outcome) => {
+            let header = "Section 11 Q_ID " + outcome.q_id;
+            outcomeHeaders.push(header);
+            outcomeValues.push(outcome.outcome);
+        });
+        const outcomesCsvContent =
+            "data:text/csv;charset=utf-8,sep=;\n" +
+            outcomeHeaders.join(";") +
             "\n" +
+            outcomeValues.join(";");
+        const outcomeEncodedUri = encodeURI(outcomesCsvContent);
             outcomeValues.join(";");
         const outcomeEncodedUri = encodeURI(outcomesCsvContent);
         const outcomeLink = document.createElement("a");
@@ -91,9 +116,15 @@ function OutcomesTable() {
             "download",
             `outcomes${info[0].participant_code}.csv`
         );
+        outcomeLink.setAttribute(
+            "download",
+            `outcomes${info[0].participant_code}.csv`
+        );
         document.body.appendChild(outcomeLink);
         outcomeLink.click();
 
+        //Export answers to CSV
+        let answerHeaders = [
         //Export answers to CSV
         let answerHeaders = [
             "Gender",
@@ -138,11 +169,18 @@ function OutcomesTable() {
         const answerCsvContent =
             "data:text/csv;charset=utf-8,sep=;\n" +
             answerHeaders.join(";") +
+            "data:text/csv;charset=utf-8,sep=;\n" +
+            answerHeaders.join(";") +
             "\n" +
+            answerValues.join(";");
             answerValues.join(";");
         const answerEncodedUri = encodeURI(answerCsvContent);
         const answerLink = document.createElement("a");
         answerLink.setAttribute("href", answerEncodedUri);
+        answerLink.setAttribute(
+            "download",
+            `answers${info[0].participant_code}.csv`
+        );
         answerLink.setAttribute(
             "download",
             `answers${info[0].participant_code}.csv`
@@ -226,6 +264,17 @@ function OutcomesTable() {
                     </thead>
                     <tbody>
                         {answers.map((value, key) => {
+                            if (value.answer === "") {
+                                return;
+                            } else {
+                                return (
+                                    <tr key={key}>
+                                        <td>{value.section}</td>
+                                        <td>{value.question}</td>
+                                        <td>{value.answer}</td>
+                                    </tr>
+                                );
+                            }
                             if (value.answer === "") {
                                 return;
                             } else {
